@@ -1,4 +1,5 @@
 import argparse
+import subprocess
 from utils import convert_to_formula
 
 def parse_arguments():
@@ -20,6 +21,7 @@ def main():
     args = parse_arguments()
     formula = convert_to_formula(args.input_file)
     formula.print_dimacs(args.oformula, args.omap)
+    print(solver_output)
 
 if __name__ == "__main__":
     main()
