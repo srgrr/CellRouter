@@ -105,6 +105,7 @@ def convert_to_formula(input_path):
             for k in range( num_nets ):
                 to_add.append(vertex + '-' + str(k))
             ret.at_most(to_add, 1)
+
     # Second constraint: restrictions on type and amount of edges
     # More precisely, let's add constraints of the form
     # "a vertex has zero or two incident edges" for normal

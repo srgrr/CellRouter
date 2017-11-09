@@ -6,8 +6,7 @@ def main():
     f.add_variable('a')
     f.add_variable('b')
     f.add_variable('c')
-    f.not_exactly(['a', 'b', 'c'], 1)
-
+    f.at_least(['a', 'b', 'c'], 3)
     f.print_formula()
 
 

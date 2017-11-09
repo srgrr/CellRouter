@@ -67,13 +67,11 @@ class Formula(object):
 
     def at_least(self, vars, k = 1):
         '''At least k constraint. Implemented in the
-        naive way. That is, we translate the
-        statement "at least k" to "at most not n-k".
-        See _at_most method, and what parameters
-        are passed from this method.
+        naive way. That is, we add all the possible subsets
+        of size n - k + 1 of positive literals
         '''
         self._check_vars(vars)
-        self._at_most(vars, [], 0, len(vars) - k, True)
+        self._at_most(vars, [], 0, len(vars) - k + 1, False)
 
     def exactly(self, vars, k = 1):
         '''Exactly k constraint. A wrapper to
