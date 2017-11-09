@@ -63,7 +63,7 @@ class Formula(object):
         naive way, see _at_most method.
         '''
         self._check_vars(vars)
-        self._at_most(vars, [], 0, k + 1, False)
+        self._at_most(vars, [], 0, k + 1, True)
 
     def at_least(self, vars, k = 1):
         '''At least k constraint. Implemented in the
