@@ -7,8 +7,8 @@ def parse_arguments():
                       help = '(Absolute or relative) path to input file')
     parser.add_argument('-oformula', type = str, default = 'output.cnf', \
                       help = '(Absolute or relative) path to output (formula) file')
-    parser.add_argument('--dimacs', action = 'store_true', \
-                      help = 'Save formula in dimacs format')
+    parser.add_argument('-omap', type = str, default = 'output.map', \
+                      help = '(Absolute or relative) path to internal2dimacs map')
     parser.add_argument('-oplacem', type = str, default = 'output.plc', \
                       help = '(Absolute or relative) path to output (routing) file')
     parser.add_argument('--draw', action = 'store_true', help = 'Plot routing (if found)')
@@ -19,6 +19,7 @@ def parse_arguments():
 def main():
     args = parse_arguments()
     formula = convert_to_formula(args.input_file)
+
 
 if __name__ == "__main__":
     main()

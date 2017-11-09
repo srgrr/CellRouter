@@ -83,29 +83,39 @@ class Formula(object):
         self.at_least(vars, k)
         self.at_most(vars, k)
 
-    def _not_exactly(self, vars, negated, k = 1):
+    def _not_exactly(self, vars, negated, index, k = 1):
         if index == len(vars):
             if k == 0:
+                to_add = []
                 for i in range(len(vars)):
-                    self.clauses.append(
+                    to_add.append(
                         list(
-                            (vars[i], negated[i])
+                            (vars[i], not negated[i])
                         )
                     )
+                self.clauses.append(to_add)
             return
-        
+        # Prune: can we negate enough variables?
+        if len(vars) - index < k:
+            return
+        # Ignore this variable
+        self._not_exactly(vars, negated, index + 1, k)
+        # Negate this variable
+        negated[index] = True
+        self._not_exactly(vars, negated, index + 1, k - 1)
+        negated[index] = False
 
     def not_exactly(self, vars, k = 1):
         '''NOT exactly k constraint.
         A not exactly 1 is not hard to write as
-        (¬( a ^  ¬b ^ ¬c))
-        (¬(¬a ^   b ^ ¬c))
-        (¬(¬a ^  ¬b ^  c))
+        (!( a ^  !b ^ !c))
+        (!(!a ^   b ^ !c))
+        (!(!a ^  !b ^  c))
         We can see that we can apply De Morgan's
         laws to convert it to CNF:
-        ¬a v  b v  c
-         a v ¬b v  c
-         a v  b v ¬c
+        !a v  b v  c
+         a v !b v  c
+         a v  b v !c
         And we see that it is not hard to generalize
         to the k case: apply De Morgan's laws to all
         the possible (n choose k) conjunctions that
@@ -116,7 +126,7 @@ class Formula(object):
         only the "marked" to belong to the subset.
         See _not_exactly method.
         '''
-        self._not_exactly(vars, [False]*len(vars) , k)
+        self._not_exactly(vars, [False]*len(vars), 0, k)
 
     def print_formula(self):
         '''Prints the formula to the standard output
