@@ -22,6 +22,8 @@ def main():
     (data_info, formula) = convert_to_formula(args.input_file)
     formula.print_dimacs(args.oformula, args.omap)
 
+    formula.print_formula()
+
     import subprocess
     try:
         solver_output = subprocess.check_output(

@@ -77,7 +77,6 @@ def convert_to_formula(input_path):
             for k in range( num_nets ):
                 formula.add_variable(coords + \
                 '-' + str(k))
-
         else:
             for i in range( parsed_input['dim_sizes'][index] ):
                 coordinates[index] = i
@@ -95,7 +94,8 @@ def convert_to_formula(input_path):
         point_form = tuple([int(x) for x in vertex.split('-')])
         if point_form in endpoints:
             # Unit clauses that affirm or negate the appropriate
-            # variables
+            # variables. By explicitly setting variables to some value
+            # we also speed up a bit the solving process
             for k in range( num_nets ):
                 ret.add_clause([(vertex + '-' + str(k), \
                 k == netid[point_form])])
@@ -138,6 +138,7 @@ def convert_to_formula(input_path):
                 if netid[point_form] != net:
                     continue
                 ret.exactly(adj_vertices, 1)
+                print('ex %s'%str(point_form))
             else:
                 # For non-endpoint vertices, we can have zero or two
                 # incident edges, but not one.
@@ -145,6 +146,7 @@ def convert_to_formula(input_path):
                 # at-most-two and a not-exactly one constraint
                 ret.at_most(adj_vertices, 2)
                 ret.not_exactly(adj_vertices, 1)
+                print('both %s'%str(point_form))
 
     return (parsed_input, ret)
 
