@@ -140,12 +140,16 @@ def convert_to_formula(input_path):
                 ret.exactly(adj_vertices, 1)
                 print('ex %s'%str(point_form))
             else:
-                # For non-endpoint vertices, we can have zero or two
-                # incident edges, but not one.
-                # We can implement this as a combination of an
-                # at-most-two and a not-exactly one constraint
-                ret.at_most(adj_vertices, 2)
-                ret.not_exactly(adj_vertices, 1)
+                # For non-endpoint vertices, we can either to not use it
+                # or use exactly two adjacent vertices
+                # That is: vertex => e2(adj_vertices)
+                # which can be written as
+                # !vertex or (clause of at most 2)
+                # ...
+                # !vertex or (clause of at least 2)
+                ret.prepend_implicant((vertex + '-' + str(net), True))
+                ret.exactly(adj_vertices, 2)
+                ret.clear_implicant()
                 print('both %s'%str(point_form))
 
     return (parsed_input, ret)
