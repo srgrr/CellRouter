@@ -168,6 +168,7 @@ def plot2D(used_vertices, data_info, output_file):
     n, m = data_info['dim_sizes']
     plt.xlim([-1, n + 1])
     plt.ylim([-1, m + 1])
+    colors = ['k', 'b', 'g', 'maroon']
     for vertex in used_vertices:
         point_form = list(map(int, vertex.split('-')))[:-1]
         net = vertex.split('-')[-1]
@@ -179,6 +180,6 @@ def plot2D(used_vertices, data_info, output_file):
                 adj_id = '-'.join(str(x) for x in adj) + '-' + net
                 if adj_id in used_vertices:
                     plt.plot([point_form[0], adj[0]], [point_form[1], adj[1]], \
-                    color = 'k', linewidth = 2)
-                plt.scatter(*point_form)
+                    color = colors[int(net) % len(colors)], linewidth = 2)
+                plt.scatter(*point_form, color = colors[int(net) % len(colors)])
     plt.savefig(output_file)
