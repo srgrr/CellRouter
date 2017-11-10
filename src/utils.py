@@ -146,6 +146,11 @@ def convert_to_formula(input_path):
                 ret.at_most(adj_vertices, 2)
                 ret.not_exactly(adj_vertices, 1)
 
-    ret.print_formula()
+    return (parsed_input, ret)
 
+def get_used_vertices(formula, var_values):
+    ret = []
+    for i in range(1, len(var_values)):
+        if var_values[i] > 0:
+            ret.append(formula.dimacs2internal[abs(var_values[i])])
     return ret

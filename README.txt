@@ -19,6 +19,12 @@ This program does two things:
 
 Dependencies:
 
-Python 3.x - although it is more than likely that this also works for Py2.7
+Python 3.x. Athough it is likely that this also works for Py2.7
 
-Some sat solver that accepts formulas in DIMACS CNF format
+Some sat solver that accepts formulas in DIMACS CNF format. I have implemented
+support for picosat output parsing. If you want to use another SAT solver,
+then implement in a {sat_solver_name}_parser.py file a parse_output
+function that parses its corresponding output.
+This function must return None if formula was UNSAT, and a list with a leading
+zero followed by the values of the variables if it was SAT.
+You can take picosat_parser.py as an example.
