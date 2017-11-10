@@ -28,3 +28,7 @@ function that parses its corresponding output.
 This function must return None if formula was UNSAT, and a list with a leading
 zero followed by the values of the variables if it was SAT.
 You can take picosat_parser.py as an example.
+The satsolver should be in your PATH. That is, you should be able to call it
+by typing "satsolvername" from any directory.
+
+Matplotlib. Only if you use the --draw option.

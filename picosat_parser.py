@@ -1,7 +1,7 @@
 def parse_output(output):
     '''Parse the output of picosat
     '''
-    lines = output.split('\n')
+    lines = output.decode('utf-8').split('\n')
     result = lines[0].split()[1]
     if result == 'UNSATISFIABLE':
         return None

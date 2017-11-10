@@ -1,3 +1,4 @@
 picosat
 *.pyc
 *__pycache__
+output.*

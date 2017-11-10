@@ -6,7 +6,7 @@ def parse_input(input_path):
     '''
     with open(input_path, 'r') as f:
         # Parse specification data
-        values = map(int, f.readline().rstrip().split())
+        values = list(map(int, f.readline().rstrip().split()))
         num_dims = values[0]
         num_nets = values[1]
         dim_sizes = values[2:]
@@ -19,7 +19,7 @@ def parse_input(input_path):
         # Parse points coordinates
         points = []
         for line in f.readlines():
-            current_points = map(int, line.rstrip().split())
+            current_points = list(map(int, line.rstrip().split()))
             assert len(current_points) == 2 * num_dims, \
             'Point %s num dims don\'t match with file num dims'%current_points
             for i in range(2 * num_dims):
@@ -154,3 +154,25 @@ def get_used_vertices(formula, var_values):
         if var_values[i] > 0:
             ret.append(formula.dimacs2internal[abs(var_values[i])])
     return ret
+
+def plot2D(used_vertices, data_info, output_file):
+    import pylab as plt
+    used_vertices = set(used_vertices)
+    plt.figure('Resulting routing')
+    n, m = data_info['dim_sizes']
+    plt.xlim([-1, n + 1])
+    plt.ylim([-1, m + 1])
+    for vertex in used_vertices:
+        point_form = list(map(int, vertex.split('-')))[:-1]
+        net = vertex.split('-')[-1]
+        for k in [-1, 1]:
+            for i in range(2):
+                from copy import deepcopy
+                adj = deepcopy(point_form)
+                adj[i] += k
+                adj_id = '-'.join(str(x) for x in adj) + '-' + net
+                if adj_id in used_vertices:
+                    plt.plot([point_form[0], adj[0]], [point_form[1], adj[1]], \
+                    color = 'k', linewidth = 2)
+                plt.scatter(*point_form)
+    plt.savefig(output_file)
