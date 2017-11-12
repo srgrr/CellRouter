@@ -40,3 +40,6 @@ to indicate the position of net endpoints in a discretized grid.
 
 ## Sample run
 `python3 src/main.py data/example --draw`
+
+This should leave a `output.png` file with a content that is very
+similar to the sample image above.
