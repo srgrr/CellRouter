@@ -38,7 +38,7 @@ def main():
     print('Printing to dimacs form...')
     formula.print_dimacs(args.oformula, args.omap)
     print('Sat-solving...')
-    formula.print_formula()
+    # formula.print_formula()
 
     import subprocess
     try:
