@@ -1,7 +1,7 @@
 # Cell Router
 A cell router that uses SAT
 
-![example](example.png)
+![example](example.png "Find this example in data/example")
 
 ## About
 
@@ -37,3 +37,6 @@ sourcencoord1 ... sourcencoordnumdim sinkncoord1 ... sinkncoordnumdim
 
 All coordinates must be integers, as they will serve
 to indicate the position of net endpoints in a discretized grid.
+
+## Sample run
+`python3 src/main.py data/example --draw`
