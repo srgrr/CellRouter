@@ -39,3 +39,7 @@ All coordinates must be integers, as they will serve to indicate the position of
 
 This should leave a `output.png` file with a content that is very
 similar to the sample image above.
+
+## Pending things to do
+1) Implement optimization
+2) Implement fixed "legs" for each pair
