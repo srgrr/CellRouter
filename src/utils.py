@@ -267,8 +267,8 @@ def plot2D(used_vertices, data_info, output_file):
     used_vertices = set(used_vertices)
     plt.figure('Resulting routing')
     n, m = data_info['dim_sizes']
-    plt.ylim([-1, n + 1])
-    plt.xlim([-1, m + 1])
+    plt.ylim([0, n + 1])
+    plt.xlim([0, m + 1])
     colors = ['k', 'b', 'g', 'y', 'c']
     for vertex in used_vertices:
         try:
@@ -282,9 +282,9 @@ def plot2D(used_vertices, data_info, output_file):
                     adj_id = '-'.join(str(x) for x in adj) + '-' + net
                     if adj_id in used_vertices and \
                     vname('S', '-'.join(str(x) for x in point_form), '-'.join(str(x) for x in adj)) in used_vertices:
-                        plt.plot([point_form[1], adj[1]], [point_form[0], adj[0]], \
+                        plt.plot([point_form[1] + 1, adj[1] + 1], [point_form[0] + 1, adj[0] + 1], \
                         color = colors[int(net) % len(colors)], linewidth = 2)
-                    plt.scatter(point_form[1], point_form[0], color = colors[int(net) % len(colors)])
+                    plt.scatter(point_form[1] + 1, point_form[0] + 1, color = colors[int(net) % len(colors)])
         except:
             pass
             #import traceback
