@@ -35,11 +35,15 @@ def parse_input(input_path):
 
     ret = {
         'num_dims': num_dims,
+        'num_nets': num_nets,
         'dim_sizes': dim_sizes,
         'points': points
     }
 
     return ret
+
+def vname(*args):
+    return '-'.join(args)
 
 def convert_to_formula(input_path):
     '''Given an input file, returns a Formula object
@@ -83,7 +87,9 @@ def convert_to_formula(input_path):
                 add_all_vertices(formula, coordinates, index + 1)
 
     ret = Formula()
+    # Basic variables: coord1-coord2-...-coordk-netid
     add_all_vertices(ret, [0] * num_dims, 0)
+
     # First constraint: we can have at most one of the nets passing
     # through some vertex. That is, if we have 2 nets, then only
     # one of 0-0-0 and 0-0-1 can be true at the same time. Note that
@@ -97,14 +103,14 @@ def convert_to_formula(input_path):
             # variables. By explicitly setting variables to some value
             # we also speed up a bit the solving process
             for k in range( num_nets ):
-                ret.add_clause([(vertex + '-' + str(k), \
+                ret.add_clause([(vname(vertex, str(k)), \
                 k == netid[point_form])])
         else:
             # Conventional at most one
             to_add = []
             for k in range( num_nets ):
-                to_add.append(vertex + '-' + str(k))
-            ret.at_most(to_add, 1)
+                to_add.append(vname(vertex, str(k)))
+            ret.at_most([(x, True) for x in to_add], 1)
 
     # Second constraint: restrictions on type and amount of edges
     # More precisely, let's add constraints of the form
@@ -137,8 +143,7 @@ def convert_to_formula(input_path):
                 # (it makes no sense to do any other thing)
                 if netid[point_form] != net:
                     continue
-                ret.exactly(adj_vertices, 1)
-                print('ex %s'%str(point_form))
+                ret.exactly([(x, True) for x in adj_vertices], 1)
             else:
                 # For non-endpoint vertices, we can either to not use it
                 # or use exactly two adjacent vertices
@@ -147,10 +152,107 @@ def convert_to_formula(input_path):
                 # !vertex or (clause of at most 2)
                 # ...
                 # !vertex or (clause of at least 2)
-                ret.prepend_implicant((vertex + '-' + str(net), True))
-                ret.exactly(adj_vertices, 2)
+                ret.prepend_implicant((vname(vertex, str(net)), True))
+                ret.exactly([(x, True) for x in adj_vertices], 2)
                 ret.clear_implicant()
-                print('both %s'%str(point_form))
+
+
+    # The following variables and constraints are just to avoid unnecesary
+    # loops
+
+    # Auxiliary variable
+    # S-v1-v2: v2 is the successor of v1
+    for v in vertices_by_coord:
+        point_form = tuple([int(x) for x in v.split('-')])
+        var = vname(v)
+        adjv = ['-'.join(str(y) for y in x) \
+        for x in get_neighbor_vertices(point_form)]
+        for adj in adjv:
+            ret.add_variable(vname('S', var, adj))
+
+    # Auxiliary variable
+    # R-v1-v2: we can reach v2 from v1
+    for n1 in vertices_by_coord:
+        v1 = vname(n1)
+        for n2 in vertices_by_coord:
+            v2 = vname(n2)
+            reach = vname('R', v1, v2)
+            ret.add_variable(reach)
+
+    # If B is the successor of A, then A can reach B
+    for v in vertices_by_coord:
+        point_form = tuple([int(x) for x in v.split('-')])
+        var = vname(v)
+        adjv = ['-'.join(str(y) for y in x) \
+        for x in get_neighbor_vertices(point_form)]
+        for adj in adjv:
+            succ = vname('S', var, adj)
+            reach = vname('R', var, adj)
+            ret.add_clause(
+                (
+                    (succ, False),
+                    (reach, True)
+                )
+            )
+
+    # All points, except sinks, must have exactly one successor
+    # Sinks must have, in fact, zero successors
+    processed_nets = set()
+    for v in vertices_by_coord:
+        point_form = tuple([int(x) for x in v.split('-')])
+        var = vname(v)
+        adjv = ['-'.join(str(y) for y in x) \
+        for x in get_neighbor_vertices(point_form)]
+        e = 1 if not v in endpoints or not netid[point_form] in processed_nets else 0
+        ret.exactly([(vname('S', var, x), True) for x in adjv], e)
+        if v in endpoints and not net in processed_nets:
+            processed_nets.add(net)
+
+    # Sab and Sba cannot be true at the same time
+    for v in vertices_by_coord:
+        point_form = tuple([int(x) for x in v.split('-')])
+        var = vname(v)
+        adjv = ['-'.join(str(y) for y in x) \
+        for x in get_neighbor_vertices(point_form)]
+        for adj in adjv:
+            ret.at_most(
+                [(vname('S',var, adj), True), (vname('S',adj, var), True)],
+                1
+            )
+
+
+    # If A can reach B, and B can reach C, then A can reach C
+    # R(A, B) ^ R(B, C) => R(A, C)
+    # !R(A, B) v !R(B, C) v R(A, C)
+    # We can lower the amount of needed clauses by taking into account
+    # that it is enough to impose this constraint on triples (A, B, C)
+    # such that A and B are adjacent
+    for v in vertices_by_coord:
+        point_form = tuple([int(x) for x in v.split('-')])
+        a = v
+        adjv = ['-'.join(str(y) for y in x) \
+        for x in get_neighbor_vertices(point_form)]
+        for b in adjv:
+            for c in vertices_by_coord:
+                ret.add_clause(
+                    (
+                        (vname('R', a, b), False),
+                        (vname('R', b, c), False),
+                        (vname('R', a, c), True)
+                    )
+                )
+
+    # No point must be self-reachable
+    # This will prevent routings to have unnecesary cycles
+    # This may be redundant if minimization is performed
+    # for net in range( num_nets ):
+    for v in vertices_by_coord:
+        var = vname(v)
+        ret.add_clause(
+            (
+                (vname('R', var, var), False),
+            )
+        )
 
     return (parsed_input, ret)
 
@@ -170,16 +272,21 @@ def plot2D(used_vertices, data_info, output_file):
     plt.ylim([-1, m + 1])
     colors = ['k', 'b', 'g', 'maroon']
     for vertex in used_vertices:
-        point_form = list(map(int, vertex.split('-')))[:-1]
-        net = vertex.split('-')[-1]
-        for k in [-1, 1]:
-            for i in range(2):
-                from copy import deepcopy
-                adj = deepcopy(point_form)
-                adj[i] += k
-                adj_id = '-'.join(str(x) for x in adj) + '-' + net
-                if adj_id in used_vertices:
-                    plt.plot([point_form[0], adj[0]], [point_form[1], adj[1]], \
-                    color = colors[int(net) % len(colors)], linewidth = 2)
-                plt.scatter(*point_form, color = colors[int(net) % len(colors)])
+        try:
+            point_form = list(map(int, vertex.split('-')))[:-1]
+            net = vertex.split('-')[-1]
+            for k in [-1, 1]:
+                for i in range(2):
+                    from copy import deepcopy
+                    adj = deepcopy(point_form)
+                    adj[i] += k
+                    adj_id = '-'.join(str(x) for x in adj) + '-' + net
+                    if adj_id in used_vertices:
+                        plt.plot([point_form[0], adj[0]], [point_form[1], adj[1]], \
+                        color = colors[int(net) % len(colors)], linewidth = 2)
+                    plt.scatter(*point_form, color = colors[int(net) % len(colors)])
+        except:
+            pass
+            #import traceback
+            #traceback.print_exc()
     plt.savefig(output_file)

@@ -11,6 +11,7 @@ class Formula(object):
         # A clause is a list of pairs (var, is_negated)
         self.clauses   = []
         self.implicant = []
+        self.aux_count = 0
 
     def add_variable(self, var):
         '''Adds a variable
@@ -23,7 +24,7 @@ class Formula(object):
         '''Check that all vars in a given list
         belong to the formula
         '''
-        for var in vars:
+        for (var, sgn) in vars:
             assert var in self.variables, \
             'Variable %s is not in the formula!'%(var)
 
@@ -34,7 +35,7 @@ class Formula(object):
         in clear_implicant.
         '''
         (var, value) = variable
-        self._check_vars([var])
+        self._check_vars([variable])
         self.implicant = (var, not value)
 
     def clear_implicant(self):
@@ -57,7 +58,7 @@ class Formula(object):
         '''
         if index == len(vars):
             if k == 0:
-                to_add = list( (x, not neg) for x in selected_vars)
+                to_add = list( (x, not val if neg else val) for (x, val) in selected_vars)
                 if self.implicant:
                     to_add = [self.implicant] + to_add
                 self.clauses.append(to_add)
@@ -111,6 +112,32 @@ class Formula(object):
             self.internal2dimacs[var] = current_id
             self.dimacs2internal[current_id] = var
             current_id += 1
+
+    def at_most_heule(self, vars, k = 1):
+        import sys
+        sys.setrecursionlimit(200000)
+        #print(len(vars), k+3, vars)
+        if len(vars) <= k + 3:
+            self.at_most(vars, k)
+        else:
+            aux_vars = ['aux_%d'%(i + self.aux_count) for i in range(k)]
+            self.aux_count += k
+            for aux_var in aux_vars:
+                self.add_variable(aux_var)
+            left = vars[:(k+2)] + [(x, True) for x in aux_vars]
+            right = [(x, False) for x in aux_vars] + vars[(k+2):]
+            self.at_most(left, k)
+            self.at_most_heule(right, k)
+
+
+    def at_most_all_vars(self, k = 1):
+        '''At most k of all non-aux variables can be true.
+        '''
+        vars = []
+        for var in self.variables:
+            if not 'aux' in var:
+                vars.append(var)
+        self.at_most_heule([(x, True) for x in vars], k)
 
 
     def print_dimacs(self, output_dimacs, output_dimacs_map):

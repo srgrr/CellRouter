@@ -14,14 +14,30 @@ def parse_arguments():
                       help = '(Absolute or relative) path to output drawing. Only for 2D')
     parser.add_argument('--solver', default = 'picosat', \
                       help = '(Absolute or relative) path to Sat-Solver')
+    parser.add_argument('--wirelimit', type = int, nargs = '+', default = [], \
+                      help = 'Maximum allowed wire length')
     return parser.parse_args()
 
 def main():
     args = parse_arguments()
     from utils import convert_to_formula
+    print('Generating formula...')
     (data_info, formula) = convert_to_formula(args.input_file)
+    print('Core formula done.')
+    if args.wirelimit:
+        assert len(args.wirelimit) == data_info['num_nets'], \
+        'Each net must have a wire limit'
+        vars = {}
+        for net in range(data_info['num_nets']):
+            vars[net] = []
+        for var in formula.variables:
+            vars[int(var.split('-')[-1])].append(var)
+        for net in range(data_info['num_nets']):
+            print('Adding wirelimit for net %d...'%(net+1))
+            formula.at_most_heule([(x,True) for x in vars[net]], args.wirelimit[net])
+    print('Printing to dimacs form...')
     formula.print_dimacs(args.oformula, args.omap)
-
+    print('Sat-solving...')
     formula.print_formula()
 
     import subprocess
@@ -47,6 +63,7 @@ def main():
                 f.write(vertex + '\n')
         if args.draw:
             if data_info['num_dims'] == 2:
+                print('Plotting...')
                 from utils import plot2D
                 plot2D(used_vertices, data_info, args.odraw)
             else:
