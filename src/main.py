@@ -57,7 +57,7 @@ def main():
     else:
         from utils import get_used_vertices
         used_vertices = get_used_vertices(formula, parsed_output)
-        print(used_vertices)
+        # print(used_vertices)
         with open(args.oplacem, 'w') as f:
             for vertex in used_vertices:
                 f.write(vertex + '\n')
