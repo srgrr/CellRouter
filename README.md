@@ -1,14 +1,9 @@
+# Cell Router
 A cell router that uses SAT
 
-Format for input cases:
+![example](example.png)
 
-numnets numdim dim1 ... dimn
-source1coord1 ... source1coordnumdim sink1coord1 ... sink1coordnumdim
-...
-sourcencoord1 ... sourcencoordnumdim sinkncoord1 ... sinkncoordnumdim
-
-All coordinates must be integers, as they will serve
-to indicate the position of net endpoints in a discretized grid.
+## About
 
 This program does two things:
 1) It creates and stores the resulting CNF formula
@@ -17,7 +12,7 @@ This program does two things:
    for the two dimensional case.
 
 
-Dependencies:
+## Dependencies:
 
 Python 3.x. Athough it is likely that this also works for Py2.7
 
@@ -32,3 +27,13 @@ The satsolver should be in your PATH. That is, you should be able to call it
 by typing "satsolvername" from any directory.
 
 Matplotlib. Only if you use the --draw option.
+
+## Format for input cases:
+
+numnets numdim dim1 ... dimn
+source1coord1 ... source1coordnumdim sink1coord1 ... sink1coordnumdim
+...
+sourcencoord1 ... sourcencoordnumdim sinkncoord1 ... sinkncoordnumdim
+
+All coordinates must be integers, as they will serve
+to indicate the position of net endpoints in a discretized grid.
