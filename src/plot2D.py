@@ -30,6 +30,4 @@ def plot2D(used_vertices, data_info, output_file, uses_successors = True):
                     plt.scatter(point_form[1] + 1, point_form[0] + 1, color = colors[int(net) % len(colors)])
         except:
             pass
-            import traceback
-            traceback.print_exc()
     plt.savefig(output_file)

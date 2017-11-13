@@ -53,6 +53,7 @@ def main():
         print('Clearing cycles...')
         from utils import clear_cycles
         used_vertices = clear_cycles(data_info, used_vertices)
+        print(used_vertices)
         with open(args.oplacem, 'w') as f:
             for vertex in used_vertices:
                 f.write(vertex + '\n')

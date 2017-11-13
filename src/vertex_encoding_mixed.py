@@ -68,7 +68,7 @@ def convert_to_formula(input_path):
             to_add = []
             for k in range( num_nets ):
                 to_add.append(vname(var, str(k)))
-            ret.at_most([(x, True) for x in to_add], 1)
+            ret.at_most_heule([(x, True) for x in to_add], 1)
 
     # Second constraint: all points, if used and are not endpoints,
     # must have two set neighbors

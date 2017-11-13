@@ -43,3 +43,9 @@ similar to the sample image above.
 ## Pending things to do
 1) Implement optimization
 2) Implement fixed "legs" for each pair
+
+
+
+
+
+![example](example2.png "Find this example in data/example2")

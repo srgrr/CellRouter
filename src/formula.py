@@ -74,12 +74,29 @@ class Formula(object):
         # Pop stack to leave it intact
         selected_vars.pop()
 
-    def at_most(self, vars, k = 1):
+    def at_most(self, vars, k = 1, neg = True):
         '''At most k constraint. Implemented in the
         naive way, see _at_most method.
         '''
         self._check_vars(vars)
         self._at_most(vars, [], 0, k + 1, True)
+
+    def at_most_heule(self, vars, k = 1, neg = True):
+        '''At most k constraint, but a la Heule
+        '''
+        import sys
+        sys.setrecursionlimit(10**9)
+        if len(vars) <= k + 3:
+            self.at_most(vars, k, neg)
+        else:
+            aux_vars = ['aux_%d'%(i + self.aux_count) for i in range(k)]
+            self.aux_count += k
+            for aux_var in aux_vars:
+                self.add_variable(aux_var)
+            left = vars[:(k+2)] + [(x, True) for x in aux_vars]
+            right = [(x, not neg) for x in aux_vars] + vars[(k+2):]
+            self.at_most(left, k, neg)
+            self.at_most_heule(right, k, neg)
 
     def at_least(self, vars, k = 1):
         '''At least k constraint. Implemented in the
@@ -89,6 +106,12 @@ class Formula(object):
         self._check_vars(vars)
         self._at_most(vars, [], 0, len(vars) - k + 1, False)
 
+    def at_least_heule(self, vars, k = 1):
+        '''At least k constraint, but a la Heule
+        '''
+        self._check_vars(vars)
+        self.at_most_heule(vars, len(vars) - k + 1, False)
+
     def exactly(self, vars, k = 1):
         '''Exactly k constraint. A wrapper to
         at_most k and at_least k, which combined
@@ -96,6 +119,12 @@ class Formula(object):
         '''
         self.at_least(vars, k)
         self.at_most(vars, k)
+
+    def exactly_heule(self, vars, k = 1):
+        '''Exactly k constraint, but a la Heule.
+        '''
+        self.at_least(vars, k)
+        self.at_most_heule(vars, k)
 
     def print_formula(self):
         '''Prints the formula to the standard output
@@ -113,23 +142,6 @@ class Formula(object):
             self.dimacs2internal[current_id] = var
             current_id += 1
 
-    def at_most_heule(self, vars, k = 1):
-        import sys
-        sys.setrecursionlimit(200000)
-        #print(len(vars), k+3, vars)
-        if len(vars) <= k + 3:
-            self.at_most(vars, k)
-        else:
-            aux_vars = ['aux_%d'%(i + self.aux_count) for i in range(k)]
-            self.aux_count += k
-            for aux_var in aux_vars:
-                self.add_variable(aux_var)
-            left = vars[:(k+2)] + [(x, True) for x in aux_vars]
-            right = [(x, False) for x in aux_vars] + vars[(k+2):]
-            self.at_most(left, k)
-            self.at_most_heule(right, k)
-
-
     def at_most_all_vars(self, k = 1):
         '''At most k of all non-aux variables can be true.
         '''
@@ -138,7 +150,6 @@ class Formula(object):
             if not 'aux' in var:
                 vars.append(var)
         self.at_most_heule([(x, True) for x in vars], k)
-
 
     def print_dimacs(self, output_dimacs, output_dimacs_map):
         '''Prints the formula in DIMACS CNF format
