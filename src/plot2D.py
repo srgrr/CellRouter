@@ -1,3 +1,8 @@
+
+def get_colors():
+    import pylab as plt
+    return plt.rcParams['axes.prop_cycle'].by_key()['color']
+
 def plot2D(used_vertices, data_info, output_file, uses_successors = True):
     from utils import vname
     import pylab as plt
@@ -6,7 +11,7 @@ def plot2D(used_vertices, data_info, output_file, uses_successors = True):
     n, m = data_info['dim_sizes']
     plt.ylim([0, n + 1])
     plt.xlim([0, m + 1])
-    colors = ['k', 'b', 'g', 'y', 'c']
+    colors = get_colors()
     for vertex in used_vertices:
         try:
             point_form = list(map(int, vertex.split('-')))[:-1]
@@ -19,12 +24,12 @@ def plot2D(used_vertices, data_info, output_file, uses_successors = True):
                     adj_id = '-'.join(str(x) for x in adj) + '-' + net
                     if adj_id in used_vertices and \
                     (not uses_successors or \
-                    vname('S', '-'.join(str(x) for x in point_form), '-'.join(str(x) for x in adj))) in used_vertices:
+                    vname('S', '-'.join(str(x) for x in point_form), '-'.join(str(x) for x in adj)) in used_vertices):
                         plt.plot([point_form[1] + 1, adj[1] + 1], [point_form[0] + 1, adj[0] + 1], \
                         color = colors[int(net) % len(colors)], linewidth = 2)
                     plt.scatter(point_form[1] + 1, point_form[0] + 1, color = colors[int(net) % len(colors)])
         except:
             pass
-            #import traceback
-            #traceback.print_exc()
+            import traceback
+            traceback.print_exc()
     plt.savefig(output_file)

@@ -42,8 +42,7 @@ def clear_cycles(inp, used_variables):
         cur_point = source
         previous = None
         while cur_point != sink:
-            print(cur_point)
-            neighbs = get_neighbor_vertices(cur_point, inp['dim_sizes'])
+            neighbs = [tuple(x) for x in get_neighbor_vertices(cur_point, inp['dim_sizes'])]
             neighb = None
             for n in neighbs:
                 if n != previous and vname(point2var(n), snet) in used_variables:

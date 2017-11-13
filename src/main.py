@@ -17,7 +17,7 @@ def parse_arguments():
     parser.add_argument('--optimize', action = 'store_true', \
                       help = 'Optimize wire length')
     parser.add_argument('--encoding', help = 'Encoding generator', \
-                      default = 'anti_cycle_encoding')
+                      default = 'vertex_encoding')
     return parser.parse_args()
 
 def main():
@@ -50,6 +50,7 @@ def main():
         print('Solver found no solution.')
     else:
         used_vertices = [formula.dimacs2internal[x] for x in parsed_output[1:] if x > 0]
+        print('Clearing cycles...')
         from utils import clear_cycles
         used_vertices = clear_cycles(data_info, used_vertices)
         with open(args.oplacem, 'w') as f:
@@ -59,7 +60,7 @@ def main():
             if data_info['num_dims'] == 2:
                 print('Plotting...')
                 from plot2D import plot2D
-                plot2D(used_vertices, data_info, args.odraw)
+                plot2D(used_vertices, data_info, args.odraw, args.encoding == 'anti_cycle_encoding')
             else:
                 print('I do not know how to plot this number of dimensions.')
 
