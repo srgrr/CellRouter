@@ -44,8 +44,6 @@ def main():
     output_parser_module = importlib.import_module('%s_parser'%args.solver)
     parsed_output = output_parser_module.parse_output(solver_output)
 
-
-
     if parsed_output is None:
         print('Solver found no solution.')
     else:
