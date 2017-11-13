@@ -16,17 +16,19 @@ def parse_arguments():
                       help = '(Absolute or relative) path to Sat-Solver')
     parser.add_argument('--optimize', action = 'store_true', \
                       help = 'Optimize wire length')
+    parser.add_argument('--encoding', help = 'Encoding generator', \
+                      default = 'anti_cycle_encoding')
     return parser.parse_args()
 
 def main():
     args = parse_arguments()
-    from utils import convert_to_formula
+    import importlib
+    generator_module = importlib.import_module(args.encoding)
     print('Generating formula...')
-    (data_info, formula) = convert_to_formula(args.input_file, args.optimize)
+    (data_info, formula) = generator_module.convert_to_formula(args.input_file)
     print('Core formula done.')
     if args.optimize:
-        pass
-        # assert False, 'Feature not implemented!'
+        assert False, 'Feature not implemented!'
     formula.print_dimacs(args.oformula, args.omap)
     print('Sat-solving...')
     # formula.print_formula()
@@ -39,25 +41,27 @@ def main():
     except Exception as e:
         solver_output = e.output
 
-    import importlib
     output_parser_module = importlib.import_module('%s_parser'%args.solver)
     parsed_output = output_parser_module.parse_output(solver_output)
+
+
 
     if parsed_output is None:
         print('Solver found no solution.')
     else:
-        from utils import get_used_vertices
-        used_vertices = get_used_vertices(formula, parsed_output)
-        # print(used_vertices)
+        used_vertices = [formula.dimacs2internal[x] for x in parsed_output[1:] if x > 0]
+        from utils import clear_cycles
+        used_vertices = clear_cycles(data_info, used_vertices)
         with open(args.oplacem, 'w') as f:
             for vertex in used_vertices:
                 f.write(vertex + '\n')
         if args.draw:
             if data_info['num_dims'] == 2:
                 print('Plotting...')
-                from utils import plot2D
+                from plot2D import plot2D
                 plot2D(used_vertices, data_info, args.odraw)
             else:
                 print('I do not know how to plot this number of dimensions.')
+
 if __name__ == "__main__":
     main()
