@@ -12,6 +12,12 @@ def plot2D(used_vertices, data_info, output_file, uses_successors = True):
     plt.ylim([0, n + 1])
     plt.xlim([0, m + 1])
     colors = get_colors()
+
+    for i in range(len(data_info['points'])):
+        s, t = data_info['points'][i]
+        plt.text(s[1] + 1, s[0] + 1, str(i+1))
+        plt.text(t[1] + 1, t[0] + 1, str(i+1))
+
     for vertex in used_vertices:
         try:
             point_form = list(map(int, vertex.split('-')))[:-1]
