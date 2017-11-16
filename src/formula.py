@@ -178,7 +178,7 @@ class Formula(object):
             assert len(var) == 2 and isinstance(var[0], str) and \
             isinstance(var[1], bool), \
             'Wrong clause format, it must be of the form (varid, is_negated). Got\
-            %s'%var
+            %s'%str(var)
             assert var[0] in self.variables, \
             'Variable %s is not in the formula'%var[0]
         self.clauses.append(clause)

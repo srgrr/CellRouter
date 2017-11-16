@@ -17,7 +17,7 @@ def parse_arguments():
     parser.add_argument('--optimize', action = 'store_true', \
                       help = 'Optimize wire length')
     parser.add_argument('--encoding', help = 'Encoding generator', \
-                      default = 'vertex_encoding')
+                      default = 'subset_encoding')
     return parser.parse_args()
 
 def main():
@@ -26,7 +26,7 @@ def main():
     generator_module = importlib.import_module(args.encoding)
     print('Generating formula...')
     (data_info, formula) = generator_module.convert_to_formula(args.input_file)
-    print('Core formula done.')
+    print('Generating DIMACS...')
     if args.optimize:
         assert False, 'Feature not implemented!'
     formula.print_dimacs(args.oformula, args.omap)
@@ -51,7 +51,6 @@ def main():
         print('Clearing cycles...')
         from utils import clear_cycles
         used_vertices = clear_cycles(data_info, used_vertices)
-        print(used_vertices)
         with open(args.oplacem, 'w') as f:
             for vertex in used_vertices:
                 f.write(vertex + '\n')
@@ -59,7 +58,8 @@ def main():
             if data_info['num_dims'] == 2:
                 print('Plotting...')
                 from plot2D import plot2D
-                plot2D(used_vertices, data_info, args.odraw, args.encoding == 'anti_cycle_encoding')
+                plot2D(used_vertices, data_info, args.odraw, \
+                args.encoding == 'anti_cycle_encoding')
             else:
                 print('I do not know how to plot this number of dimensions.')
 

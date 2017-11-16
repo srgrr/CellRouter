@@ -22,7 +22,7 @@ def convert_to_formula(input_path):
     netid = {}
     valid_variables = set()
 
-    def random_routes(s, t, netid, k = 10):
+    def random_routes(s, t, netid, k = 20):
         '''Function that generates some path candidates between two points
         s and t that belong to a net netid.
         The routes are generated as follows:
@@ -65,7 +65,7 @@ def convert_to_formula(input_path):
         endpoints.add(t)
         netid[s] = net_id
         netid[t] = net_id
-        valid_variables |= random_routes(s, t, net_id)
+        valid_variables |= random_routes(s, t, net_id, max(dim_sizes) // 2)
         net_id += 1
 
     # Add all grid vertices as variables
@@ -109,7 +109,8 @@ def convert_to_formula(input_path):
             # Conventional at most one
             to_add = []
             for k in range( num_nets ):
-                to_add.append(vname(var, str(k)))
+                if vname(var, str(k)) in valid_variables:
+                    to_add.append(vname(var, str(k)))
             ret.at_most_heule([(x, True) for x in to_add], 1)
 
     # Second constraint: all points, if used and are not endpoints,
@@ -135,7 +136,8 @@ def convert_to_formula(input_path):
             else:
                 point_form = tuple([int(x) for x in v.split('-')])
                 adjv = [(vname('-'.join(str(y) for y in x), str(net)), True) \
-                for x in get_neighbor_vertices(point_form, dim_sizes)]
+                for x in get_neighbor_vertices(point_form, dim_sizes) if \
+                vname('-'.join(str(y) for y in x), str(net)) in valid_variables]
                 if point_form in endpoints:
                     if net == netid[point_form]:
                         e = 1
@@ -144,7 +146,7 @@ def convert_to_formula(input_path):
                 else:
                     e = 2
                 ret.prepend_implicant((varname, True))
-                ret.exactly(adjv, e)
+                ret.exactly_heule(adjv, e)
                 ret.clear_implicant()
 
     return (parsed_input, ret)
