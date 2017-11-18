@@ -17,6 +17,8 @@ def plot2D(used_vertices, data_info, output_file, uses_successors = True):
         s, t = data_info['points'][i]
         plt.text(s[1] + 1 + 0.125, s[0] + 1 + 0.125, str(i+1))
         plt.text(t[1] + 1 + 0.125, t[0] + 1 + 0.125, str(i+1))
+        plt.scatter(s[1] + 1, s[0] + 1, color = colors[i % len(colors)])
+        plt.scatter(t[1] + 1, t[0] + 1, color = colors[i % len(colors)])
 
     for vertex in used_vertices:
         try:
@@ -32,8 +34,7 @@ def plot2D(used_vertices, data_info, output_file, uses_successors = True):
                     (not uses_successors or \
                     vname('S', '-'.join(str(x) for x in point_form), '-'.join(str(x) for x in adj)) in used_vertices):
                         plt.plot([point_form[1] + 1, adj[1] + 1], [point_form[0] + 1, adj[0] + 1], \
-                        color = colors[int(net) % len(colors)], linewidth = 2)
-                    plt.scatter(point_form[1] + 1, point_form[0] + 1, color = colors[int(net) % len(colors)])
+                        color = colors[int(net) % len(colors)], linewidth = 1)
         except:
             pass
     plt.savefig(output_file)
