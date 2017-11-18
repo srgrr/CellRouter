@@ -1,22 +1,22 @@
 
 def get_colors():
-    import pylab as plt
+    import matplotlib.pyplot as plt
     return plt.rcParams['axes.prop_cycle'].by_key()['color']
 
 def plot2D(used_vertices, data_info, output_file, uses_successors = True):
     from utils import vname
-    import pylab as plt
+    import matplotlib.pyplot as plt
     used_vertices = set(used_vertices)
     plt.figure('Resulting routing')
     n, m = data_info['dim_sizes']
-    plt.ylim([0, n + 1])
-    plt.xlim([0, m + 1])
+    plt.yticks(list(range(n + 2)))
+    plt.xticks(list(range(m + 2)))
     colors = get_colors()
 
     for i in range(len(data_info['points'])):
         s, t = data_info['points'][i]
-        plt.text(s[1] + 1, s[0] + 1, str(i+1))
-        plt.text(t[1] + 1, t[0] + 1, str(i+1))
+        plt.text(s[1] + 1 + 0.125, s[0] + 1 + 0.125, str(i+1))
+        plt.text(t[1] + 1 + 0.125, t[0] + 1 + 0.125, str(i+1))
 
     for vertex in used_vertices:
         try:
