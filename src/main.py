@@ -55,11 +55,14 @@ def main():
             for vertex in used_vertices:
                 f.write(vertex + '\n')
         if args.draw:
-            if data_info['num_dims'] == 2:
+            if data_info['num_dims'] in [2, 3]:
                 print('Plotting...')
-                from plot2D import plot2D
-                plot2D(used_vertices, data_info, args.odraw, \
-                args.encoding == 'anti_cycle_encoding')
+                if data_info['num_dims'] == 2:
+                    from plot2D import plot2D
+                    plot2D(used_vertices, data_info, args.odraw)
+                elif data_info['num_dims'] == 3:
+                    from plot3D import plot3D
+                    plot3D(used_vertices, data_info, args.odraw)
             else:
                 print('I do not know how to plot this number of dimensions.')
 
