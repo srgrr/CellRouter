@@ -2,3 +2,6 @@ picosat
 *.pyc
 *__pycache__
 output.*
+prova
+router
+*.o
