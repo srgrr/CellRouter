@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 #include <set>
 #include "utils.h"
 #include <random>

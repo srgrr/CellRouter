@@ -42,13 +42,13 @@ void add_ls(instance& ins,
   Apply the R-L "Random-L" algorithm to each net in order to generate
   some paths.
 */
-void generate_random_l_paths(instance& ins, int k = 20) {
+void generate_random_l_paths(instance& ins, int k = 5) {
   for(int net = 0; net < ins.num_nets; ++net) {
     // For each pair (s, t), let's "activate" the following paths:
     // The d! "Ls" between s and t
     // K random paths s -> k -> t (d! "Ls" s->k, d! "Ls" k->t)
 
-    // Add the two main "Ls"
+    // Add the two main set of "Ls"
     add_ls(ins, ins.points[net][0], ins.points[net][1], net);
 
     // Generate k random midpoints

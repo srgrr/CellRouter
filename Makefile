@@ -23,6 +23,10 @@ prova: prova.cc ${COMMON_OBJECTS} instance.o
 router: router.cc ${COMMON_OBJECTS} instance.o
 	g++ -o router router.cc ${COMMON_OBJECTS} instance.o ${FLAGS}
 
+plot_rl_algo: plot_rl_algo.cc ${COMMON_OBJECTS} instance.o
+	g++ -o plot_rl_algo plot_rl_algo.cc ${COMMON_OBJECTS} instance.o ${FLAGS}
+
+
 
 clean:
 	rm *.o
