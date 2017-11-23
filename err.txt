@@ -1,0 +1,1418 @@
+In file included from /usr/include/c++/5/cstdint:35:0,
+                 from /usr/include/pblib/PBSatSolver.h:4,
+                 from /usr/include/pblib/pb2cnf.h:4,
+                 from prova.cc:1:
+/usr/include/c++/5/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support \
+  ^
+In file included from /usr/include/pblib/pb2cnf.h:4:0,
+                 from prova.cc:1:
+/usr/include/pblib/PBSatSolver.h:9:37: error: ‘int32_t’ was not declared in this scope
+  virtual bool addClause(std::vector<int32_t> const & clause) = 0;
+                                     ^
+/usr/include/pblib/PBSatSolver.h:9:44: error: template argument 1 is invalid
+  virtual bool addClause(std::vector<int32_t> const & clause) = 0;
+                                            ^
+/usr/include/pblib/PBSatSolver.h:9:44: error: template argument 2 is invalid
+/usr/include/pblib/PBSatSolver.h:10:41: error: ‘int32_t’ was not declared in this scope
+     virtual bool  addAtMost(std::vector<int32_t> const & literals, int k) = 0;
+                                         ^
+/usr/include/pblib/PBSatSolver.h:10:48: error: template argument 1 is invalid
+     virtual bool  addAtMost(std::vector<int32_t> const & literals, int k) = 0;
+                                                ^
+/usr/include/pblib/PBSatSolver.h:10:48: error: template argument 2 is invalid
+/usr/include/pblib/PBSatSolver.h:11:47: error: ‘int32_t’ was not declared in this scope
+     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
+                                               ^
+/usr/include/pblib/PBSatSolver.h:11:55: error: template argument 1 is invalid
+     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
+                                                       ^
+/usr/include/pblib/PBSatSolver.h:11:55: error: template argument 2 is invalid
+/usr/include/pblib/PBSatSolver.h:11:87: error: ‘int64_t’ was not declared in this scope
+     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
+                                                                                       ^
+/usr/include/pblib/PBSatSolver.h:11:95: error: template argument 1 is invalid
+     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
+                                                                                               ^
+/usr/include/pblib/PBSatSolver.h:11:95: error: template argument 2 is invalid
+/usr/include/pblib/PBSatSolver.h:11:107: error: ‘int64_t’ has not been declared
+     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
+                                                                                                           ^
+/usr/include/pblib/PBSatSolver.h:11:118: error: ‘int32_t’ has not been declared
+     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
+                                                                                                                      ^
+In file included from /usr/include/pblib/pb2cnf.h:4:0,
+                 from prova.cc:1:
+/usr/include/pblib/PBSatSolver.h:11:136: error: ‘nullptr’ was not declared in this scope
+     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
+                                                                                                                                        ^
+In file included from /usr/include/pblib/clausedatabase.h:8:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/auxvarmanager.h:20:10: error: ‘unordered_set’ in namespace ‘std’ does not name a template type
+     std::unordered_set<int32_t> free_variables;
+          ^
+In file included from /usr/include/pblib/formula.h:14:0,
+                 from /usr/include/pblib/clausedatabase.h:9,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/PBConfig.h:82:14: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+ typedef std::shared_ptr<PBConfigClass> PBConfig;    
+              ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:18:14: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+ typedef std::shared_ptr<FormulaClass> Formula;
+              ^
+/usr/include/pblib/formula.h:23:23: error: variable or field ‘printFormulaBits’ declared void
+ void printFormulaBits(Formula f);
+                       ^
+/usr/include/pblib/formula.h:23:23: error: ‘Formula’ was not declared in this scope
+/usr/include/pblib/formula.h:26:8: error: ‘Formula’ does not name a type
+ inline Formula true_branch(Formula const & f);
+        ^
+/usr/include/pblib/formula.h:27:8: error: ‘Formula’ does not name a type
+ inline Formula false_branch(Formula const & f);
+        ^
+/usr/include/pblib/formula.h:28:8: error: ‘Formula’ does not name a type
+ inline Formula selector(Formula const & f);
+        ^
+/usr/include/pblib/formula.h:29:8: error: ‘Formula’ does not name a type
+ inline Formula left(Formula const & f);
+        ^
+/usr/include/pblib/formula.h:30:8: error: ‘Formula’ does not name a type
+ inline Formula right(Formula const & f);
+        ^
+/usr/include/pblib/formula.h:31:29: error: ‘isAtom’ declared as an ‘inline’ variable
+ inline bool isAtom( Formula const & f );
+                             ^
+/usr/include/pblib/formula.h:31:21: error: ‘Formula’ was not declared in this scope
+ inline bool isAtom( Formula const & f );
+                     ^
+/usr/include/pblib/formula.h:32:28: error: ‘isNeg’ declared as an ‘inline’ variable
+ inline bool isNeg( Formula const & f );
+                            ^
+/usr/include/pblib/formula.h:32:20: error: ‘Formula’ was not declared in this scope
+ inline bool isNeg( Formula const & f );
+                    ^
+/usr/include/pblib/formula.h:33:27: error: ‘isPos’ declared as an ‘inline’ variable
+ inline bool isPos(Formula const & f);
+                           ^
+/usr/include/pblib/formula.h:33:19: error: ‘Formula’ was not declared in this scope
+ inline bool isPos(Formula const & f);
+                   ^
+/usr/include/pblib/formula.h:34:27: error: ‘isAND’ declared as an ‘inline’ variable
+ inline bool isAND(Formula const & f);
+                           ^
+/usr/include/pblib/formula.h:34:19: error: ‘Formula’ was not declared in this scope
+ inline bool isAND(Formula const & f);
+                   ^
+/usr/include/pblib/formula.h:35:29: error: ‘isEquiv’ declared as an ‘inline’ variable
+ inline bool isEquiv(Formula const & f);
+                             ^
+/usr/include/pblib/formula.h:35:21: error: ‘Formula’ was not declared in this scope
+ inline bool isEquiv(Formula const & f);
+                     ^
+/usr/include/pblib/formula.h:36:27: error: ‘isITE’ declared as an ‘inline’ variable
+ inline bool isITE(Formula const & f);
+                           ^
+/usr/include/pblib/formula.h:36:19: error: ‘Formula’ was not declared in this scope
+ inline bool isITE(Formula const & f);
+                   ^
+/usr/include/pblib/formula.h:37:36: error: ‘isMonotonicITE’ declared as an ‘inline’ variable
+ inline bool isMonotonicITE(Formula const & f);
+                                    ^
+/usr/include/pblib/formula.h:37:28: error: ‘Formula’ was not declared in this scope
+ inline bool isMonotonicITE(Formula const & f);
+                            ^
+/usr/include/pblib/formula.h:38:27: error: ‘isFAs’ declared as an ‘inline’ variable
+ inline bool isFAs(Formula const & f);
+                           ^
+/usr/include/pblib/formula.h:38:19: error: ‘Formula’ was not declared in this scope
+ inline bool isFAs(Formula const & f);
+                   ^
+/usr/include/pblib/formula.h:39:27: error: ‘isFAc’ declared as an ‘inline’ variable
+ inline bool isFAc(Formula const & f);
+                           ^
+/usr/include/pblib/formula.h:39:19: error: ‘Formula’ was not declared in this scope
+ inline bool isFAc(Formula const & f);
+                   ^
+/usr/include/pblib/formula.h:41:27: error: ‘getLit’ declared as an ‘inline’ variable
+ inline Lit getLit(Formula const & f );
+                           ^
+/usr/include/pblib/formula.h:41:19: error: ‘Formula’ was not declared in this scope
+ inline Lit getLit(Formula const & f );
+                   ^
+/usr/include/pblib/formula.h:42:26: error: ‘getId’ declared as an ‘inline’ variable
+ inline Lit getId(Formula const & f);
+                          ^
+/usr/include/pblib/formula.h:42:18: error: ‘Formula’ was not declared in this scope
+ inline Lit getId(Formula const & f);
+                  ^
+/usr/include/pblib/formula.h:44:34: error: declaration of ‘operator!=’ as non-function
+ inline bool operator != (Formula const & f, Formula const & g);
+                                  ^
+/usr/include/pblib/formula.h:44:26: error: ‘Formula’ was not declared in this scope
+ inline bool operator != (Formula const & f, Formula const & g);
+                          ^
+/usr/include/pblib/formula.h:44:45: error: ‘Formula’ was not declared in this scope
+ inline bool operator != (Formula const & f, Formula const & g);
+                                             ^
+/usr/include/pblib/formula.h:45:34: error: declaration of ‘operator==’ as non-function
+ inline bool operator == (Formula const & f, Formula const & g);
+                                  ^
+/usr/include/pblib/formula.h:45:26: error: ‘Formula’ was not declared in this scope
+ inline bool operator == (Formula const & f, Formula const & g);
+                          ^
+/usr/include/pblib/formula.h:45:45: error: ‘Formula’ was not declared in this scope
+ inline bool operator == (Formula const & f, Formula const & g);
+                                             ^
+/usr/include/pblib/formula.h:46:33: error: declaration of ‘operator<’ as non-function
+ inline bool operator < (Formula const & f, Formula const & g);
+                                 ^
+/usr/include/pblib/formula.h:46:25: error: ‘Formula’ was not declared in this scope
+ inline bool operator < (Formula const & f, Formula const & g);
+                         ^
+/usr/include/pblib/formula.h:46:44: error: ‘Formula’ was not declared in this scope
+ inline bool operator < (Formula const & f, Formula const & g);
+                                            ^
+/usr/include/pblib/formula.h:47:33: error: declaration of ‘operator>’ as non-function
+ inline bool operator > (Formula const & f, Formula const & g);
+                                 ^
+/usr/include/pblib/formula.h:47:25: error: ‘Formula’ was not declared in this scope
+ inline bool operator > (Formula const & f, Formula const & g);
+                         ^
+/usr/include/pblib/formula.h:47:44: error: ‘Formula’ was not declared in this scope
+ inline bool operator > (Formula const & f, Formula const & g);
+                                            ^
+/usr/include/pblib/formula.h:56:19: error: ‘uint64_t’ was not declared in this scope
+   static std::map<uint64_t, std::vector<Formula>> formula_cache;
+                   ^
+/usr/include/pblib/formula.h:56:41: error: ‘Formula’ was not declared in this scope
+   static std::map<uint64_t, std::vector<Formula>> formula_cache;
+                                         ^
+/usr/include/pblib/formula.h:56:51: error: ‘formula_cache’ was not declared in this scope
+   static std::map<uint64_t, std::vector<Formula>> formula_cache;
+                                                   ^
+/usr/include/pblib/formula.h:56:51: error: template argument 1 is invalid
+/usr/include/pblib/formula.h:56:51: error: template argument 2 is invalid
+/usr/include/pblib/formula.h:56:34: error: template argument 1 is invalid
+   static std::map<uint64_t, std::vector<Formula>> formula_cache;
+                                  ^
+/usr/include/pblib/formula.h:56:34: error: template argument 2 is invalid
+/usr/include/pblib/formula.h:56:34: error: template argument 3 is invalid
+/usr/include/pblib/formula.h:56:34: error: template argument 4 is invalid
+/usr/include/pblib/formula.h:56:15: error: a storage class can only be specified for objects and functions
+   static std::map<uint64_t, std::vector<Formula>> formula_cache;
+               ^
+/usr/include/pblib/formula.h:57:19: error: ‘uint64_t’ was not declared in this scope
+   static std::map<uint64_t, std::vector<Formula>>::iterator it;
+                   ^
+/usr/include/pblib/formula.h:57:41: error: ‘Formula’ was not declared in this scope
+   static std::map<uint64_t, std::vector<Formula>>::iterator it;
+                                         ^
+/usr/include/pblib/formula.h:57:50: error: ‘::iterator’ has not been declared
+   static std::map<uint64_t, std::vector<Formula>>::iterator it;
+                                                  ^
+/usr/include/pblib/formula.h:57:50: note: suggested alternatives:
+In file included from /usr/include/c++/5/bits/stl_algobase.h:65:0,
+                 from /usr/include/c++/5/vector:60,
+                 from /usr/include/pblib/PBSatSolver.h:5,
+                 from /usr/include/pblib/pb2cnf.h:4,
+                 from prova.cc:1:
+/usr/include/c++/5/bits/stl_iterator_base_types.h:118:12: note:   ‘std::iterator’
+     struct iterator
+            ^
+/usr/include/c++/5/bits/stl_iterator_base_types.h:118:12: note:   ‘std::iterator’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:57:61: error: template argument 1 is invalid
+   static std::map<uint64_t, std::vector<Formula>>::iterator it;
+                                                             ^
+/usr/include/pblib/formula.h:57:61: error: template argument 2 is invalid
+/usr/include/pblib/formula.h:57:34: error: template argument 1 is invalid
+   static std::map<uint64_t, std::vector<Formula>>::iterator it;
+                                  ^
+/usr/include/pblib/formula.h:57:34: error: template argument 2 is invalid
+/usr/include/pblib/formula.h:57:34: error: template argument 3 is invalid
+/usr/include/pblib/formula.h:57:34: error: template argument 4 is invalid
+/usr/include/pblib/formula.h:57:15: error: a storage class can only be specified for objects and functions
+   static std::map<uint64_t, std::vector<Formula>>::iterator it;
+               ^
+/usr/include/pblib/formula.h:59:22: error: ‘Formula’ was not declared in this scope
+   static std::vector<Formula> nodes;
+                      ^
+/usr/include/pblib/formula.h:59:29: error: template argument 1 is invalid
+   static std::vector<Formula> nodes;
+                             ^
+/usr/include/pblib/formula.h:59:29: error: template argument 2 is invalid
+/usr/include/pblib/formula.h:61:10: error: ‘PBConfig’ does not name a type
+   static PBConfig config;
+          ^
+/usr/include/pblib/formula.h:74:58: error: ‘Formula’ was not declared in this scope
+    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
+                                                          ^
+/usr/include/pblib/formula.h:74:65: error: template argument 1 is invalid
+    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
+                                                                 ^
+/usr/include/pblib/formula.h:74:65: error: template argument 2 is invalid
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:80:43: error: ‘Formula’ was not declared in this scope
+   FormulaClass(int32_t flags, std::vector<Formula> & input_nodes, int32_t var = 0) : flags(flags), input_nodes(input_nodes)
+                                           ^
+/usr/include/pblib/formula.h:80:50: error: template argument 1 is invalid
+   FormulaClass(int32_t flags, std::vector<Formula> & input_nodes, int32_t var = 0) : flags(flags), input_nodes(input_nodes)
+                                                  ^
+/usr/include/pblib/formula.h:80:50: error: template argument 2 is invalid
+/usr/include/pblib/formula.h:143:3: error: ‘uint32_t’ does not name a type
+   uint32_t flags;
+   ^
+/usr/include/pblib/formula.h:147:3: error: ‘uint32_t’ does not name a type
+   uint32_t data;
+   ^
+/usr/include/pblib/formula.h:150:15: error: ‘Formula’ was not declared in this scope
+   std::vector<Formula> input_nodes;
+               ^
+/usr/include/pblib/formula.h:150:22: error: template argument 1 is invalid
+   std::vector<Formula> input_nodes;
+                      ^
+/usr/include/pblib/formula.h:150:22: error: template argument 2 is invalid
+/usr/include/pblib/formula.h:152:10: error: ‘Formula’ does not name a type
+   static Formula newFalse() { return std::make_shared<FormulaClass>(0, 0); }
+          ^
+/usr/include/pblib/formula.h:153:10: error: ‘Formula’ does not name a type
+   static Formula newTrue() { return std::make_shared<FormulaClass>(0, 1); }
+          ^
+/usr/include/pblib/formula.h:154:10: error: ‘Formula’ does not name a type
+   static Formula newUndef() { return std::make_shared<FormulaClass>(0, 2); }
+          ^
+/usr/include/pblib/formula.h:156:10: error: ‘Formula’ does not name a type
+   static Formula newNeg(Formula const & f) {
+          ^
+/usr/include/pblib/formula.h:177:10: error: ‘Formula’ does not name a type
+   static Formula newAND(std::vector<Formula> & conjuncts) {
+          ^
+/usr/include/pblib/formula.h:216:10: error: ‘Formula’ does not name a type
+   static Formula newAND(Formula const & f, Formula const & g) {
+          ^
+/usr/include/pblib/formula.h:242:10: error: ‘Formula’ does not name a type
+   static Formula newEquiv(Formula const & f, Formula const & g) {
+          ^
+/usr/include/pblib/formula.h:269:10: error: ‘Formula’ does not name a type
+   static Formula newNoNeg(Formula const & f) {
+          ^
+/usr/include/pblib/formula.h:276:10: error: ‘Formula’ does not name a type
+   static Formula newFAs(Formula const & x, Formula const & y, Formula const & c) {
+          ^
+/usr/include/pblib/formula.h:311:10: error: ‘Formula’ does not name a type
+   static Formula newFAc(Formula const & x, Formula const & y, Formula const &c) {
+          ^
+/usr/include/pblib/formula.h:346:10: error: ‘Formula’ does not name a type
+   static Formula newITE(Formula const & s, Formula const & t, Formula const & f);
+          ^
+/usr/include/pblib/formula.h:348:10: error: ‘Formula’ does not name a type
+   static Formula newMonotonic_ITE(Formula const & s, Formula const & t, Formula const & f) {
+          ^
+/usr/include/pblib/formula.h:384:10: error: ‘Formula’ does not name a type
+   static Formula newLit(Lit lit) {
+          ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int32_t, bool)’:
+/usr/include/pblib/formula.h:62:65: error: class ‘FormulaClass’ does not have any field named ‘flags’
+   FormulaClass(int32_t flags, int32_t data, bool isCopyDummy) : flags(flags), data(data)
+                                                                 ^
+/usr/include/pblib/formula.h:62:79: error: class ‘FormulaClass’ does not have any field named ‘data’
+   FormulaClass(int32_t flags, int32_t data, bool isCopyDummy) : flags(flags), data(data)
+                                                                               ^
+/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int32_t)’:
+/usr/include/pblib/formula.h:68:50: error: class ‘FormulaClass’ does not have any field named ‘flags’
+   FormulaClass(int32_t flags, int32_t var = 0) : flags(flags)
+                                                  ^
+In file included from /usr/include/pblib/formula.h:9:0,
+                 from /usr/include/pblib/clausedatabase.h:9,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:71:5: error: ‘data’ was not declared in this scope
+     assert( flags != 0 || data == 0 || data == 1 || data == 4);
+     ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int32_t, int&, bool)’:
+/usr/include/pblib/formula.h:74:102: error: class ‘FormulaClass’ does not have any field named ‘flags’
+    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
+                                                                                                      ^
+/usr/include/pblib/formula.h:74:116: error: class ‘FormulaClass’ does not have any field named ‘data’
+    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
+                                                                                                                    ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int&, int32_t)’:
+/usr/include/pblib/formula.h:80:86: error: class ‘FormulaClass’ does not have any field named ‘flags’
+   FormulaClass(int32_t flags, std::vector<Formula> & input_nodes, int32_t var = 0) : flags(flags), input_nodes(input_nodes)
+                                                                                      ^
+In file included from /usr/include/pblib/formula.h:9:0,
+                 from /usr/include/pblib/clausedatabase.h:9,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:83:5: error: ‘data’ was not declared in this scope
+     assert( flags != 0 || data == 0 || data == 1 || data == 4);
+     ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h: In member function ‘void FormulaClass::init(int32_t)’:
+/usr/include/pblib/formula.h:88:9: error: ‘flags’ was not declared in this scope
+     if (flags == 0)
+         ^
+In file included from /usr/include/pblib/formula.h:9:0,
+                 from /usr/include/pblib/clausedatabase.h:9,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:90:7: error: request for member ‘size’ in ‘((FormulaClass*)this)->FormulaClass::input_nodes’, which is of non-class type ‘int’
+       assert (input_nodes.size() == 0);
+       ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:95:2: error: ‘data’ was not declared in this scope
+  data = 1; // 1 0 0
+  ^
+/usr/include/pblib/formula.h:99:2: error: ‘data’ was not declared in this scope
+  data = 0; // 0 0 0
+  ^
+/usr/include/pblib/formula.h:103:2: error: ‘data’ was not declared in this scope
+  data = 4; // 0 0 1
+  ^
+/usr/include/pblib/formula.h:113:11: error: ‘flags’ was not declared in this scope
+     if ( (flags & 2) != 0 )
+           ^
+In file included from /usr/include/pblib/formula.h:9:0,
+                 from /usr/include/pblib/clausedatabase.h:9,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:116:7: error: request for member ‘size’ in ‘((FormulaClass*)this)->FormulaClass::input_nodes’, which is of non-class type ‘int’
+       assert (input_nodes.size() == 0);
+       ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:121:2: error: ‘data’ was not declared in this scope
+  data = -var << 2;
+  ^
+/usr/include/pblib/formula.h:125:2: error: ‘data’ was not declared in this scope
+  data = var << 2;
+  ^
+/usr/include/pblib/formula.h:133:7: error: ‘data’ was not declared in this scope
+       data = id << 2;
+       ^
+/usr/include/pblib/formula.h: At global scope:
+/usr/include/pblib/formula.h:402:14: error: ‘Formula’ does not name a type
+ extern const Formula _false_;
+              ^
+/usr/include/pblib/formula.h:403:14: error: ‘Formula’ does not name a type
+ extern const Formula _true_;
+              ^
+/usr/include/pblib/formula.h:404:14: error: ‘Formula’ does not name a type
+ extern const Formula _undef_;
+              ^
+/usr/include/pblib/formula.h:407:29: error: ‘isAtom’ declared as an ‘inline’ variable
+ inline bool isAtom( Formula const & f ) { return (f->flags & 2) != 0; }
+                             ^
+/usr/include/pblib/formula.h:407:29: error: redefinition of ‘bool isAtom’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:31:13: note: ‘bool isAtom’ previously defined here
+ inline bool isAtom( Formula const & f );
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:407:21: error: ‘Formula’ was not declared in this scope
+ inline bool isAtom( Formula const & f ) { return (f->flags & 2) != 0; }
+                     ^
+/usr/include/pblib/formula.h:408:28: error: ‘isNeg’ declared as an ‘inline’ variable
+ inline bool isNeg( Formula const & f ) { return (f->data & 1) != 0; }
+                            ^
+/usr/include/pblib/formula.h:408:28: error: redefinition of ‘bool isNeg’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:32:13: note: ‘bool isNeg’ previously defined here
+ inline bool isNeg( Formula const & f );
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:408:20: error: ‘Formula’ was not declared in this scope
+ inline bool isNeg( Formula const & f ) { return (f->data & 1) != 0; }
+                    ^
+/usr/include/pblib/formula.h:409:27: error: ‘isPos’ declared as an ‘inline’ variable
+ inline bool isPos(Formula const & f) { return (f->data & 1) == 0; }
+                           ^
+/usr/include/pblib/formula.h:409:27: error: redefinition of ‘bool isPos’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:33:13: note: ‘bool isPos’ previously defined here
+ inline bool isPos(Formula const & f);
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:409:19: error: ‘Formula’ was not declared in this scope
+ inline bool isPos(Formula const & f) { return (f->data & 1) == 0; }
+                   ^
+/usr/include/pblib/formula.h:410:27: error: ‘isAND’ declared as an ‘inline’ variable
+ inline bool isAND(Formula const & f) { return (f->flags & 4) != 0; }
+                           ^
+/usr/include/pblib/formula.h:410:27: error: redefinition of ‘bool isAND’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:34:13: note: ‘bool isAND’ previously defined here
+ inline bool isAND(Formula const & f);
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:410:19: error: ‘Formula’ was not declared in this scope
+ inline bool isAND(Formula const & f) { return (f->flags & 4) != 0; }
+                   ^
+/usr/include/pblib/formula.h:411:29: error: ‘isEquiv’ declared as an ‘inline’ variable
+ inline bool isEquiv(Formula const & f) { return (f->flags & 16) != 0; }
+                             ^
+/usr/include/pblib/formula.h:411:29: error: redefinition of ‘bool isEquiv’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:35:13: note: ‘bool isEquiv’ previously defined here
+ inline bool isEquiv(Formula const & f);
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:411:21: error: ‘Formula’ was not declared in this scope
+ inline bool isEquiv(Formula const & f) { return (f->flags & 16) != 0; }
+                     ^
+/usr/include/pblib/formula.h:412:27: error: ‘isITE’ declared as an ‘inline’ variable
+ inline bool isITE(Formula const & f) { return (f->flags & 32) != 0; }
+                           ^
+/usr/include/pblib/formula.h:412:27: error: redefinition of ‘bool isITE’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:36:13: note: ‘bool isITE’ previously defined here
+ inline bool isITE(Formula const & f);
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:412:19: error: ‘Formula’ was not declared in this scope
+ inline bool isITE(Formula const & f) { return (f->flags & 32) != 0; }
+                   ^
+/usr/include/pblib/formula.h:413:36: error: ‘isMonotonicITE’ declared as an ‘inline’ variable
+ inline bool isMonotonicITE(Formula const & f) { return (f->flags & 64) != 0; }
+                                    ^
+/usr/include/pblib/formula.h:413:36: error: redefinition of ‘bool isMonotonicITE’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:37:13: note: ‘bool isMonotonicITE’ previously defined here
+ inline bool isMonotonicITE(Formula const & f);
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:413:28: error: ‘Formula’ was not declared in this scope
+ inline bool isMonotonicITE(Formula const & f) { return (f->flags & 64) != 0; }
+                            ^
+/usr/include/pblib/formula.h:414:27: error: ‘isFAs’ declared as an ‘inline’ variable
+ inline bool isFAs(Formula const & f) { return (f->flags & 1) != 0; }
+                           ^
+/usr/include/pblib/formula.h:414:27: error: redefinition of ‘bool isFAs’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:38:13: note: ‘bool isFAs’ previously defined here
+ inline bool isFAs(Formula const & f);
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:414:19: error: ‘Formula’ was not declared in this scope
+ inline bool isFAs(Formula const & f) { return (f->flags & 1) != 0; }
+                   ^
+/usr/include/pblib/formula.h:415:27: error: ‘isFAc’ declared as an ‘inline’ variable
+ inline bool isFAc(Formula const & f) { return (f->flags & 8) != 0; }
+                           ^
+/usr/include/pblib/formula.h:415:27: error: redefinition of ‘bool isFAc’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:39:13: note: ‘bool isFAc’ previously defined here
+ inline bool isFAc(Formula const & f);
+             ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:415:19: error: ‘Formula’ was not declared in this scope
+ inline bool isFAc(Formula const & f) { return (f->flags & 8) != 0; }
+                   ^
+/usr/include/pblib/formula.h:418:27: error: ‘getLit’ declared as an ‘inline’ variable
+ inline Lit getLit(Formula const & f ) { assert(isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
+                           ^
+/usr/include/pblib/formula.h:418:27: error: redefinition of ‘Lit getLit’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:41:12: note: ‘Lit getLit’ previously defined here
+ inline Lit getLit(Formula const & f );
+            ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:418:19: error: ‘Formula’ was not declared in this scope
+ inline Lit getLit(Formula const & f ) { assert(isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
+                   ^
+/usr/include/pblib/formula.h:419:26: error: ‘getId’ declared as an ‘inline’ variable
+ inline Lit getId(Formula const & f) { assert(!isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
+                          ^
+/usr/include/pblib/formula.h:419:26: error: redefinition of ‘Lit getId’
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:42:12: note: ‘Lit getId’ previously defined here
+ inline Lit getId(Formula const & f);
+            ^
+In file included from /usr/include/pblib/clausedatabase.h:9:0,
+                 from /usr/include/pblib/incpbconstraint.h:8,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/formula.h:419:18: error: ‘Formula’ was not declared in this scope
+ inline Lit getId(Formula const & f) { assert(!isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
+                  ^
+/usr/include/pblib/formula.h:421:34: error: declaration of ‘operator!=’ as non-function
+ inline bool operator != (Formula const & f, Formula const & g) { return f->data != g->data; }
+                                  ^
+/usr/include/pblib/formula.h:421:26: error: ‘Formula’ was not declared in this scope
+ inline bool operator != (Formula const & f, Formula const & g) { return f->data != g->data; }
+                          ^
+/usr/include/pblib/formula.h:421:45: error: ‘Formula’ was not declared in this scope
+ inline bool operator != (Formula const & f, Formula const & g) { return f->data != g->data; }
+                                             ^
+/usr/include/pblib/formula.h:422:34: error: declaration of ‘operator==’ as non-function
+ inline bool operator == (Formula const & f, Formula const & g) { return f->data == g->data; }
+                                  ^
+/usr/include/pblib/formula.h:422:26: error: ‘Formula’ was not declared in this scope
+ inline bool operator == (Formula const & f, Formula const & g) { return f->data == g->data; }
+                          ^
+/usr/include/pblib/formula.h:422:45: error: ‘Formula’ was not declared in this scope
+ inline bool operator == (Formula const & f, Formula const & g) { return f->data == g->data; }
+                                             ^
+/usr/include/pblib/formula.h:423:33: error: declaration of ‘operator<’ as non-function
+ inline bool operator < (Formula const & f, Formula const & g) {  return f->data < g->data; }
+                                 ^
+/usr/include/pblib/formula.h:423:25: error: ‘Formula’ was not declared in this scope
+ inline bool operator < (Formula const & f, Formula const & g) {  return f->data < g->data; }
+                         ^
+/usr/include/pblib/formula.h:423:44: error: ‘Formula’ was not declared in this scope
+ inline bool operator < (Formula const & f, Formula const & g) {  return f->data < g->data; }
+                                            ^
+/usr/include/pblib/formula.h:424:33: error: declaration of ‘operator>’ as non-function
+ inline bool operator > (Formula const & f, Formula const & g) {  return f->data > g->data; }
+                                 ^
+/usr/include/pblib/formula.h:424:25: error: ‘Formula’ was not declared in this scope
+ inline bool operator > (Formula const & f, Formula const & g) {  return f->data > g->data; }
+                         ^
+/usr/include/pblib/formula.h:424:44: error: ‘Formula’ was not declared in this scope
+ inline bool operator > (Formula const & f, Formula const & g) {  return f->data > g->data; }
+                                            ^
+/usr/include/pblib/formula.h:427:8: error: ‘Formula’ does not name a type
+ inline Formula noNeg(Formula const & f) {
+        ^
+/usr/include/pblib/formula.h:431:1: error: ‘Formula’ does not name a type
+ Formula operator ~ (Formula const & f);
+ ^
+/usr/include/pblib/formula.h:433:1: error: ‘Formula’ does not name a type
+ Formula AND (std::vector< Formula >& conjuncts);
+ ^
+/usr/include/pblib/formula.h:435:1: error: ‘Formula’ does not name a type
+ Formula AND ( const Formula& f, const Formula& g );
+ ^
+/usr/include/pblib/formula.h:437:8: error: ‘Formula’ does not name a type
+ inline Formula OR (Formula const & f, Formula const & g) { return ~(AND(~f, ~g)); }
+        ^
+/usr/include/pblib/formula.h:439:1: error: ‘Formula’ does not name a type
+ Formula XOR (Formula f, Formula g);
+ ^
+/usr/include/pblib/formula.h:441:1: error: ‘Formula’ does not name a type
+ Formula FAs(Formula x, Formula y, Formula c); // XOR of 3 arguments: x # y # c
+ ^
+/usr/include/pblib/formula.h:443:1: error: ‘Formula’ does not name a type
+ Formula FAc(Formula x, Formula y, Formula c); // x + y + c >= 2
+ ^
+/usr/include/pblib/formula.h:445:1: error: ‘Formula’ does not name a type
+ Formula ITE(Formula s, Formula t, Formula f);
+ ^
+/usr/include/pblib/formula.h:447:1: error: ‘Formula’ does not name a type
+ Formula Monotonic_ITE(Formula s, Formula t, Formula f);
+ ^
+/usr/include/pblib/formula.h:449:1: error: ‘Formula’ does not name a type
+ Formula Pure_ITE(Formula s, Formula t, Formula f);
+ ^
+/usr/include/pblib/formula.h:451:8: error: ‘Formula’ does not name a type
+ inline Formula LIT(Lit lit) { return FormulaClass::newLit(lit);}
+        ^
+/usr/include/pblib/formula.h:455:8: error: ‘Formula’ does not name a type
+ inline Formula true_branch(Formula const & f) { assert(isITE(f) || isMonotonicITE(f)); return f->input_nodes[1];}
+        ^
+/usr/include/pblib/formula.h:456:8: error: ‘Formula’ does not name a type
+ inline Formula false_branch(Formula const & f) {assert(isITE(f) || isMonotonicITE(f)); return f->input_nodes[2];}
+        ^
+/usr/include/pblib/formula.h:457:8: error: ‘Formula’ does not name a type
+ inline Formula selector(Formula const & f) {assert(isITE(f) || isMonotonicITE(f)); return f->input_nodes[0];}
+        ^
+/usr/include/pblib/formula.h:458:8: error: ‘Formula’ does not name a type
+ inline Formula left(Formula const & f) { assert(isAND(f) || isEquiv(f)); return f->input_nodes[0];}
+        ^
+/usr/include/pblib/formula.h:459:8: error: ‘Formula’ does not name a type
+ inline Formula right(Formula const & f) { assert(isAND(f) || isEquiv(f)); return f->input_nodes[1];}
+        ^
+/usr/include/pblib/formula.h:465:19: error: variable or field ‘printFormula’ declared void
+ void printFormula(Formula f);
+                   ^
+/usr/include/pblib/formula.h:465:19: error: ‘Formula’ was not declared in this scope
+In file included from /usr/include/pblib/incpbconstraint.h:8:0,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/clausedatabase.h:17:8: error: ‘unordered_map’ in namespace ‘std’ does not name a template type
+   std::unordered_map<int32_t,Lit> history;
+        ^
+/usr/include/pblib/clausedatabase.h:23:36: error: ‘Formula’ has not been declared
+   virtual int32_t polarityClausify(Formula const & f, AuxVarManager & aux_vars);
+                                    ^
+/usr/include/pblib/clausedatabase.h:27:3: error: ‘PBConfig’ does not name a type
+   PBConfig config;
+   ^
+/usr/include/pblib/clausedatabase.h:36:27: error: expected ‘)’ before ‘config’
+   ClauseDatabase(PBConfig config);
+                           ^
+/usr/include/pblib/clausedatabase.h:42:27: error: ‘Formula’ has not been declared
+   virtual void addFormula(Formula const & formula, AuxVarManager & aux_vars);
+                           ^
+In file included from /usr/include/pblib/incpbconstraint.h:8:0,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/clausedatabase.h:83:37: error: expected ‘)’ before ‘config’
+     CountingClauseDatabase(PBConfig config);
+                                     ^
+In file included from /usr/include/pblib/incpbconstraint.h:9:0,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/IncSimplePBConstraint.h:15:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     std::shared_ptr<IncrementalData> incremental_data;
+          ^
+In file included from /usr/include/pblib/incpbconstraint.h:9:0,
+                 from /usr/include/pblib/pb2cnf.h:6,
+                 from prova.cc:1:
+/usr/include/pblib/IncSimplePBConstraint.h:21:34: error: ‘std::shared_ptr’ has not been declared
+     void setIncrementalData(std::shared_ptr<IncrementalData>  incremental_data);
+                                  ^
+/usr/include/pblib/IncSimplePBConstraint.h:21:44: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void setIncrementalData(std::shared_ptr<IncrementalData>  incremental_data);
+                                            ^
+In file included from /usr/include/pblib/pb2cnf.h:6:0,
+                 from prova.cc:1:
+/usr/include/pblib/incpbconstraint.h:24:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     std::shared_ptr<IncSimplePBConstraint> inc_simple_pb_constraint;
+          ^
+/usr/include/pblib/incpbconstraint.h:27:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     std::shared_ptr<IncSimplePBConstraint> leq_inc_simple_pb_constraint;
+          ^
+/usr/include/pblib/incpbconstraint.h:28:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     std::shared_ptr<IncSimplePBConstraint> geq_inc_simple_pb_constraint;
+          ^
+In file included from /usr/include/pblib/pb2cnf.h:6:0,
+                 from prova.cc:1:
+/usr/include/pblib/incpbconstraint.h:47:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     std::shared_ptr< IncSimplePBConstraint > getIncSimplePBConstraint();
+          ^
+/usr/include/pblib/incpbconstraint.h:50:40: error: ‘std::shared_ptr’ has not been declared
+     void setIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
+                                        ^
+/usr/include/pblib/incpbconstraint.h:50:50: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void setIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
+                                                  ^
+/usr/include/pblib/incpbconstraint.h:52:43: error: ‘std::shared_ptr’ has not been declared
+     void setLeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
+                                           ^
+/usr/include/pblib/incpbconstraint.h:52:53: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void setLeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
+                                                     ^
+/usr/include/pblib/incpbconstraint.h:53:43: error: ‘std::shared_ptr’ has not been declared
+     void setGeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
+                                           ^
+/usr/include/pblib/incpbconstraint.h:53:53: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void setGeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
+                                                     ^
+In file included from /usr/include/pblib/pb2cnf.h:7:0,
+                 from prova.cc:1:
+/usr/include/pblib/VectorClauseDatabase.h:16:35: error: expected ‘)’ before ‘config’
+     VectorClauseDatabase(PBConfig config);
+                                   ^
+/usr/include/pblib/VectorClauseDatabase.h:17:35: error: expected ‘)’ before ‘config’
+     VectorClauseDatabase(PBConfig config, std::vector<std::vector<int32_t> > * clauses);
+                                   ^
+In file included from /usr/include/pblib/pb2cnf.h:10:0,
+                 from prova.cc:1:
+/usr/include/pblib/preencoder.h:38:5: error: ‘PBConfig’ does not name a type
+     PBConfig config;
+     ^
+/usr/include/pblib/preencoder.h:42:25: error: expected ‘)’ before ‘config’
+     PreEncoder(PBConfig config, statistic * stats = 0);
+                         ^
+/usr/include/pblib/preencoder.h:51:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     std::shared_ptr<IncSimplePBConstraint> preEncodeIncPBConstraint(IncPBConstraint & pbconstraint, ClauseDatabase& formula);
+          ^
+In file included from /usr/include/pblib/encoder/bdd.h:19:0,
+                 from /usr/include/pblib/pb2cnf.h:11,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/Encoder.h:11:3: error: ‘PBConfig’ does not name a type
+   PBConfig config;
+   ^
+/usr/include/pblib/encoder/Encoder.h:15:20: error: expected ‘)’ before ‘&’ token
+   Encoder(PBConfig & config);
+                    ^
+/usr/include/pblib/encoder/Encoder.h:18:34: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+   void virtual encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
+                                  ^
+/usr/include/pblib/encoder/Encoder.h:18:44: error: expected ‘,’ or ‘...’ before ‘<’ token
+   void virtual encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
+                                            ^
+In file included from /usr/include/pblib/encoder/bdd.h:19:0,
+                 from /usr/include/pblib/pb2cnf.h:11,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/Encoder.h:21:44: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+   int64_t virtual encodingValue(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint);
+                                            ^
+/usr/include/pblib/encoder/Encoder.h:21:54: error: expected ‘,’ or ‘...’ before ‘<’ token
+   int64_t virtual encodingValue(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint);
+                                                      ^
+In file included from /usr/include/pblib/pb2cnf.h:11:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/bdd.h:46:12: error: ‘tuple’ is not a member of ‘std’
+   std::map<std::tuple<int32_t, int32_t, int32_t>, int32_t>  nodeHistory;
+            ^
+/usr/include/pblib/encoder/bdd.h:46:12: error: ‘tuple’ is not a member of ‘std’
+/usr/include/pblib/encoder/bdd.h:46:48: error: template argument 1 is invalid
+   std::map<std::tuple<int32_t, int32_t, int32_t>, int32_t>  nodeHistory;
+                                                ^
+/usr/include/pblib/encoder/bdd.h:46:48: error: template argument 4 is invalid
+/usr/include/pblib/encoder/bdd.h:46:49: error: expected unqualified-id before ‘,’ token
+   std::map<std::tuple<int32_t, int32_t, int32_t>, int32_t>  nodeHistory;
+                                                 ^
+In file included from /usr/include/pblib/pb2cnf.h:11:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/bdd.h:67:24: error: expected ‘)’ before ‘&’ token
+   BDD_Encoder(PBConfig & config) : Encoder(config) { };
+                        ^
+In file included from /usr/include/pblib/pb2cnf.h:12:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/adderencoding.h:16:16: error: ‘uint64_t’ does not name a type
+ int ld64(const uint64_t x);
+                ^
+In file included from /usr/include/pblib/pb2cnf.h:12:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/adderencoding.h:56:44: error: ‘>>’ should be ‘> >’ within a nested template argument list
+   void adderTree(std::vector<std::queue<Lit>> & buckets, std::vector<Lit> & result);
+                                            ^
+/usr/include/pblib/encoder/adderencoding.h:66:36: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+   int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
+                                    ^
+/usr/include/pblib/encoder/adderencoding.h:66:46: error: expected ‘,’ or ‘...’ before ‘<’ token
+   int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
+                                              ^
+/usr/include/pblib/encoder/adderencoding.h:69:26: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+   void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
+                          ^
+/usr/include/pblib/encoder/adderencoding.h:69:36: error: expected ‘,’ or ‘...’ before ‘<’ token
+   void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
+                                    ^
+/usr/include/pblib/encoder/adderencoding.h:71:26: error: expected ‘)’ before ‘&’ token
+   AdderEncoding(PBConfig & config) : Encoder(config), isInc(false) {};
+                          ^
+In file included from /usr/include/pblib/pb2cnf.h:13:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/amo.h:32:26: error: expected ‘)’ before ‘&’ token
+     AMO_Encoder(PBConfig & config);
+                          ^
+In file included from /usr/include/pblib/encoder/k-product.h:13:0,
+                 from /usr/include/pblib/pb2cnf.h:14,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/naive_amo_encoder.h:29:32: error: expected ‘)’ before ‘&’ token
+     Naive_amo_encoder(PBConfig & config);
+                                ^
+In file included from /usr/include/pblib/pb2cnf.h:14:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/k-product.h:35:24: error: expected ‘)’ before ‘&’ token
+     k_Product(PBConfig & config);
+                        ^
+In file included from /usr/include/pblib/pb2cnf.h:15:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/binary_amo.h:31:33: error: expected ‘)’ before ‘&’ token
+     Binary_AMO_Encoder(PBConfig & config);
+                                 ^
+In file included from /usr/include/pblib/pb2cnf.h:16:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/cardencoding.h:32:28: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
+                            ^
+/usr/include/pblib/encoder/cardencoding.h:32:38: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
+                                      ^
+/usr/include/pblib/encoder/cardencoding.h:36:38: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
+                                      ^
+/usr/include/pblib/encoder/cardencoding.h:36:48: error: expected ‘,’ or ‘...’ before ‘<’ token
+     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
+                                                ^
+/usr/include/pblib/encoder/cardencoding.h:38:28: error: expected ‘)’ before ‘&’ token
+     CardEncoding (PBConfig & config);
+                            ^
+In file included from /usr/include/pblib/pb2cnf.h:17:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/commander_encoding.h:36:33: error: expected ‘)’ before ‘&’ token
+     commander_encoding(PBConfig & config);
+                                 ^
+In file included from /usr/include/pblib/pb2cnf.h:19:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/bimander_amo_encoding.h:34:36: error: expected ‘)’ before ‘&’ token
+     Bimander_amo_encoding(PBConfig & config);
+                                    ^
+In file included from /usr/include/pblib/pb2cnf.h:20:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/BDD_Seq_Amo.h:31:26: error: expected ‘)’ before ‘&’ token
+     BDD_Seq_Amo(PBConfig & config);
+                          ^
+In file included from /usr/include/pblib/pb2cnf.h:21:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/SortingNetworks.h:25:31: error: ‘Formula’ was not declared in this scope
+  inline void cmp2(std::vector<Formula>& fs, int begin)
+                               ^
+/usr/include/pblib/encoder/SortingNetworks.h:25:38: error: template argument 1 is invalid
+  inline void cmp2(std::vector<Formula>& fs, int begin)
+                                      ^
+/usr/include/pblib/encoder/SortingNetworks.h:25:38: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:35:26: error: ‘Formula’ was not declared in this scope
+  void riffle(std::vector<Formula>& fs)
+                          ^
+/usr/include/pblib/encoder/SortingNetworks.h:35:33: error: template argument 1 is invalid
+  void riffle(std::vector<Formula>& fs)
+                                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:35:33: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:44:28: error: ‘Formula’ was not declared in this scope
+  void unriffle(std::vector<Formula>& fs)
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:44:35: error: template argument 1 is invalid
+  void unriffle(std::vector<Formula>& fs)
+                                   ^
+/usr/include/pblib/encoder/SortingNetworks.h:44:35: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:53:32: error: ‘Formula’ was not declared in this scope
+  void oddEvenMerge(std::vector<Formula>& fs, int begin, int end)
+                                ^
+/usr/include/pblib/encoder/SortingNetworks.h:53:39: error: template argument 1 is invalid
+  void oddEvenMerge(std::vector<Formula>& fs, int begin, int end)
+                                       ^
+/usr/include/pblib/encoder/SortingNetworks.h:53:39: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:77:30: error: ‘Formula’ was not declared in this scope
+ void oddEvenSort(std::vector<Formula>& fs)
+                              ^
+/usr/include/pblib/encoder/SortingNetworks.h:77:37: error: template argument 1 is invalid
+ void oddEvenSort(std::vector<Formula>& fs)
+                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:77:37: error: template argument 2 is invalid
+In file included from /usr/include/pblib/pb2cnf.h:21:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/SortingNetworks.h:188:30: error: ‘Formula’ was not declared in this scope
+ void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
+                              ^
+/usr/include/pblib/encoder/SortingNetworks.h:188:37: error: template argument 1 is invalid
+ void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
+                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:188:37: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:188:78: error: ‘Formula’ was not declared in this scope
+ void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
+                                                                              ^
+/usr/include/pblib/encoder/SortingNetworks.h:188:85: error: template argument 1 is invalid
+ void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
+                                                                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:188:85: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:198:30: error: ‘Formula’ was not declared in this scope
+ void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
+                              ^
+/usr/include/pblib/encoder/SortingNetworks.h:198:37: error: template argument 1 is invalid
+ void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
+                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:198:37: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:198:82: error: ‘Formula’ was not declared in this scope
+ void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
+                                                                                  ^
+/usr/include/pblib/encoder/SortingNetworks.h:198:89: error: template argument 1 is invalid
+ void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
+                                                                                         ^
+/usr/include/pblib/encoder/SortingNetworks.h:198:89: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:210:34: error: ‘Formula’ was not declared in this scope
+ void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
+                                  ^
+/usr/include/pblib/encoder/SortingNetworks.h:210:41: error: template argument 1 is invalid
+ void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
+                                         ^
+/usr/include/pblib/encoder/SortingNetworks.h:210:41: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:210:86: error: ‘Formula’ was not declared in this scope
+ void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
+                                                                                      ^
+/usr/include/pblib/encoder/SortingNetworks.h:210:93: error: template argument 1 is invalid
+ void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
+                                                                                             ^
+/usr/include/pblib/encoder/SortingNetworks.h:210:93: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:210:165: error: ‘Formula’ was not declared in this scope
+ void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
+                                                                                                                                                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:210:172: error: template argument 1 is invalid
+ void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
+                                                                                                                                                                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:210:172: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:210:174: error: template argument 1 is invalid
+ void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
+                                                                                                                                                                              ^
+/usr/include/pblib/encoder/SortingNetworks.h:210:174: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:296:1: error: ‘Formula’ does not name a type
+ Formula lexComp(int sz, std::vector<int>& num, std::vector<std::vector<Formula> >& digits)
+ ^
+/usr/include/pblib/encoder/SortingNetworks.h:314:1: error: ‘Formula’ does not name a type
+ Formula lexComp(std::vector<int>& num, std::vector<std::vector<Formula> >& digits) {
+ ^
+/usr/include/pblib/encoder/SortingNetworks.h:320:1: error: ‘Formula’ does not name a type
+ Formula buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<int>& base, int64_t lo, int64_t hi)
+ ^
+/usr/include/pblib/encoder/SortingNetworks.h:379:1: error: ‘Formula’ does not name a type
+ Formula buildConstraint(const SimplePBConstraint& c)
+ ^
+/usr/include/pblib/encoder/SortingNetworks.h:406:28: error: expected ‘)’ before ‘&’ token
+   SortingNetworks(PBConfig & config);
+                            ^
+In file included from /usr/include/pblib/pb2cnf.h:21:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/SortingNetworks.h:23:54: error: could not convert ‘{2, 3, 5, 7, 11, 13, 17}’ from ‘<brace-enclosed initializer list>’ to ‘std::vector<int>’
+   std::vector<int> primes = { 2, 3, 5, 7, 11, 13, 17 };
+                                                      ^
+/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::cmp2(int&, int)’:
+/usr/include/pblib/encoder/SortingNetworks.h:27:5: error: ‘Formula’ was not declared in this scope
+     Formula a     = fs[begin];
+     ^
+/usr/include/pblib/encoder/SortingNetworks.h:28:13: error: expected ‘;’ before ‘b’
+     Formula b     = fs[begin + 1];
+             ^
+/usr/include/pblib/encoder/SortingNetworks.h:30:13: error: invalid types ‘int[int]’ for array subscript
+     fs[begin]     = OR(a,b);
+             ^
+/usr/include/pblib/encoder/SortingNetworks.h:30:24: error: ‘a’ was not declared in this scope
+     fs[begin]     = OR(a,b);
+                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:30:26: error: ‘b’ was not declared in this scope
+     fs[begin]     = OR(a,b);
+                          ^
+/usr/include/pblib/encoder/SortingNetworks.h:30:27: error: ‘OR’ was not declared in this scope
+     fs[begin]     = OR(a,b);
+                           ^
+/usr/include/pblib/encoder/SortingNetworks.h:31:17: error: invalid types ‘int[int]’ for array subscript
+     fs[begin + 1] = AND(a, b);
+                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:31:29: error: ‘AND’ was not declared in this scope
+     fs[begin + 1] = AND(a, b);
+                             ^
+/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::riffle(int&)’:
+/usr/include/pblib/encoder/SortingNetworks.h:37:17: error: ‘Formula’ was not declared in this scope
+     std::vector<Formula> tmp; tmp = fs;
+                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:37:24: error: template argument 1 is invalid
+     std::vector<Formula> tmp; tmp = fs;
+                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:37:24: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:38:28: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+     for (int i = 0; i < fs.size() / 2; i++){
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:39:15: error: invalid types ‘int[int]’ for array subscript
+         fs[i*2]   = tmp[i];
+               ^
+/usr/include/pblib/encoder/SortingNetworks.h:39:26: error: invalid types ‘int[int]’ for array subscript
+         fs[i*2]   = tmp[i];
+                          ^
+/usr/include/pblib/encoder/SortingNetworks.h:40:17: error: invalid types ‘int[int]’ for array subscript
+         fs[i*2+1] = tmp[i+fs.size() / 2];
+                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:40:30: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+         fs[i*2+1] = tmp[i+fs.size() / 2];
+                              ^
+/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::unriffle(int&)’:
+/usr/include/pblib/encoder/SortingNetworks.h:46:17: error: ‘Formula’ was not declared in this scope
+     std::vector<Formula> tmp; tmp = fs;
+                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:46:24: error: template argument 1 is invalid
+     std::vector<Formula> tmp; tmp = fs;
+                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:46:24: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:47:28: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+     for (int i = 0; i < fs.size() / 2; i++){
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:48:13: error: invalid types ‘int[int]’ for array subscript
+         fs[i]               = tmp[i*2];
+             ^
+/usr/include/pblib/encoder/SortingNetworks.h:48:38: error: invalid types ‘int[int]’ for array subscript
+         fs[i]               = tmp[i*2];
+                                      ^
+/usr/include/pblib/encoder/SortingNetworks.h:49:17: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+         fs[i+fs.size() / 2] = tmp[i*2+1];
+                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:49:40: error: invalid types ‘int[int]’ for array subscript
+         fs[i+fs.size() / 2] = tmp[i*2+1];
+                                        ^
+/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::oddEvenMerge(int&, int, int)’:
+/usr/include/pblib/encoder/SortingNetworks.h:60:21: error: ‘Formula’ was not declared in this scope
+         std::vector<Formula> tmp;
+                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:60:28: error: template argument 1 is invalid
+         std::vector<Formula> tmp;
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:60:28: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:62:17: error: request for member ‘push_back’ in ‘tmp’, which is of non-class type ‘int’
+             tmp.push_back(fs[begin+i]);
+                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:62:37: error: invalid types ‘int[int]’ for array subscript
+             tmp.push_back(fs[begin+i]);
+                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:65:34: error: request for member ‘size’ in ‘tmp’, which is of non-class type ‘int’
+         oddEvenMerge(tmp,mid,tmp.size());
+                                  ^
+/usr/include/pblib/encoder/SortingNetworks.h:67:33: error: request for member ‘size’ in ‘tmp’, which is of non-class type ‘int’
+         for (int i = 1; i < tmp.size() - 1; i += 2)
+                                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:69:33: error: request for member ‘size’ in ‘tmp’, which is of non-class type ‘int’
+         for (int i = 0; i < tmp.size(); i++)
+                                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:70:25: error: invalid types ‘int[int]’ for array subscript
+             fs[i + begin] = tmp[i];
+                         ^
+/usr/include/pblib/encoder/SortingNetworks.h:70:34: error: invalid types ‘int[int]’ for array subscript
+             fs[i + begin] = tmp[i];
+                                  ^
+/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::oddEvenSort(int&)’:
+/usr/include/pblib/encoder/SortingNetworks.h:79:22: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+     int orig_sz = fs.size();
+                      ^
+/usr/include/pblib/encoder/SortingNetworks.h:80:34: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+     int sz; for (sz = 1; sz < fs.size(); sz *= 2);
+                                  ^
+/usr/include/pblib/encoder/SortingNetworks.h:82:12: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+     if (fs.size() < sz)
+            ^
+/usr/include/pblib/encoder/SortingNetworks.h:83:10: error: request for member ‘resize’ in ‘fs’, which is of non-class type ‘int’
+       fs.resize(sz,_false_);
+          ^
+/usr/include/pblib/encoder/SortingNetworks.h:83:20: error: ‘_false_’ was not declared in this scope
+       fs.resize(sz,_false_);
+                    ^
+/usr/include/pblib/encoder/SortingNetworks.h:86:28: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+     for (int i = 1; i < fs.size(); i *= 2)
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:87:39: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
+         for (int j = 0; j + 2*i <= fs.size(); j += 2*i)
+                                       ^
+/usr/include/pblib/encoder/SortingNetworks.h:91:10: error: request for member ‘pop_back’ in ‘fs’, which is of non-class type ‘int’
+       fs.pop_back();
+          ^
+In file included from /usr/include/pblib/pb2cnf.h:21:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::buildSorter(int&, std::vector<int>&, int&)’:
+/usr/include/pblib/encoder/SortingNetworks.h:190:16: error: request for member ‘clear’ in ‘out_sorter’, which is of non-class type ‘int’
+     out_sorter.clear();
+                ^
+/usr/include/pblib/encoder/SortingNetworks.h:191:28: error: request for member ‘size’ in ‘ps’, which is of non-class type ‘int’
+     for (int i = 0; i < ps.size(); i++)
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:193:24: error: request for member ‘push_back’ in ‘out_sorter’, which is of non-class type ‘int’
+             out_sorter.push_back(ps[i]);
+                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:193:38: error: invalid types ‘int[int]’ for array subscript
+             out_sorter.push_back(ps[i]);
+                                      ^
+In file included from /usr/include/pblib/encoder/bdd.h:12:0,
+                 from /usr/include/pblib/pb2cnf.h:11,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::buildConstraint(int&, std::vector<long int>&, int&, std::vector<int>&, int, int&)’:
+/usr/include/pblib/encoder/SortingNetworks.h:212:5: error: request for member ‘size’ in ‘ps’, which is of non-class type ‘int’
+     assert(ps.size() == Cs.size());
+     ^
+In file included from /usr/include/pblib/pb2cnf.h:21:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/SortingNetworks.h:217:35: error: request for member ‘size’ in ‘carry’, which is of non-class type ‘int’
+         for (int i = 0; i < carry.size(); i++)
+                                   ^
+/usr/include/pblib/encoder/SortingNetworks.h:218:16: error: request for member ‘push_back’ in ‘ps’, which is of non-class type ‘int’
+             ps.push_back(carry[i]),
+                ^
+/usr/include/pblib/encoder/SortingNetworks.h:218:33: error: invalid types ‘int[int]’ for array subscript
+             ps.push_back(carry[i]),
+                                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:220:20: error: request for member ‘push_back’ in ‘out_digits’, which is of non-class type ‘int’
+         out_digits.push_back(std::vector<Formula>());
+                    ^
+/usr/include/pblib/encoder/SortingNetworks.h:220:42: error: ‘Formula’ was not declared in this scope
+         out_digits.push_back(std::vector<Formula>());
+                                          ^
+/usr/include/pblib/encoder/SortingNetworks.h:220:49: error: template argument 1 is invalid
+         out_digits.push_back(std::vector<Formula>());
+                                                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:220:49: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:221:40: error: request for member ‘back’ in ‘out_digits’, which is of non-class type ‘int’
+         buildSorter(ps, Cs, out_digits.back());
+                                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:224:21: error: ‘Formula’ was not declared in this scope
+         std::vector<Formula>    ps_rem;
+                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:224:28: error: template argument 1 is invalid
+         std::vector<Formula>    ps_rem;
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:224:28: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:226:28: error: type/value mismatch at argument 1 in template parameter list for ‘template<class _Tp, class _Alloc> class std::vector’
+         std::vector<Formula>    ps_div;
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:226:28: note:   expected a type, got ‘Formula’
+/usr/include/pblib/encoder/SortingNetworks.h:226:28: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:235:24: error: request for member ‘push_back’ in ‘ps_div’, which is of non-class type ‘int’
+                 ps_div.push_back(ps[i]);
+                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:235:38: error: invalid types ‘int[int]’ for array subscript
+                 ps_div.push_back(ps[i]);
+                                      ^
+/usr/include/pblib/encoder/SortingNetworks.h:239:24: error: request for member ‘push_back’ in ‘ps_rem’, which is of non-class type ‘int’
+                 ps_rem.push_back(ps[i]);
+                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:239:38: error: invalid types ‘int[int]’ for array subscript
+                 ps_rem.push_back(ps[i]);
+                                      ^
+/usr/include/pblib/encoder/SortingNetworks.h:245:35: error: request for member ‘size’ in ‘carry’, which is of non-class type ‘int’
+         for (int i = 0; i < carry.size(); i++)
+                                   ^
+/usr/include/pblib/encoder/SortingNetworks.h:246:20: error: request for member ‘push_back’ in ‘ps_rem’, which is of non-class type ‘int’
+             ps_rem.push_back(carry[i]),
+                    ^
+/usr/include/pblib/encoder/SortingNetworks.h:246:37: error: invalid types ‘int[int]’ for array subscript
+             ps_rem.push_back(carry[i]),
+                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:250:28: error: type/value mismatch at argument 1 in template parameter list for ‘template<class _Tp, class _Alloc> class std::vector’
+         std::vector<Formula> result;
+                            ^
+/usr/include/pblib/encoder/SortingNetworks.h:250:28: note:   expected a type, got ‘Formula’
+/usr/include/pblib/encoder/SortingNetworks.h:250:28: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:254:15: error: request for member ‘clear’ in ‘carry’, which is of non-class type ‘int’
+         carry.clear();
+               ^
+/usr/include/pblib/encoder/SortingNetworks.h:255:38: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
+         for (int i = B-1; i < result.size(); i += B)
+                                      ^
+/usr/include/pblib/encoder/SortingNetworks.h:256:19: error: request for member ‘push_back’ in ‘carry’, which is of non-class type ‘int’
+             carry.push_back(result[i]);
+                   ^
+/usr/include/pblib/encoder/SortingNetworks.h:256:37: error: invalid types ‘int[int]’ for array subscript
+             carry.push_back(result[i]);
+                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:258:20: error: request for member ‘push_back’ in ‘out_digits’, which is of non-class type ‘int’
+         out_digits.push_back(std::vector<Formula>());
+                    ^
+/usr/include/pblib/encoder/SortingNetworks.h:258:49: error: type/value mismatch at argument 1 in template parameter list for ‘template<class _Tp, class _Alloc> class std::vector’
+         out_digits.push_back(std::vector<Formula>());
+                                                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:258:49: note:   expected a type, got ‘Formula’
+/usr/include/pblib/encoder/SortingNetworks.h:258:49: error: template argument 2 is invalid
+/usr/include/pblib/encoder/SortingNetworks.h:260:21: error: expected ‘;’ before ‘out’
+             Formula out = _false_;
+                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:261:40: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
+             for (int j = 0; j < result.size(); j += B){
+                                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:263:36: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
+                 if (j + i < result.size())
+                                    ^
+/usr/include/pblib/encoder/SortingNetworks.h:264:21: error: ‘out’ was not declared in this scope
+                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
+                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:264:51: error: invalid types ‘int[int]’ for array subscript
+                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
+                                                   ^
+/usr/include/pblib/encoder/SortingNetworks.h:264:69: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
+                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
+                                                                     ^
+/usr/include/pblib/encoder/SortingNetworks.h:264:79: error: ‘_true_’ was not declared in this scope
+                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
+                                                                               ^
+/usr/include/pblib/encoder/SortingNetworks.h:264:97: error: invalid types ‘int[int]’ for array subscript
+                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
+                                                                                                 ^
+/usr/include/pblib/encoder/SortingNetworks.h:264:99: error: ‘AND’ was not declared in this scope
+                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
+                                                                                                   ^
+/usr/include/pblib/encoder/SortingNetworks.h:264:100: error: ‘OR’ was not declared in this scope
+                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
+                                                                                                    ^
+/usr/include/pblib/encoder/SortingNetworks.h:266:24: error: request for member ‘back’ in ‘out_digits’, which is of non-class type ‘int’
+             out_digits.back().push_back(out);
+                        ^
+/usr/include/pblib/encoder/SortingNetworks.h:266:41: error: ‘out’ was not declared in this scope
+             out_digits.back().push_back(out);
+                                         ^
+In file included from /usr/include/pblib/pb2cnf.h:22:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/BinaryMerge.h: At global scope:
+/usr/include/pblib/encoder/BinaryMerge.h:42:24: error: expected ‘)’ before ‘&’ token
+   BinaryMerge(PBConfig & config);
+                        ^
+In file included from /usr/include/pblib/pb2cnf.h:23:0,
+                 from prova.cc:1:
+/usr/include/pblib/encoder/SWC.h:41:28: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     void encode(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint, ClauseDatabase& formula, AuxVarManager& auxvars);
+                            ^
+/usr/include/pblib/encoder/SWC.h:41:38: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void encode(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint, ClauseDatabase& formula, AuxVarManager& auxvars);
+                                      ^
+/usr/include/pblib/encoder/SWC.h:42:38: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
+     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
+                                      ^
+/usr/include/pblib/encoder/SWC.h:42:48: error: expected ‘,’ or ‘...’ before ‘<’ token
+     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
+                                                ^
+/usr/include/pblib/encoder/SWC.h:44:26: error: expected ‘)’ before ‘config’
+     SWC_Encoder(PBConfig config);
+                          ^
+In file included from /usr/include/pblib/pb2cnf.h:25:0,
+                 from prova.cc:1:
+/usr/include/pblib/helper.h:13:10: error: ‘hash’ is not a class template
+   struct hash< std::pair<a, b> >
+          ^
+/usr/include/pblib/helper.h:16:17: error: wrong number of template arguments (1, should be 2)
+     const hash<a> ah;
+                 ^
+/usr/include/pblib/helper.h:13:32: note: provided for ‘template<class a, class b> struct std::hash’
+   struct hash< std::pair<a, b> >
+                                ^
+/usr/include/pblib/helper.h:17:17: error: wrong number of template arguments (1, should be 2)
+     const hash<b> bh;
+                 ^
+/usr/include/pblib/helper.h:13:32: note: provided for ‘template<class a, class b> struct std::hash’
+   struct hash< std::pair<a, b> >
+                                ^
+/usr/include/pblib/helper.h:50:10: error: ‘uint64_t’ does not name a type
+   static uint64_t callCount;
+          ^
+In file included from prova.cc:1:0:
+/usr/include/pblib/pb2cnf.h:30:5: error: ‘PBConfig’ does not name a type
+     PBConfig basic_default_config =  std::make_shared<PBConfigClass>();
+     ^
+/usr/include/pblib/pb2cnf.h:34:5: error: ‘PBConfig’ does not name a type
+     PBConfig config;
+     ^
+In file included from prova.cc:1:0:
+/usr/include/pblib/pb2cnf.h:55:69: error: ‘std::shared_ptr’ has not been declared
+     bool encodeWithBestEncoder(std::vector<Encoder*> encoders, std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                                                     ^
+/usr/include/pblib/pb2cnf.h:55:79: error: expected ‘,’ or ‘...’ before ‘<’ token
+     bool encodeWithBestEncoder(std::vector<Encoder*> encoders, std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                                                               ^
+/usr/include/pblib/pb2cnf.h:57:37: error: ‘std::shared_ptr’ has not been declared
+     void encode_inc_with_adder(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                     ^
+/usr/include/pblib/pb2cnf.h:57:47: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void encode_inc_with_adder(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                               ^
+/usr/include/pblib/pb2cnf.h:58:36: error: ‘std::shared_ptr’ has not been declared
+     void encode_inc_with_card(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                    ^
+/usr/include/pblib/pb2cnf.h:58:46: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void encode_inc_with_card(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                              ^
+/usr/include/pblib/pb2cnf.h:59:35: error: ‘std::shared_ptr’ has not been declared
+     void encode_inc_with_swc(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                   ^
+/usr/include/pblib/pb2cnf.h:59:45: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void encode_inc_with_swc(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                             ^
+/usr/include/pblib/pb2cnf.h:60:30: error: ‘std::shared_ptr’ has not been declared
+     void encode_inc_amk(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                              ^
+/usr/include/pblib/pb2cnf.h:60:40: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void encode_inc_amk(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                        ^
+/usr/include/pblib/pb2cnf.h:61:29: error: ‘std::shared_ptr’ has not been declared
+     void encode_inc_pb(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                             ^
+/usr/include/pblib/pb2cnf.h:61:39: error: expected ‘,’ or ‘...’ before ‘<’ token
+     void encode_inc_pb(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
+                                       ^
+/usr/include/pblib/pb2cnf.h:77:21: error: expected ‘)’ before ‘&’ token
+     PB2CNF(PBConfig & config, statistic * stats = 0);
+                     ^
+prova.cc: In function ‘int main()’:
+prova.cc:7:43: error: in C++98 ‘weights’ must be initialized by constructor, not by ‘{...}’
+   std::vector< int64_t > weights = {3,-2,7};
+                                           ^
+prova.cc:7:43: error: could not convert ‘{3, -2, 7}’ from ‘<brace-enclosed initializer list>’ to ‘std::vector<long int>’
+prova.cc:8:45: error: in C++98 ‘literals’ must be initialized by constructor, not by ‘{...}’
+   std::vector< int32_t > literals = {-1,-2,3};
+                                             ^
+prova.cc:8:45: error: could not convert ‘{-1, -2, 3}’ from ‘<brace-enclosed initializer list>’ to ‘std::vector<int>’
+make: *** [prova] Error 1

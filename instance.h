@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cassert>
 #include <set>
+#include <map>
 #include "utils.h"
 #include <random>
 
@@ -15,22 +16,10 @@
 struct variable {
   std::vector< int > coords;
   int net;
-  variable() {
-    coords = std::vector< int >();
-    net = -1;
-  }
 
-  variable(std::vector< int > c, int n) {
-    coords = c;
-    net = n;
-  }
-
-  friend bool operator<(const variable& a, const variable& b) {
-    if(a.coords != b.coords) {
-      return a.coords < b.coords;
-    }
-    return a.net < b.net;
-  }
+  variable();
+  variable(std::vector< int > c, int n);
+  friend bool operator<(const variable& a, const variable& b);
 };
 
 /*
@@ -46,30 +35,18 @@ struct instance {
   std::vector< int > dim_sizes;
   std::vector< std::vector< std::vector< int > > > points;
   std::set< variable > allowed_variables;
+  std::map< variable, int > var2index;
+  std::map< int, variable > index2var;
 
-  instance() {
-    dim_sizes = std::vector< int >();
-    points = std::vector< std::vector< std::vector< int > > >();
-    allowed_variables = std::set< variable >();
-  }
+  instance();
 
-  void summary(std::ostream& out) {
-    out << "Num dims: " << num_dims << std::endl;
-    out << "Num nets: " << num_nets << std::endl;
-    int total_variables = num_nets;
-    for(int dim : dim_sizes) {
-      total_variables *= dim;
-    }
-    out << "Total variables: " << total_variables << std::endl;
-    out << "Allowed variables: " << allowed_variables.size() << std::endl;
-    out << "Ratio: "
-    << double(allowed_variables.size()) / double(total_variables) << std::endl;
-  }
+  void summary(std::ostream& out);
 
 };
 
 /*
-  Parses an input file, applies the R-L algorithm to it, and returns
-  an instance
+  Parses an input file, creates an instance,
+  applies the R-L algorithm to it, and returns
+  the resulting instance
 */
 instance parse_input(std::ifstream&);

@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
   }
   std::string input_file(argv[1]);
   std::ifstream in(input_file);
-  if(in.bad()) {
+  if(!in.good()) {
     std::cout << "ERROR: Could not find file " << input_file << std::endl;
     usage(1);
   }

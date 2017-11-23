@@ -1,9 +1,47 @@
 #include "instance.h"
 
+variable::variable() {
+  coords = std::vector< int >();
+  net = -1;
+}
+
+variable::variable(std::vector< int > c, int n) {
+  coords = c;
+  net = n;
+}
+
+bool operator<(const variable& a, const variable& b) {
+  if(a.coords != b.coords) {
+    return a.coords < b.coords;
+  }
+  return a.net < b.net;
+}
+
+instance::instance() {
+  dim_sizes = std::vector< int >();
+  points = std::vector< std::vector< std::vector< int > > >();
+  allowed_variables = std::set< variable >();
+  var2index = std::map< variable, int >();
+  index2var = std::map< int, variable >();
+}
+
+void instance::summary(std::ostream& out) {
+  out << "Num dims: " << num_dims << std::endl;
+  out << "Num nets: " << num_nets << std::endl;
+  int total_variables = num_nets;
+  for(int dim : dim_sizes) {
+    total_variables *= dim;
+  }
+  out << "Total variables: " << total_variables << std::endl;
+  out << "Allowed variables: " << allowed_variables.size() << std::endl;
+  out << "Ratio: "
+  << double(allowed_variables.size()) / double(total_variables) << std::endl;
+}
+
 /*
   Generate a random point inside a grid
 */
-std::vector< int > random_point(std::vector< int >& bounds) {
+static std::vector< int > random_point(std::vector< int >& bounds) {
   int n = int(bounds.size());
   std::vector< int > ret(n);
   for(int i=0; i < n; ++i) {
@@ -16,7 +54,7 @@ std::vector< int > random_point(std::vector< int >& bounds) {
   Given two points, and a net, add all the possible Ls to the set of allowed
   paths.
 */
-void add_ls(instance& ins,
+static void add_ls(instance& ins,
             const std::vector<int>& s,
             const std::vector<int>& t,
             int net) {
@@ -42,7 +80,7 @@ void add_ls(instance& ins,
   Apply the R-L "Random-L" algorithm to each net in order to generate
   some paths.
 */
-void generate_random_l_paths(instance& ins, int k = 5) {
+static void generate_random_l_paths(instance& ins, int k = 5) {
   for(int net = 0; net < ins.num_nets; ++net) {
     // For each pair (s, t), let's "activate" the following paths:
     // The d! "Ls" between s and t
@@ -82,5 +120,12 @@ instance parse_input(std::ifstream& in) {
   // Apply the R-L algorithm to the input instance in order to enable
   // some random paths
   generate_random_l_paths(ret);
+  // Assign a 1-started index to all variables. Remember its reverse mapping, too
+  int cur = 1;
+  for(auto var : ret.allowed_variables) {
+    ret.index2var[cur] = var;
+    ret.var2index[var] = cur;
+    ++cur;
+  }
   return ret;
 }
