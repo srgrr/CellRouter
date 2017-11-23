@@ -4,4 +4,5 @@ picosat
 output.*
 prova
 router
+plot_rl_algo
 *.o

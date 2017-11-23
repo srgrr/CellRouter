@@ -29,4 +29,4 @@ plot_rl_algo: plot_rl_algo.cc ${COMMON_OBJECTS} instance.o
 
 
 clean:
-	rm *.o
+	rm *.o prova router plot_rl_algo
