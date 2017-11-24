@@ -1,6 +1,6 @@
-#include <pblib/pb2cnf.h>
 #include "types.h"
 #include "instance.h"
+#include "instance2formula.h"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -22,4 +22,6 @@ int main(int argc, char** argv) {
   }
   auto initial_instance = parse_input(in);
   initial_instance.summary(std::cerr);
+  auto basic_formula = generate_basic_formula(initial_instance);
+
 }

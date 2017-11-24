@@ -1,1418 +1,3338 @@
-In file included from /usr/include/c++/5/cstdint:35:0,
-                 from /usr/include/pblib/PBSatSolver.h:4,
-                 from /usr/include/pblib/pb2cnf.h:4,
-                 from prova.cc:1:
-/usr/include/c++/5/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
- #error This file requires compiler and library support \
-  ^
-In file included from /usr/include/pblib/pb2cnf.h:4:0,
-                 from prova.cc:1:
-/usr/include/pblib/PBSatSolver.h:9:37: error: ‘int32_t’ was not declared in this scope
-  virtual bool addClause(std::vector<int32_t> const & clause) = 0;
-                                     ^
-/usr/include/pblib/PBSatSolver.h:9:44: error: template argument 1 is invalid
-  virtual bool addClause(std::vector<int32_t> const & clause) = 0;
-                                            ^
-/usr/include/pblib/PBSatSolver.h:9:44: error: template argument 2 is invalid
-/usr/include/pblib/PBSatSolver.h:10:41: error: ‘int32_t’ was not declared in this scope
-     virtual bool  addAtMost(std::vector<int32_t> const & literals, int k) = 0;
-                                         ^
-/usr/include/pblib/PBSatSolver.h:10:48: error: template argument 1 is invalid
-     virtual bool  addAtMost(std::vector<int32_t> const & literals, int k) = 0;
-                                                ^
-/usr/include/pblib/PBSatSolver.h:10:48: error: template argument 2 is invalid
-/usr/include/pblib/PBSatSolver.h:11:47: error: ‘int32_t’ was not declared in this scope
-     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
-                                               ^
-/usr/include/pblib/PBSatSolver.h:11:55: error: template argument 1 is invalid
-     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
-                                                       ^
-/usr/include/pblib/PBSatSolver.h:11:55: error: template argument 2 is invalid
-/usr/include/pblib/PBSatSolver.h:11:87: error: ‘int64_t’ was not declared in this scope
-     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
-                                                                                       ^
-/usr/include/pblib/PBSatSolver.h:11:95: error: template argument 1 is invalid
-     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
-                                                                                               ^
-/usr/include/pblib/PBSatSolver.h:11:95: error: template argument 2 is invalid
-/usr/include/pblib/PBSatSolver.h:11:107: error: ‘int64_t’ has not been declared
-     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
-                                                                                                           ^
-/usr/include/pblib/PBSatSolver.h:11:118: error: ‘int32_t’ has not been declared
-     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
-                                                                                                                      ^
-In file included from /usr/include/pblib/pb2cnf.h:4:0,
-                 from prova.cc:1:
-/usr/include/pblib/PBSatSolver.h:11:136: error: ‘nullptr’ was not declared in this scope
-     virtual bool  addPBLeq(const std::vector< int32_t >& literals, const std::vector< int64_t >& weights, int64_t k, int32_t * index = nullptr) = 0;
-                                                                                                                                        ^
-In file included from /usr/include/pblib/clausedatabase.h:8:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/auxvarmanager.h:20:10: error: ‘unordered_set’ in namespace ‘std’ does not name a template type
-     std::unordered_set<int32_t> free_variables;
-          ^
-In file included from /usr/include/pblib/formula.h:14:0,
-                 from /usr/include/pblib/clausedatabase.h:9,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/PBConfig.h:82:14: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
- typedef std::shared_ptr<PBConfigClass> PBConfig;    
-              ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:18:14: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
- typedef std::shared_ptr<FormulaClass> Formula;
-              ^
-/usr/include/pblib/formula.h:23:23: error: variable or field ‘printFormulaBits’ declared void
- void printFormulaBits(Formula f);
-                       ^
-/usr/include/pblib/formula.h:23:23: error: ‘Formula’ was not declared in this scope
-/usr/include/pblib/formula.h:26:8: error: ‘Formula’ does not name a type
- inline Formula true_branch(Formula const & f);
-        ^
-/usr/include/pblib/formula.h:27:8: error: ‘Formula’ does not name a type
- inline Formula false_branch(Formula const & f);
-        ^
-/usr/include/pblib/formula.h:28:8: error: ‘Formula’ does not name a type
- inline Formula selector(Formula const & f);
-        ^
-/usr/include/pblib/formula.h:29:8: error: ‘Formula’ does not name a type
- inline Formula left(Formula const & f);
-        ^
-/usr/include/pblib/formula.h:30:8: error: ‘Formula’ does not name a type
- inline Formula right(Formula const & f);
-        ^
-/usr/include/pblib/formula.h:31:29: error: ‘isAtom’ declared as an ‘inline’ variable
- inline bool isAtom( Formula const & f );
-                             ^
-/usr/include/pblib/formula.h:31:21: error: ‘Formula’ was not declared in this scope
- inline bool isAtom( Formula const & f );
-                     ^
-/usr/include/pblib/formula.h:32:28: error: ‘isNeg’ declared as an ‘inline’ variable
- inline bool isNeg( Formula const & f );
-                            ^
-/usr/include/pblib/formula.h:32:20: error: ‘Formula’ was not declared in this scope
- inline bool isNeg( Formula const & f );
-                    ^
-/usr/include/pblib/formula.h:33:27: error: ‘isPos’ declared as an ‘inline’ variable
- inline bool isPos(Formula const & f);
-                           ^
-/usr/include/pblib/formula.h:33:19: error: ‘Formula’ was not declared in this scope
- inline bool isPos(Formula const & f);
-                   ^
-/usr/include/pblib/formula.h:34:27: error: ‘isAND’ declared as an ‘inline’ variable
- inline bool isAND(Formula const & f);
-                           ^
-/usr/include/pblib/formula.h:34:19: error: ‘Formula’ was not declared in this scope
- inline bool isAND(Formula const & f);
-                   ^
-/usr/include/pblib/formula.h:35:29: error: ‘isEquiv’ declared as an ‘inline’ variable
- inline bool isEquiv(Formula const & f);
-                             ^
-/usr/include/pblib/formula.h:35:21: error: ‘Formula’ was not declared in this scope
- inline bool isEquiv(Formula const & f);
-                     ^
-/usr/include/pblib/formula.h:36:27: error: ‘isITE’ declared as an ‘inline’ variable
- inline bool isITE(Formula const & f);
-                           ^
-/usr/include/pblib/formula.h:36:19: error: ‘Formula’ was not declared in this scope
- inline bool isITE(Formula const & f);
-                   ^
-/usr/include/pblib/formula.h:37:36: error: ‘isMonotonicITE’ declared as an ‘inline’ variable
- inline bool isMonotonicITE(Formula const & f);
-                                    ^
-/usr/include/pblib/formula.h:37:28: error: ‘Formula’ was not declared in this scope
- inline bool isMonotonicITE(Formula const & f);
-                            ^
-/usr/include/pblib/formula.h:38:27: error: ‘isFAs’ declared as an ‘inline’ variable
- inline bool isFAs(Formula const & f);
-                           ^
-/usr/include/pblib/formula.h:38:19: error: ‘Formula’ was not declared in this scope
- inline bool isFAs(Formula const & f);
-                   ^
-/usr/include/pblib/formula.h:39:27: error: ‘isFAc’ declared as an ‘inline’ variable
- inline bool isFAc(Formula const & f);
-                           ^
-/usr/include/pblib/formula.h:39:19: error: ‘Formula’ was not declared in this scope
- inline bool isFAc(Formula const & f);
-                   ^
-/usr/include/pblib/formula.h:41:27: error: ‘getLit’ declared as an ‘inline’ variable
- inline Lit getLit(Formula const & f );
-                           ^
-/usr/include/pblib/formula.h:41:19: error: ‘Formula’ was not declared in this scope
- inline Lit getLit(Formula const & f );
-                   ^
-/usr/include/pblib/formula.h:42:26: error: ‘getId’ declared as an ‘inline’ variable
- inline Lit getId(Formula const & f);
-                          ^
-/usr/include/pblib/formula.h:42:18: error: ‘Formula’ was not declared in this scope
- inline Lit getId(Formula const & f);
-                  ^
-/usr/include/pblib/formula.h:44:34: error: declaration of ‘operator!=’ as non-function
- inline bool operator != (Formula const & f, Formula const & g);
-                                  ^
-/usr/include/pblib/formula.h:44:26: error: ‘Formula’ was not declared in this scope
- inline bool operator != (Formula const & f, Formula const & g);
-                          ^
-/usr/include/pblib/formula.h:44:45: error: ‘Formula’ was not declared in this scope
- inline bool operator != (Formula const & f, Formula const & g);
-                                             ^
-/usr/include/pblib/formula.h:45:34: error: declaration of ‘operator==’ as non-function
- inline bool operator == (Formula const & f, Formula const & g);
-                                  ^
-/usr/include/pblib/formula.h:45:26: error: ‘Formula’ was not declared in this scope
- inline bool operator == (Formula const & f, Formula const & g);
-                          ^
-/usr/include/pblib/formula.h:45:45: error: ‘Formula’ was not declared in this scope
- inline bool operator == (Formula const & f, Formula const & g);
-                                             ^
-/usr/include/pblib/formula.h:46:33: error: declaration of ‘operator<’ as non-function
- inline bool operator < (Formula const & f, Formula const & g);
-                                 ^
-/usr/include/pblib/formula.h:46:25: error: ‘Formula’ was not declared in this scope
- inline bool operator < (Formula const & f, Formula const & g);
-                         ^
-/usr/include/pblib/formula.h:46:44: error: ‘Formula’ was not declared in this scope
- inline bool operator < (Formula const & f, Formula const & g);
-                                            ^
-/usr/include/pblib/formula.h:47:33: error: declaration of ‘operator>’ as non-function
- inline bool operator > (Formula const & f, Formula const & g);
-                                 ^
-/usr/include/pblib/formula.h:47:25: error: ‘Formula’ was not declared in this scope
- inline bool operator > (Formula const & f, Formula const & g);
-                         ^
-/usr/include/pblib/formula.h:47:44: error: ‘Formula’ was not declared in this scope
- inline bool operator > (Formula const & f, Formula const & g);
-                                            ^
-/usr/include/pblib/formula.h:56:19: error: ‘uint64_t’ was not declared in this scope
-   static std::map<uint64_t, std::vector<Formula>> formula_cache;
-                   ^
-/usr/include/pblib/formula.h:56:41: error: ‘Formula’ was not declared in this scope
-   static std::map<uint64_t, std::vector<Formula>> formula_cache;
-                                         ^
-/usr/include/pblib/formula.h:56:51: error: ‘formula_cache’ was not declared in this scope
-   static std::map<uint64_t, std::vector<Formula>> formula_cache;
-                                                   ^
-/usr/include/pblib/formula.h:56:51: error: template argument 1 is invalid
-/usr/include/pblib/formula.h:56:51: error: template argument 2 is invalid
-/usr/include/pblib/formula.h:56:34: error: template argument 1 is invalid
-   static std::map<uint64_t, std::vector<Formula>> formula_cache;
-                                  ^
-/usr/include/pblib/formula.h:56:34: error: template argument 2 is invalid
-/usr/include/pblib/formula.h:56:34: error: template argument 3 is invalid
-/usr/include/pblib/formula.h:56:34: error: template argument 4 is invalid
-/usr/include/pblib/formula.h:56:15: error: a storage class can only be specified for objects and functions
-   static std::map<uint64_t, std::vector<Formula>> formula_cache;
-               ^
-/usr/include/pblib/formula.h:57:19: error: ‘uint64_t’ was not declared in this scope
-   static std::map<uint64_t, std::vector<Formula>>::iterator it;
-                   ^
-/usr/include/pblib/formula.h:57:41: error: ‘Formula’ was not declared in this scope
-   static std::map<uint64_t, std::vector<Formula>>::iterator it;
-                                         ^
-/usr/include/pblib/formula.h:57:50: error: ‘::iterator’ has not been declared
-   static std::map<uint64_t, std::vector<Formula>>::iterator it;
-                                                  ^
-/usr/include/pblib/formula.h:57:50: note: suggested alternatives:
-In file included from /usr/include/c++/5/bits/stl_algobase.h:65:0,
-                 from /usr/include/c++/5/vector:60,
-                 from /usr/include/pblib/PBSatSolver.h:5,
-                 from /usr/include/pblib/pb2cnf.h:4,
-                 from prova.cc:1:
-/usr/include/c++/5/bits/stl_iterator_base_types.h:118:12: note:   ‘std::iterator’
-     struct iterator
-            ^
-/usr/include/c++/5/bits/stl_iterator_base_types.h:118:12: note:   ‘std::iterator’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:57:61: error: template argument 1 is invalid
-   static std::map<uint64_t, std::vector<Formula>>::iterator it;
-                                                             ^
-/usr/include/pblib/formula.h:57:61: error: template argument 2 is invalid
-/usr/include/pblib/formula.h:57:34: error: template argument 1 is invalid
-   static std::map<uint64_t, std::vector<Formula>>::iterator it;
-                                  ^
-/usr/include/pblib/formula.h:57:34: error: template argument 2 is invalid
-/usr/include/pblib/formula.h:57:34: error: template argument 3 is invalid
-/usr/include/pblib/formula.h:57:34: error: template argument 4 is invalid
-/usr/include/pblib/formula.h:57:15: error: a storage class can only be specified for objects and functions
-   static std::map<uint64_t, std::vector<Formula>>::iterator it;
-               ^
-/usr/include/pblib/formula.h:59:22: error: ‘Formula’ was not declared in this scope
-   static std::vector<Formula> nodes;
-                      ^
-/usr/include/pblib/formula.h:59:29: error: template argument 1 is invalid
-   static std::vector<Formula> nodes;
-                             ^
-/usr/include/pblib/formula.h:59:29: error: template argument 2 is invalid
-/usr/include/pblib/formula.h:61:10: error: ‘PBConfig’ does not name a type
-   static PBConfig config;
-          ^
-/usr/include/pblib/formula.h:74:58: error: ‘Formula’ was not declared in this scope
-    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
-                                                          ^
-/usr/include/pblib/formula.h:74:65: error: template argument 1 is invalid
-    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
-                                                                 ^
-/usr/include/pblib/formula.h:74:65: error: template argument 2 is invalid
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:80:43: error: ‘Formula’ was not declared in this scope
-   FormulaClass(int32_t flags, std::vector<Formula> & input_nodes, int32_t var = 0) : flags(flags), input_nodes(input_nodes)
-                                           ^
-/usr/include/pblib/formula.h:80:50: error: template argument 1 is invalid
-   FormulaClass(int32_t flags, std::vector<Formula> & input_nodes, int32_t var = 0) : flags(flags), input_nodes(input_nodes)
-                                                  ^
-/usr/include/pblib/formula.h:80:50: error: template argument 2 is invalid
-/usr/include/pblib/formula.h:143:3: error: ‘uint32_t’ does not name a type
-   uint32_t flags;
-   ^
-/usr/include/pblib/formula.h:147:3: error: ‘uint32_t’ does not name a type
-   uint32_t data;
-   ^
-/usr/include/pblib/formula.h:150:15: error: ‘Formula’ was not declared in this scope
-   std::vector<Formula> input_nodes;
-               ^
-/usr/include/pblib/formula.h:150:22: error: template argument 1 is invalid
-   std::vector<Formula> input_nodes;
-                      ^
-/usr/include/pblib/formula.h:150:22: error: template argument 2 is invalid
-/usr/include/pblib/formula.h:152:10: error: ‘Formula’ does not name a type
-   static Formula newFalse() { return std::make_shared<FormulaClass>(0, 0); }
-          ^
-/usr/include/pblib/formula.h:153:10: error: ‘Formula’ does not name a type
-   static Formula newTrue() { return std::make_shared<FormulaClass>(0, 1); }
-          ^
-/usr/include/pblib/formula.h:154:10: error: ‘Formula’ does not name a type
-   static Formula newUndef() { return std::make_shared<FormulaClass>(0, 2); }
-          ^
-/usr/include/pblib/formula.h:156:10: error: ‘Formula’ does not name a type
-   static Formula newNeg(Formula const & f) {
-          ^
-/usr/include/pblib/formula.h:177:10: error: ‘Formula’ does not name a type
-   static Formula newAND(std::vector<Formula> & conjuncts) {
-          ^
-/usr/include/pblib/formula.h:216:10: error: ‘Formula’ does not name a type
-   static Formula newAND(Formula const & f, Formula const & g) {
-          ^
-/usr/include/pblib/formula.h:242:10: error: ‘Formula’ does not name a type
-   static Formula newEquiv(Formula const & f, Formula const & g) {
-          ^
-/usr/include/pblib/formula.h:269:10: error: ‘Formula’ does not name a type
-   static Formula newNoNeg(Formula const & f) {
-          ^
-/usr/include/pblib/formula.h:276:10: error: ‘Formula’ does not name a type
-   static Formula newFAs(Formula const & x, Formula const & y, Formula const & c) {
-          ^
-/usr/include/pblib/formula.h:311:10: error: ‘Formula’ does not name a type
-   static Formula newFAc(Formula const & x, Formula const & y, Formula const &c) {
-          ^
-/usr/include/pblib/formula.h:346:10: error: ‘Formula’ does not name a type
-   static Formula newITE(Formula const & s, Formula const & t, Formula const & f);
-          ^
-/usr/include/pblib/formula.h:348:10: error: ‘Formula’ does not name a type
-   static Formula newMonotonic_ITE(Formula const & s, Formula const & t, Formula const & f) {
-          ^
-/usr/include/pblib/formula.h:384:10: error: ‘Formula’ does not name a type
-   static Formula newLit(Lit lit) {
-          ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int32_t, bool)’:
-/usr/include/pblib/formula.h:62:65: error: class ‘FormulaClass’ does not have any field named ‘flags’
-   FormulaClass(int32_t flags, int32_t data, bool isCopyDummy) : flags(flags), data(data)
-                                                                 ^
-/usr/include/pblib/formula.h:62:79: error: class ‘FormulaClass’ does not have any field named ‘data’
-   FormulaClass(int32_t flags, int32_t data, bool isCopyDummy) : flags(flags), data(data)
-                                                                               ^
-/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int32_t)’:
-/usr/include/pblib/formula.h:68:50: error: class ‘FormulaClass’ does not have any field named ‘flags’
-   FormulaClass(int32_t flags, int32_t var = 0) : flags(flags)
-                                                  ^
-In file included from /usr/include/pblib/formula.h:9:0,
-                 from /usr/include/pblib/clausedatabase.h:9,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:71:5: error: ‘data’ was not declared in this scope
-     assert( flags != 0 || data == 0 || data == 1 || data == 4);
-     ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int32_t, int&, bool)’:
-/usr/include/pblib/formula.h:74:102: error: class ‘FormulaClass’ does not have any field named ‘flags’
-    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
-                                                                                                      ^
-/usr/include/pblib/formula.h:74:116: error: class ‘FormulaClass’ does not have any field named ‘data’
-    FormulaClass(int32_t flags, int32_t data, std::vector<Formula> & input_nodes, bool isCopyDummy) : flags(flags), data(data),  input_nodes(input_nodes)
-                                                                                                                    ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h: In constructor ‘FormulaClass::FormulaClass(int32_t, int&, int32_t)’:
-/usr/include/pblib/formula.h:80:86: error: class ‘FormulaClass’ does not have any field named ‘flags’
-   FormulaClass(int32_t flags, std::vector<Formula> & input_nodes, int32_t var = 0) : flags(flags), input_nodes(input_nodes)
-                                                                                      ^
-In file included from /usr/include/pblib/formula.h:9:0,
-                 from /usr/include/pblib/clausedatabase.h:9,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:83:5: error: ‘data’ was not declared in this scope
-     assert( flags != 0 || data == 0 || data == 1 || data == 4);
-     ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h: In member function ‘void FormulaClass::init(int32_t)’:
-/usr/include/pblib/formula.h:88:9: error: ‘flags’ was not declared in this scope
-     if (flags == 0)
-         ^
-In file included from /usr/include/pblib/formula.h:9:0,
-                 from /usr/include/pblib/clausedatabase.h:9,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:90:7: error: request for member ‘size’ in ‘((FormulaClass*)this)->FormulaClass::input_nodes’, which is of non-class type ‘int’
-       assert (input_nodes.size() == 0);
-       ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:95:2: error: ‘data’ was not declared in this scope
-  data = 1; // 1 0 0
-  ^
-/usr/include/pblib/formula.h:99:2: error: ‘data’ was not declared in this scope
-  data = 0; // 0 0 0
-  ^
-/usr/include/pblib/formula.h:103:2: error: ‘data’ was not declared in this scope
-  data = 4; // 0 0 1
-  ^
-/usr/include/pblib/formula.h:113:11: error: ‘flags’ was not declared in this scope
-     if ( (flags & 2) != 0 )
-           ^
-In file included from /usr/include/pblib/formula.h:9:0,
-                 from /usr/include/pblib/clausedatabase.h:9,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:116:7: error: request for member ‘size’ in ‘((FormulaClass*)this)->FormulaClass::input_nodes’, which is of non-class type ‘int’
-       assert (input_nodes.size() == 0);
-       ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:121:2: error: ‘data’ was not declared in this scope
-  data = -var << 2;
-  ^
-/usr/include/pblib/formula.h:125:2: error: ‘data’ was not declared in this scope
-  data = var << 2;
-  ^
-/usr/include/pblib/formula.h:133:7: error: ‘data’ was not declared in this scope
-       data = id << 2;
-       ^
-/usr/include/pblib/formula.h: At global scope:
-/usr/include/pblib/formula.h:402:14: error: ‘Formula’ does not name a type
- extern const Formula _false_;
-              ^
-/usr/include/pblib/formula.h:403:14: error: ‘Formula’ does not name a type
- extern const Formula _true_;
-              ^
-/usr/include/pblib/formula.h:404:14: error: ‘Formula’ does not name a type
- extern const Formula _undef_;
-              ^
-/usr/include/pblib/formula.h:407:29: error: ‘isAtom’ declared as an ‘inline’ variable
- inline bool isAtom( Formula const & f ) { return (f->flags & 2) != 0; }
-                             ^
-/usr/include/pblib/formula.h:407:29: error: redefinition of ‘bool isAtom’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:31:13: note: ‘bool isAtom’ previously defined here
- inline bool isAtom( Formula const & f );
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:407:21: error: ‘Formula’ was not declared in this scope
- inline bool isAtom( Formula const & f ) { return (f->flags & 2) != 0; }
-                     ^
-/usr/include/pblib/formula.h:408:28: error: ‘isNeg’ declared as an ‘inline’ variable
- inline bool isNeg( Formula const & f ) { return (f->data & 1) != 0; }
-                            ^
-/usr/include/pblib/formula.h:408:28: error: redefinition of ‘bool isNeg’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:32:13: note: ‘bool isNeg’ previously defined here
- inline bool isNeg( Formula const & f );
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:408:20: error: ‘Formula’ was not declared in this scope
- inline bool isNeg( Formula const & f ) { return (f->data & 1) != 0; }
-                    ^
-/usr/include/pblib/formula.h:409:27: error: ‘isPos’ declared as an ‘inline’ variable
- inline bool isPos(Formula const & f) { return (f->data & 1) == 0; }
-                           ^
-/usr/include/pblib/formula.h:409:27: error: redefinition of ‘bool isPos’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:33:13: note: ‘bool isPos’ previously defined here
- inline bool isPos(Formula const & f);
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:409:19: error: ‘Formula’ was not declared in this scope
- inline bool isPos(Formula const & f) { return (f->data & 1) == 0; }
-                   ^
-/usr/include/pblib/formula.h:410:27: error: ‘isAND’ declared as an ‘inline’ variable
- inline bool isAND(Formula const & f) { return (f->flags & 4) != 0; }
-                           ^
-/usr/include/pblib/formula.h:410:27: error: redefinition of ‘bool isAND’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:34:13: note: ‘bool isAND’ previously defined here
- inline bool isAND(Formula const & f);
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:410:19: error: ‘Formula’ was not declared in this scope
- inline bool isAND(Formula const & f) { return (f->flags & 4) != 0; }
-                   ^
-/usr/include/pblib/formula.h:411:29: error: ‘isEquiv’ declared as an ‘inline’ variable
- inline bool isEquiv(Formula const & f) { return (f->flags & 16) != 0; }
-                             ^
-/usr/include/pblib/formula.h:411:29: error: redefinition of ‘bool isEquiv’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:35:13: note: ‘bool isEquiv’ previously defined here
- inline bool isEquiv(Formula const & f);
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:411:21: error: ‘Formula’ was not declared in this scope
- inline bool isEquiv(Formula const & f) { return (f->flags & 16) != 0; }
-                     ^
-/usr/include/pblib/formula.h:412:27: error: ‘isITE’ declared as an ‘inline’ variable
- inline bool isITE(Formula const & f) { return (f->flags & 32) != 0; }
-                           ^
-/usr/include/pblib/formula.h:412:27: error: redefinition of ‘bool isITE’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:36:13: note: ‘bool isITE’ previously defined here
- inline bool isITE(Formula const & f);
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:412:19: error: ‘Formula’ was not declared in this scope
- inline bool isITE(Formula const & f) { return (f->flags & 32) != 0; }
-                   ^
-/usr/include/pblib/formula.h:413:36: error: ‘isMonotonicITE’ declared as an ‘inline’ variable
- inline bool isMonotonicITE(Formula const & f) { return (f->flags & 64) != 0; }
-                                    ^
-/usr/include/pblib/formula.h:413:36: error: redefinition of ‘bool isMonotonicITE’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:37:13: note: ‘bool isMonotonicITE’ previously defined here
- inline bool isMonotonicITE(Formula const & f);
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:413:28: error: ‘Formula’ was not declared in this scope
- inline bool isMonotonicITE(Formula const & f) { return (f->flags & 64) != 0; }
-                            ^
-/usr/include/pblib/formula.h:414:27: error: ‘isFAs’ declared as an ‘inline’ variable
- inline bool isFAs(Formula const & f) { return (f->flags & 1) != 0; }
-                           ^
-/usr/include/pblib/formula.h:414:27: error: redefinition of ‘bool isFAs’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:38:13: note: ‘bool isFAs’ previously defined here
- inline bool isFAs(Formula const & f);
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:414:19: error: ‘Formula’ was not declared in this scope
- inline bool isFAs(Formula const & f) { return (f->flags & 1) != 0; }
-                   ^
-/usr/include/pblib/formula.h:415:27: error: ‘isFAc’ declared as an ‘inline’ variable
- inline bool isFAc(Formula const & f) { return (f->flags & 8) != 0; }
-                           ^
-/usr/include/pblib/formula.h:415:27: error: redefinition of ‘bool isFAc’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:39:13: note: ‘bool isFAc’ previously defined here
- inline bool isFAc(Formula const & f);
-             ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:415:19: error: ‘Formula’ was not declared in this scope
- inline bool isFAc(Formula const & f) { return (f->flags & 8) != 0; }
-                   ^
-/usr/include/pblib/formula.h:418:27: error: ‘getLit’ declared as an ‘inline’ variable
- inline Lit getLit(Formula const & f ) { assert(isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
-                           ^
-/usr/include/pblib/formula.h:418:27: error: redefinition of ‘Lit getLit’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:41:12: note: ‘Lit getLit’ previously defined here
- inline Lit getLit(Formula const & f );
-            ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:418:19: error: ‘Formula’ was not declared in this scope
- inline Lit getLit(Formula const & f ) { assert(isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
-                   ^
-/usr/include/pblib/formula.h:419:26: error: ‘getId’ declared as an ‘inline’ variable
- inline Lit getId(Formula const & f) { assert(!isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
-                          ^
-/usr/include/pblib/formula.h:419:26: error: redefinition of ‘Lit getId’
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:42:12: note: ‘Lit getId’ previously defined here
- inline Lit getId(Formula const & f);
-            ^
-In file included from /usr/include/pblib/clausedatabase.h:9:0,
-                 from /usr/include/pblib/incpbconstraint.h:8,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/formula.h:419:18: error: ‘Formula’ was not declared in this scope
- inline Lit getId(Formula const & f) { assert(!isAtom(f)); return ((f->data & 1) != 0 ?  -1 * (f->data >> 2) : (f->data >> 2));}
-                  ^
-/usr/include/pblib/formula.h:421:34: error: declaration of ‘operator!=’ as non-function
- inline bool operator != (Formula const & f, Formula const & g) { return f->data != g->data; }
-                                  ^
-/usr/include/pblib/formula.h:421:26: error: ‘Formula’ was not declared in this scope
- inline bool operator != (Formula const & f, Formula const & g) { return f->data != g->data; }
-                          ^
-/usr/include/pblib/formula.h:421:45: error: ‘Formula’ was not declared in this scope
- inline bool operator != (Formula const & f, Formula const & g) { return f->data != g->data; }
-                                             ^
-/usr/include/pblib/formula.h:422:34: error: declaration of ‘operator==’ as non-function
- inline bool operator == (Formula const & f, Formula const & g) { return f->data == g->data; }
-                                  ^
-/usr/include/pblib/formula.h:422:26: error: ‘Formula’ was not declared in this scope
- inline bool operator == (Formula const & f, Formula const & g) { return f->data == g->data; }
-                          ^
-/usr/include/pblib/formula.h:422:45: error: ‘Formula’ was not declared in this scope
- inline bool operator == (Formula const & f, Formula const & g) { return f->data == g->data; }
-                                             ^
-/usr/include/pblib/formula.h:423:33: error: declaration of ‘operator<’ as non-function
- inline bool operator < (Formula const & f, Formula const & g) {  return f->data < g->data; }
-                                 ^
-/usr/include/pblib/formula.h:423:25: error: ‘Formula’ was not declared in this scope
- inline bool operator < (Formula const & f, Formula const & g) {  return f->data < g->data; }
-                         ^
-/usr/include/pblib/formula.h:423:44: error: ‘Formula’ was not declared in this scope
- inline bool operator < (Formula const & f, Formula const & g) {  return f->data < g->data; }
-                                            ^
-/usr/include/pblib/formula.h:424:33: error: declaration of ‘operator>’ as non-function
- inline bool operator > (Formula const & f, Formula const & g) {  return f->data > g->data; }
-                                 ^
-/usr/include/pblib/formula.h:424:25: error: ‘Formula’ was not declared in this scope
- inline bool operator > (Formula const & f, Formula const & g) {  return f->data > g->data; }
-                         ^
-/usr/include/pblib/formula.h:424:44: error: ‘Formula’ was not declared in this scope
- inline bool operator > (Formula const & f, Formula const & g) {  return f->data > g->data; }
-                                            ^
-/usr/include/pblib/formula.h:427:8: error: ‘Formula’ does not name a type
- inline Formula noNeg(Formula const & f) {
-        ^
-/usr/include/pblib/formula.h:431:1: error: ‘Formula’ does not name a type
- Formula operator ~ (Formula const & f);
- ^
-/usr/include/pblib/formula.h:433:1: error: ‘Formula’ does not name a type
- Formula AND (std::vector< Formula >& conjuncts);
- ^
-/usr/include/pblib/formula.h:435:1: error: ‘Formula’ does not name a type
- Formula AND ( const Formula& f, const Formula& g );
- ^
-/usr/include/pblib/formula.h:437:8: error: ‘Formula’ does not name a type
- inline Formula OR (Formula const & f, Formula const & g) { return ~(AND(~f, ~g)); }
-        ^
-/usr/include/pblib/formula.h:439:1: error: ‘Formula’ does not name a type
- Formula XOR (Formula f, Formula g);
- ^
-/usr/include/pblib/formula.h:441:1: error: ‘Formula’ does not name a type
- Formula FAs(Formula x, Formula y, Formula c); // XOR of 3 arguments: x # y # c
- ^
-/usr/include/pblib/formula.h:443:1: error: ‘Formula’ does not name a type
- Formula FAc(Formula x, Formula y, Formula c); // x + y + c >= 2
- ^
-/usr/include/pblib/formula.h:445:1: error: ‘Formula’ does not name a type
- Formula ITE(Formula s, Formula t, Formula f);
- ^
-/usr/include/pblib/formula.h:447:1: error: ‘Formula’ does not name a type
- Formula Monotonic_ITE(Formula s, Formula t, Formula f);
- ^
-/usr/include/pblib/formula.h:449:1: error: ‘Formula’ does not name a type
- Formula Pure_ITE(Formula s, Formula t, Formula f);
- ^
-/usr/include/pblib/formula.h:451:8: error: ‘Formula’ does not name a type
- inline Formula LIT(Lit lit) { return FormulaClass::newLit(lit);}
-        ^
-/usr/include/pblib/formula.h:455:8: error: ‘Formula’ does not name a type
- inline Formula true_branch(Formula const & f) { assert(isITE(f) || isMonotonicITE(f)); return f->input_nodes[1];}
-        ^
-/usr/include/pblib/formula.h:456:8: error: ‘Formula’ does not name a type
- inline Formula false_branch(Formula const & f) {assert(isITE(f) || isMonotonicITE(f)); return f->input_nodes[2];}
-        ^
-/usr/include/pblib/formula.h:457:8: error: ‘Formula’ does not name a type
- inline Formula selector(Formula const & f) {assert(isITE(f) || isMonotonicITE(f)); return f->input_nodes[0];}
-        ^
-/usr/include/pblib/formula.h:458:8: error: ‘Formula’ does not name a type
- inline Formula left(Formula const & f) { assert(isAND(f) || isEquiv(f)); return f->input_nodes[0];}
-        ^
-/usr/include/pblib/formula.h:459:8: error: ‘Formula’ does not name a type
- inline Formula right(Formula const & f) { assert(isAND(f) || isEquiv(f)); return f->input_nodes[1];}
-        ^
-/usr/include/pblib/formula.h:465:19: error: variable or field ‘printFormula’ declared void
- void printFormula(Formula f);
-                   ^
-/usr/include/pblib/formula.h:465:19: error: ‘Formula’ was not declared in this scope
-In file included from /usr/include/pblib/incpbconstraint.h:8:0,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/clausedatabase.h:17:8: error: ‘unordered_map’ in namespace ‘std’ does not name a template type
-   std::unordered_map<int32_t,Lit> history;
-        ^
-/usr/include/pblib/clausedatabase.h:23:36: error: ‘Formula’ has not been declared
-   virtual int32_t polarityClausify(Formula const & f, AuxVarManager & aux_vars);
-                                    ^
-/usr/include/pblib/clausedatabase.h:27:3: error: ‘PBConfig’ does not name a type
-   PBConfig config;
-   ^
-/usr/include/pblib/clausedatabase.h:36:27: error: expected ‘)’ before ‘config’
-   ClauseDatabase(PBConfig config);
-                           ^
-/usr/include/pblib/clausedatabase.h:42:27: error: ‘Formula’ has not been declared
-   virtual void addFormula(Formula const & formula, AuxVarManager & aux_vars);
-                           ^
-In file included from /usr/include/pblib/incpbconstraint.h:8:0,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/clausedatabase.h:83:37: error: expected ‘)’ before ‘config’
-     CountingClauseDatabase(PBConfig config);
-                                     ^
-In file included from /usr/include/pblib/incpbconstraint.h:9:0,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/IncSimplePBConstraint.h:15:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     std::shared_ptr<IncrementalData> incremental_data;
-          ^
-In file included from /usr/include/pblib/incpbconstraint.h:9:0,
-                 from /usr/include/pblib/pb2cnf.h:6,
-                 from prova.cc:1:
-/usr/include/pblib/IncSimplePBConstraint.h:21:34: error: ‘std::shared_ptr’ has not been declared
-     void setIncrementalData(std::shared_ptr<IncrementalData>  incremental_data);
-                                  ^
-/usr/include/pblib/IncSimplePBConstraint.h:21:44: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void setIncrementalData(std::shared_ptr<IncrementalData>  incremental_data);
-                                            ^
-In file included from /usr/include/pblib/pb2cnf.h:6:0,
-                 from prova.cc:1:
-/usr/include/pblib/incpbconstraint.h:24:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     std::shared_ptr<IncSimplePBConstraint> inc_simple_pb_constraint;
-          ^
-/usr/include/pblib/incpbconstraint.h:27:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     std::shared_ptr<IncSimplePBConstraint> leq_inc_simple_pb_constraint;
-          ^
-/usr/include/pblib/incpbconstraint.h:28:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     std::shared_ptr<IncSimplePBConstraint> geq_inc_simple_pb_constraint;
-          ^
-In file included from /usr/include/pblib/pb2cnf.h:6:0,
-                 from prova.cc:1:
-/usr/include/pblib/incpbconstraint.h:47:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     std::shared_ptr< IncSimplePBConstraint > getIncSimplePBConstraint();
-          ^
-/usr/include/pblib/incpbconstraint.h:50:40: error: ‘std::shared_ptr’ has not been declared
-     void setIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
-                                        ^
-/usr/include/pblib/incpbconstraint.h:50:50: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void setIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
-                                                  ^
-/usr/include/pblib/incpbconstraint.h:52:43: error: ‘std::shared_ptr’ has not been declared
-     void setLeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
-                                           ^
-/usr/include/pblib/incpbconstraint.h:52:53: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void setLeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
-                                                     ^
-/usr/include/pblib/incpbconstraint.h:53:43: error: ‘std::shared_ptr’ has not been declared
-     void setGeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
-                                           ^
-/usr/include/pblib/incpbconstraint.h:53:53: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void setGeqIncSimplePBConstraint(std::shared_ptr< IncSimplePBConstraint > incSimplePBConstraint);
-                                                     ^
-In file included from /usr/include/pblib/pb2cnf.h:7:0,
-                 from prova.cc:1:
-/usr/include/pblib/VectorClauseDatabase.h:16:35: error: expected ‘)’ before ‘config’
-     VectorClauseDatabase(PBConfig config);
-                                   ^
-/usr/include/pblib/VectorClauseDatabase.h:17:35: error: expected ‘)’ before ‘config’
-     VectorClauseDatabase(PBConfig config, std::vector<std::vector<int32_t> > * clauses);
-                                   ^
-In file included from /usr/include/pblib/pb2cnf.h:10:0,
-                 from prova.cc:1:
-/usr/include/pblib/preencoder.h:38:5: error: ‘PBConfig’ does not name a type
-     PBConfig config;
-     ^
-/usr/include/pblib/preencoder.h:42:25: error: expected ‘)’ before ‘config’
-     PreEncoder(PBConfig config, statistic * stats = 0);
-                         ^
-/usr/include/pblib/preencoder.h:51:10: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     std::shared_ptr<IncSimplePBConstraint> preEncodeIncPBConstraint(IncPBConstraint & pbconstraint, ClauseDatabase& formula);
-          ^
-In file included from /usr/include/pblib/encoder/bdd.h:19:0,
-                 from /usr/include/pblib/pb2cnf.h:11,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/Encoder.h:11:3: error: ‘PBConfig’ does not name a type
-   PBConfig config;
-   ^
-/usr/include/pblib/encoder/Encoder.h:15:20: error: expected ‘)’ before ‘&’ token
-   Encoder(PBConfig & config);
-                    ^
-/usr/include/pblib/encoder/Encoder.h:18:34: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-   void virtual encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
-                                  ^
-/usr/include/pblib/encoder/Encoder.h:18:44: error: expected ‘,’ or ‘...’ before ‘<’ token
-   void virtual encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
-                                            ^
-In file included from /usr/include/pblib/encoder/bdd.h:19:0,
-                 from /usr/include/pblib/pb2cnf.h:11,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/Encoder.h:21:44: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-   int64_t virtual encodingValue(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint);
-                                            ^
-/usr/include/pblib/encoder/Encoder.h:21:54: error: expected ‘,’ or ‘...’ before ‘<’ token
-   int64_t virtual encodingValue(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint);
-                                                      ^
-In file included from /usr/include/pblib/pb2cnf.h:11:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/bdd.h:46:12: error: ‘tuple’ is not a member of ‘std’
-   std::map<std::tuple<int32_t, int32_t, int32_t>, int32_t>  nodeHistory;
-            ^
-/usr/include/pblib/encoder/bdd.h:46:12: error: ‘tuple’ is not a member of ‘std’
-/usr/include/pblib/encoder/bdd.h:46:48: error: template argument 1 is invalid
-   std::map<std::tuple<int32_t, int32_t, int32_t>, int32_t>  nodeHistory;
-                                                ^
-/usr/include/pblib/encoder/bdd.h:46:48: error: template argument 4 is invalid
-/usr/include/pblib/encoder/bdd.h:46:49: error: expected unqualified-id before ‘,’ token
-   std::map<std::tuple<int32_t, int32_t, int32_t>, int32_t>  nodeHistory;
-                                                 ^
-In file included from /usr/include/pblib/pb2cnf.h:11:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/bdd.h:67:24: error: expected ‘)’ before ‘&’ token
-   BDD_Encoder(PBConfig & config) : Encoder(config) { };
-                        ^
-In file included from /usr/include/pblib/pb2cnf.h:12:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/adderencoding.h:16:16: error: ‘uint64_t’ does not name a type
- int ld64(const uint64_t x);
-                ^
-In file included from /usr/include/pblib/pb2cnf.h:12:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/adderencoding.h:56:44: error: ‘>>’ should be ‘> >’ within a nested template argument list
-   void adderTree(std::vector<std::queue<Lit>> & buckets, std::vector<Lit> & result);
-                                            ^
-/usr/include/pblib/encoder/adderencoding.h:66:36: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-   int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
-                                    ^
-/usr/include/pblib/encoder/adderencoding.h:66:46: error: expected ‘,’ or ‘...’ before ‘<’ token
-   int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
-                                              ^
-/usr/include/pblib/encoder/adderencoding.h:69:26: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-   void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
-                          ^
-/usr/include/pblib/encoder/adderencoding.h:69:36: error: expected ‘,’ or ‘...’ before ‘<’ token
-   void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
-                                    ^
-/usr/include/pblib/encoder/adderencoding.h:71:26: error: expected ‘)’ before ‘&’ token
-   AdderEncoding(PBConfig & config) : Encoder(config), isInc(false) {};
-                          ^
-In file included from /usr/include/pblib/pb2cnf.h:13:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/amo.h:32:26: error: expected ‘)’ before ‘&’ token
-     AMO_Encoder(PBConfig & config);
-                          ^
-In file included from /usr/include/pblib/encoder/k-product.h:13:0,
-                 from /usr/include/pblib/pb2cnf.h:14,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/naive_amo_encoder.h:29:32: error: expected ‘)’ before ‘&’ token
-     Naive_amo_encoder(PBConfig & config);
-                                ^
-In file included from /usr/include/pblib/pb2cnf.h:14:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/k-product.h:35:24: error: expected ‘)’ before ‘&’ token
-     k_Product(PBConfig & config);
-                        ^
-In file included from /usr/include/pblib/pb2cnf.h:15:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/binary_amo.h:31:33: error: expected ‘)’ before ‘&’ token
-     Binary_AMO_Encoder(PBConfig & config);
-                                 ^
-In file included from /usr/include/pblib/pb2cnf.h:16:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/cardencoding.h:32:28: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
-                            ^
-/usr/include/pblib/encoder/cardencoding.h:32:38: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void encode(const std::shared_ptr<IncSimplePBConstraint> & pbconstraint, ClauseDatabase & formula, AuxVarManager & auxvars);
-                                      ^
-/usr/include/pblib/encoder/cardencoding.h:36:38: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
-                                      ^
-/usr/include/pblib/encoder/cardencoding.h:36:48: error: expected ‘,’ or ‘...’ before ‘<’ token
-     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
-                                                ^
-/usr/include/pblib/encoder/cardencoding.h:38:28: error: expected ‘)’ before ‘&’ token
-     CardEncoding (PBConfig & config);
-                            ^
-In file included from /usr/include/pblib/pb2cnf.h:17:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/commander_encoding.h:36:33: error: expected ‘)’ before ‘&’ token
-     commander_encoding(PBConfig & config);
-                                 ^
-In file included from /usr/include/pblib/pb2cnf.h:19:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/bimander_amo_encoding.h:34:36: error: expected ‘)’ before ‘&’ token
-     Bimander_amo_encoding(PBConfig & config);
-                                    ^
-In file included from /usr/include/pblib/pb2cnf.h:20:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/BDD_Seq_Amo.h:31:26: error: expected ‘)’ before ‘&’ token
-     BDD_Seq_Amo(PBConfig & config);
-                          ^
-In file included from /usr/include/pblib/pb2cnf.h:21:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/SortingNetworks.h:25:31: error: ‘Formula’ was not declared in this scope
-  inline void cmp2(std::vector<Formula>& fs, int begin)
-                               ^
-/usr/include/pblib/encoder/SortingNetworks.h:25:38: error: template argument 1 is invalid
-  inline void cmp2(std::vector<Formula>& fs, int begin)
-                                      ^
-/usr/include/pblib/encoder/SortingNetworks.h:25:38: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:35:26: error: ‘Formula’ was not declared in this scope
-  void riffle(std::vector<Formula>& fs)
-                          ^
-/usr/include/pblib/encoder/SortingNetworks.h:35:33: error: template argument 1 is invalid
-  void riffle(std::vector<Formula>& fs)
-                                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:35:33: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:44:28: error: ‘Formula’ was not declared in this scope
-  void unriffle(std::vector<Formula>& fs)
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:44:35: error: template argument 1 is invalid
-  void unriffle(std::vector<Formula>& fs)
-                                   ^
-/usr/include/pblib/encoder/SortingNetworks.h:44:35: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:53:32: error: ‘Formula’ was not declared in this scope
-  void oddEvenMerge(std::vector<Formula>& fs, int begin, int end)
-                                ^
-/usr/include/pblib/encoder/SortingNetworks.h:53:39: error: template argument 1 is invalid
-  void oddEvenMerge(std::vector<Formula>& fs, int begin, int end)
-                                       ^
-/usr/include/pblib/encoder/SortingNetworks.h:53:39: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:77:30: error: ‘Formula’ was not declared in this scope
- void oddEvenSort(std::vector<Formula>& fs)
-                              ^
-/usr/include/pblib/encoder/SortingNetworks.h:77:37: error: template argument 1 is invalid
- void oddEvenSort(std::vector<Formula>& fs)
-                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:77:37: error: template argument 2 is invalid
-In file included from /usr/include/pblib/pb2cnf.h:21:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/SortingNetworks.h:188:30: error: ‘Formula’ was not declared in this scope
- void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
-                              ^
-/usr/include/pblib/encoder/SortingNetworks.h:188:37: error: template argument 1 is invalid
- void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
-                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:188:37: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:188:78: error: ‘Formula’ was not declared in this scope
- void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
-                                                                              ^
-/usr/include/pblib/encoder/SortingNetworks.h:188:85: error: template argument 1 is invalid
- void buildSorter(std::vector<Formula>& ps, std::vector<int>& Cs, std::vector<Formula>& out_sorter)
-                                                                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:188:85: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:198:30: error: ‘Formula’ was not declared in this scope
- void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
-                              ^
-/usr/include/pblib/encoder/SortingNetworks.h:198:37: error: template argument 1 is invalid
- void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
-                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:198:37: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:198:82: error: ‘Formula’ was not declared in this scope
- void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
-                                                                                  ^
-/usr/include/pblib/encoder/SortingNetworks.h:198:89: error: template argument 1 is invalid
- void buildSorter(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& out_sorter)
-                                                                                         ^
-/usr/include/pblib/encoder/SortingNetworks.h:198:89: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:210:34: error: ‘Formula’ was not declared in this scope
- void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
-                                  ^
-/usr/include/pblib/encoder/SortingNetworks.h:210:41: error: template argument 1 is invalid
- void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
-                                         ^
-/usr/include/pblib/encoder/SortingNetworks.h:210:41: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:210:86: error: ‘Formula’ was not declared in this scope
- void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
-                                                                                      ^
-/usr/include/pblib/encoder/SortingNetworks.h:210:93: error: template argument 1 is invalid
- void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
-                                                                                             ^
-/usr/include/pblib/encoder/SortingNetworks.h:210:93: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:210:165: error: ‘Formula’ was not declared in this scope
- void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
-                                                                                                                                                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:210:172: error: template argument 1 is invalid
- void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
-                                                                                                                                                                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:210:172: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:210:174: error: template argument 1 is invalid
- void buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<Formula>& carry, std::vector<int>& base, int digit_no, std::vector<std::vector<Formula> >& out_digits)
-                                                                                                                                                                              ^
-/usr/include/pblib/encoder/SortingNetworks.h:210:174: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:296:1: error: ‘Formula’ does not name a type
- Formula lexComp(int sz, std::vector<int>& num, std::vector<std::vector<Formula> >& digits)
- ^
-/usr/include/pblib/encoder/SortingNetworks.h:314:1: error: ‘Formula’ does not name a type
- Formula lexComp(std::vector<int>& num, std::vector<std::vector<Formula> >& digits) {
- ^
-/usr/include/pblib/encoder/SortingNetworks.h:320:1: error: ‘Formula’ does not name a type
- Formula buildConstraint(std::vector<Formula>& ps, std::vector<int64_t>& Cs, std::vector<int>& base, int64_t lo, int64_t hi)
- ^
-/usr/include/pblib/encoder/SortingNetworks.h:379:1: error: ‘Formula’ does not name a type
- Formula buildConstraint(const SimplePBConstraint& c)
- ^
-/usr/include/pblib/encoder/SortingNetworks.h:406:28: error: expected ‘)’ before ‘&’ token
-   SortingNetworks(PBConfig & config);
-                            ^
-In file included from /usr/include/pblib/pb2cnf.h:21:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/SortingNetworks.h:23:54: error: could not convert ‘{2, 3, 5, 7, 11, 13, 17}’ from ‘<brace-enclosed initializer list>’ to ‘std::vector<int>’
-   std::vector<int> primes = { 2, 3, 5, 7, 11, 13, 17 };
-                                                      ^
-/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::cmp2(int&, int)’:
-/usr/include/pblib/encoder/SortingNetworks.h:27:5: error: ‘Formula’ was not declared in this scope
-     Formula a     = fs[begin];
-     ^
-/usr/include/pblib/encoder/SortingNetworks.h:28:13: error: expected ‘;’ before ‘b’
-     Formula b     = fs[begin + 1];
-             ^
-/usr/include/pblib/encoder/SortingNetworks.h:30:13: error: invalid types ‘int[int]’ for array subscript
-     fs[begin]     = OR(a,b);
-             ^
-/usr/include/pblib/encoder/SortingNetworks.h:30:24: error: ‘a’ was not declared in this scope
-     fs[begin]     = OR(a,b);
-                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:30:26: error: ‘b’ was not declared in this scope
-     fs[begin]     = OR(a,b);
-                          ^
-/usr/include/pblib/encoder/SortingNetworks.h:30:27: error: ‘OR’ was not declared in this scope
-     fs[begin]     = OR(a,b);
-                           ^
-/usr/include/pblib/encoder/SortingNetworks.h:31:17: error: invalid types ‘int[int]’ for array subscript
-     fs[begin + 1] = AND(a, b);
-                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:31:29: error: ‘AND’ was not declared in this scope
-     fs[begin + 1] = AND(a, b);
-                             ^
-/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::riffle(int&)’:
-/usr/include/pblib/encoder/SortingNetworks.h:37:17: error: ‘Formula’ was not declared in this scope
-     std::vector<Formula> tmp; tmp = fs;
-                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:37:24: error: template argument 1 is invalid
-     std::vector<Formula> tmp; tmp = fs;
-                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:37:24: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:38:28: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-     for (int i = 0; i < fs.size() / 2; i++){
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:39:15: error: invalid types ‘int[int]’ for array subscript
-         fs[i*2]   = tmp[i];
-               ^
-/usr/include/pblib/encoder/SortingNetworks.h:39:26: error: invalid types ‘int[int]’ for array subscript
-         fs[i*2]   = tmp[i];
-                          ^
-/usr/include/pblib/encoder/SortingNetworks.h:40:17: error: invalid types ‘int[int]’ for array subscript
-         fs[i*2+1] = tmp[i+fs.size() / 2];
-                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:40:30: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-         fs[i*2+1] = tmp[i+fs.size() / 2];
-                              ^
-/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::unriffle(int&)’:
-/usr/include/pblib/encoder/SortingNetworks.h:46:17: error: ‘Formula’ was not declared in this scope
-     std::vector<Formula> tmp; tmp = fs;
-                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:46:24: error: template argument 1 is invalid
-     std::vector<Formula> tmp; tmp = fs;
-                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:46:24: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:47:28: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-     for (int i = 0; i < fs.size() / 2; i++){
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:48:13: error: invalid types ‘int[int]’ for array subscript
-         fs[i]               = tmp[i*2];
-             ^
-/usr/include/pblib/encoder/SortingNetworks.h:48:38: error: invalid types ‘int[int]’ for array subscript
-         fs[i]               = tmp[i*2];
-                                      ^
-/usr/include/pblib/encoder/SortingNetworks.h:49:17: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-         fs[i+fs.size() / 2] = tmp[i*2+1];
-                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:49:40: error: invalid types ‘int[int]’ for array subscript
-         fs[i+fs.size() / 2] = tmp[i*2+1];
-                                        ^
-/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::oddEvenMerge(int&, int, int)’:
-/usr/include/pblib/encoder/SortingNetworks.h:60:21: error: ‘Formula’ was not declared in this scope
-         std::vector<Formula> tmp;
-                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:60:28: error: template argument 1 is invalid
-         std::vector<Formula> tmp;
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:60:28: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:62:17: error: request for member ‘push_back’ in ‘tmp’, which is of non-class type ‘int’
-             tmp.push_back(fs[begin+i]);
-                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:62:37: error: invalid types ‘int[int]’ for array subscript
-             tmp.push_back(fs[begin+i]);
-                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:65:34: error: request for member ‘size’ in ‘tmp’, which is of non-class type ‘int’
-         oddEvenMerge(tmp,mid,tmp.size());
-                                  ^
-/usr/include/pblib/encoder/SortingNetworks.h:67:33: error: request for member ‘size’ in ‘tmp’, which is of non-class type ‘int’
-         for (int i = 1; i < tmp.size() - 1; i += 2)
-                                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:69:33: error: request for member ‘size’ in ‘tmp’, which is of non-class type ‘int’
-         for (int i = 0; i < tmp.size(); i++)
-                                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:70:25: error: invalid types ‘int[int]’ for array subscript
-             fs[i + begin] = tmp[i];
-                         ^
-/usr/include/pblib/encoder/SortingNetworks.h:70:34: error: invalid types ‘int[int]’ for array subscript
-             fs[i + begin] = tmp[i];
-                                  ^
-/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::oddEvenSort(int&)’:
-/usr/include/pblib/encoder/SortingNetworks.h:79:22: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-     int orig_sz = fs.size();
-                      ^
-/usr/include/pblib/encoder/SortingNetworks.h:80:34: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-     int sz; for (sz = 1; sz < fs.size(); sz *= 2);
-                                  ^
-/usr/include/pblib/encoder/SortingNetworks.h:82:12: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-     if (fs.size() < sz)
-            ^
-/usr/include/pblib/encoder/SortingNetworks.h:83:10: error: request for member ‘resize’ in ‘fs’, which is of non-class type ‘int’
-       fs.resize(sz,_false_);
-          ^
-/usr/include/pblib/encoder/SortingNetworks.h:83:20: error: ‘_false_’ was not declared in this scope
-       fs.resize(sz,_false_);
-                    ^
-/usr/include/pblib/encoder/SortingNetworks.h:86:28: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-     for (int i = 1; i < fs.size(); i *= 2)
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:87:39: error: request for member ‘size’ in ‘fs’, which is of non-class type ‘int’
-         for (int j = 0; j + 2*i <= fs.size(); j += 2*i)
-                                       ^
-/usr/include/pblib/encoder/SortingNetworks.h:91:10: error: request for member ‘pop_back’ in ‘fs’, which is of non-class type ‘int’
-       fs.pop_back();
-          ^
-In file included from /usr/include/pblib/pb2cnf.h:21:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::buildSorter(int&, std::vector<int>&, int&)’:
-/usr/include/pblib/encoder/SortingNetworks.h:190:16: error: request for member ‘clear’ in ‘out_sorter’, which is of non-class type ‘int’
-     out_sorter.clear();
-                ^
-/usr/include/pblib/encoder/SortingNetworks.h:191:28: error: request for member ‘size’ in ‘ps’, which is of non-class type ‘int’
-     for (int i = 0; i < ps.size(); i++)
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:193:24: error: request for member ‘push_back’ in ‘out_sorter’, which is of non-class type ‘int’
-             out_sorter.push_back(ps[i]);
-                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:193:38: error: invalid types ‘int[int]’ for array subscript
-             out_sorter.push_back(ps[i]);
-                                      ^
-In file included from /usr/include/pblib/encoder/bdd.h:12:0,
-                 from /usr/include/pblib/pb2cnf.h:11,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/SortingNetworks.h: In member function ‘void SortingNetworks::buildConstraint(int&, std::vector<long int>&, int&, std::vector<int>&, int, int&)’:
-/usr/include/pblib/encoder/SortingNetworks.h:212:5: error: request for member ‘size’ in ‘ps’, which is of non-class type ‘int’
-     assert(ps.size() == Cs.size());
-     ^
-In file included from /usr/include/pblib/pb2cnf.h:21:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/SortingNetworks.h:217:35: error: request for member ‘size’ in ‘carry’, which is of non-class type ‘int’
-         for (int i = 0; i < carry.size(); i++)
-                                   ^
-/usr/include/pblib/encoder/SortingNetworks.h:218:16: error: request for member ‘push_back’ in ‘ps’, which is of non-class type ‘int’
-             ps.push_back(carry[i]),
-                ^
-/usr/include/pblib/encoder/SortingNetworks.h:218:33: error: invalid types ‘int[int]’ for array subscript
-             ps.push_back(carry[i]),
-                                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:220:20: error: request for member ‘push_back’ in ‘out_digits’, which is of non-class type ‘int’
-         out_digits.push_back(std::vector<Formula>());
-                    ^
-/usr/include/pblib/encoder/SortingNetworks.h:220:42: error: ‘Formula’ was not declared in this scope
-         out_digits.push_back(std::vector<Formula>());
-                                          ^
-/usr/include/pblib/encoder/SortingNetworks.h:220:49: error: template argument 1 is invalid
-         out_digits.push_back(std::vector<Formula>());
-                                                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:220:49: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:221:40: error: request for member ‘back’ in ‘out_digits’, which is of non-class type ‘int’
-         buildSorter(ps, Cs, out_digits.back());
-                                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:224:21: error: ‘Formula’ was not declared in this scope
-         std::vector<Formula>    ps_rem;
-                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:224:28: error: template argument 1 is invalid
-         std::vector<Formula>    ps_rem;
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:224:28: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:226:28: error: type/value mismatch at argument 1 in template parameter list for ‘template<class _Tp, class _Alloc> class std::vector’
-         std::vector<Formula>    ps_div;
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:226:28: note:   expected a type, got ‘Formula’
-/usr/include/pblib/encoder/SortingNetworks.h:226:28: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:235:24: error: request for member ‘push_back’ in ‘ps_div’, which is of non-class type ‘int’
-                 ps_div.push_back(ps[i]);
-                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:235:38: error: invalid types ‘int[int]’ for array subscript
-                 ps_div.push_back(ps[i]);
-                                      ^
-/usr/include/pblib/encoder/SortingNetworks.h:239:24: error: request for member ‘push_back’ in ‘ps_rem’, which is of non-class type ‘int’
-                 ps_rem.push_back(ps[i]);
-                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:239:38: error: invalid types ‘int[int]’ for array subscript
-                 ps_rem.push_back(ps[i]);
-                                      ^
-/usr/include/pblib/encoder/SortingNetworks.h:245:35: error: request for member ‘size’ in ‘carry’, which is of non-class type ‘int’
-         for (int i = 0; i < carry.size(); i++)
-                                   ^
-/usr/include/pblib/encoder/SortingNetworks.h:246:20: error: request for member ‘push_back’ in ‘ps_rem’, which is of non-class type ‘int’
-             ps_rem.push_back(carry[i]),
-                    ^
-/usr/include/pblib/encoder/SortingNetworks.h:246:37: error: invalid types ‘int[int]’ for array subscript
-             ps_rem.push_back(carry[i]),
-                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:250:28: error: type/value mismatch at argument 1 in template parameter list for ‘template<class _Tp, class _Alloc> class std::vector’
-         std::vector<Formula> result;
-                            ^
-/usr/include/pblib/encoder/SortingNetworks.h:250:28: note:   expected a type, got ‘Formula’
-/usr/include/pblib/encoder/SortingNetworks.h:250:28: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:254:15: error: request for member ‘clear’ in ‘carry’, which is of non-class type ‘int’
-         carry.clear();
-               ^
-/usr/include/pblib/encoder/SortingNetworks.h:255:38: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
-         for (int i = B-1; i < result.size(); i += B)
-                                      ^
-/usr/include/pblib/encoder/SortingNetworks.h:256:19: error: request for member ‘push_back’ in ‘carry’, which is of non-class type ‘int’
-             carry.push_back(result[i]);
-                   ^
-/usr/include/pblib/encoder/SortingNetworks.h:256:37: error: invalid types ‘int[int]’ for array subscript
-             carry.push_back(result[i]);
-                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:258:20: error: request for member ‘push_back’ in ‘out_digits’, which is of non-class type ‘int’
-         out_digits.push_back(std::vector<Formula>());
-                    ^
-/usr/include/pblib/encoder/SortingNetworks.h:258:49: error: type/value mismatch at argument 1 in template parameter list for ‘template<class _Tp, class _Alloc> class std::vector’
-         out_digits.push_back(std::vector<Formula>());
-                                                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:258:49: note:   expected a type, got ‘Formula’
-/usr/include/pblib/encoder/SortingNetworks.h:258:49: error: template argument 2 is invalid
-/usr/include/pblib/encoder/SortingNetworks.h:260:21: error: expected ‘;’ before ‘out’
-             Formula out = _false_;
-                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:261:40: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
-             for (int j = 0; j < result.size(); j += B){
-                                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:263:36: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
-                 if (j + i < result.size())
-                                    ^
-/usr/include/pblib/encoder/SortingNetworks.h:264:21: error: ‘out’ was not declared in this scope
-                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
-                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:264:51: error: invalid types ‘int[int]’ for array subscript
-                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
-                                                   ^
-/usr/include/pblib/encoder/SortingNetworks.h:264:69: error: request for member ‘size’ in ‘result’, which is of non-class type ‘int’
-                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
-                                                                     ^
-/usr/include/pblib/encoder/SortingNetworks.h:264:79: error: ‘_true_’ was not declared in this scope
-                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
-                                                                               ^
-/usr/include/pblib/encoder/SortingNetworks.h:264:97: error: invalid types ‘int[int]’ for array subscript
-                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
-                                                                                                 ^
-/usr/include/pblib/encoder/SortingNetworks.h:264:99: error: ‘AND’ was not declared in this scope
-                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
-                                                                                                   ^
-/usr/include/pblib/encoder/SortingNetworks.h:264:100: error: ‘OR’ was not declared in this scope
-                     out = OR(out, AND(result[j + i] , ((n >= result.size()) ? _true_ : ~result[n])));
-                                                                                                    ^
-/usr/include/pblib/encoder/SortingNetworks.h:266:24: error: request for member ‘back’ in ‘out_digits’, which is of non-class type ‘int’
-             out_digits.back().push_back(out);
-                        ^
-/usr/include/pblib/encoder/SortingNetworks.h:266:41: error: ‘out’ was not declared in this scope
-             out_digits.back().push_back(out);
-                                         ^
-In file included from /usr/include/pblib/pb2cnf.h:22:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/BinaryMerge.h: At global scope:
-/usr/include/pblib/encoder/BinaryMerge.h:42:24: error: expected ‘)’ before ‘&’ token
-   BinaryMerge(PBConfig & config);
-                        ^
-In file included from /usr/include/pblib/pb2cnf.h:23:0,
-                 from prova.cc:1:
-/usr/include/pblib/encoder/SWC.h:41:28: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     void encode(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint, ClauseDatabase& formula, AuxVarManager& auxvars);
-                            ^
-/usr/include/pblib/encoder/SWC.h:41:38: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void encode(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint, ClauseDatabase& formula, AuxVarManager& auxvars);
-                                      ^
-/usr/include/pblib/encoder/SWC.h:42:38: error: ‘shared_ptr’ in namespace ‘std’ does not name a template type
-     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
-                                      ^
-/usr/include/pblib/encoder/SWC.h:42:48: error: expected ‘,’ or ‘...’ before ‘<’ token
-     int64_t encodingValue(const std::shared_ptr< IncSimplePBConstraint >& pbconstraint);
-                                                ^
-/usr/include/pblib/encoder/SWC.h:44:26: error: expected ‘)’ before ‘config’
-     SWC_Encoder(PBConfig config);
-                          ^
-In file included from /usr/include/pblib/pb2cnf.h:25:0,
-                 from prova.cc:1:
-/usr/include/pblib/helper.h:13:10: error: ‘hash’ is not a class template
-   struct hash< std::pair<a, b> >
-          ^
-/usr/include/pblib/helper.h:16:17: error: wrong number of template arguments (1, should be 2)
-     const hash<a> ah;
-                 ^
-/usr/include/pblib/helper.h:13:32: note: provided for ‘template<class a, class b> struct std::hash’
-   struct hash< std::pair<a, b> >
-                                ^
-/usr/include/pblib/helper.h:17:17: error: wrong number of template arguments (1, should be 2)
-     const hash<b> bh;
-                 ^
-/usr/include/pblib/helper.h:13:32: note: provided for ‘template<class a, class b> struct std::hash’
-   struct hash< std::pair<a, b> >
-                                ^
-/usr/include/pblib/helper.h:50:10: error: ‘uint64_t’ does not name a type
-   static uint64_t callCount;
-          ^
-In file included from prova.cc:1:0:
-/usr/include/pblib/pb2cnf.h:30:5: error: ‘PBConfig’ does not name a type
-     PBConfig basic_default_config =  std::make_shared<PBConfigClass>();
-     ^
-/usr/include/pblib/pb2cnf.h:34:5: error: ‘PBConfig’ does not name a type
-     PBConfig config;
-     ^
-In file included from prova.cc:1:0:
-/usr/include/pblib/pb2cnf.h:55:69: error: ‘std::shared_ptr’ has not been declared
-     bool encodeWithBestEncoder(std::vector<Encoder*> encoders, std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                                                     ^
-/usr/include/pblib/pb2cnf.h:55:79: error: expected ‘,’ or ‘...’ before ‘<’ token
-     bool encodeWithBestEncoder(std::vector<Encoder*> encoders, std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                                                               ^
-/usr/include/pblib/pb2cnf.h:57:37: error: ‘std::shared_ptr’ has not been declared
-     void encode_inc_with_adder(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                     ^
-/usr/include/pblib/pb2cnf.h:57:47: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void encode_inc_with_adder(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                               ^
-/usr/include/pblib/pb2cnf.h:58:36: error: ‘std::shared_ptr’ has not been declared
-     void encode_inc_with_card(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                    ^
-/usr/include/pblib/pb2cnf.h:58:46: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void encode_inc_with_card(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                              ^
-/usr/include/pblib/pb2cnf.h:59:35: error: ‘std::shared_ptr’ has not been declared
-     void encode_inc_with_swc(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                   ^
-/usr/include/pblib/pb2cnf.h:59:45: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void encode_inc_with_swc(std::shared_ptr< IncSimplePBConstraint > constraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                             ^
-/usr/include/pblib/pb2cnf.h:60:30: error: ‘std::shared_ptr’ has not been declared
-     void encode_inc_amk(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                              ^
-/usr/include/pblib/pb2cnf.h:60:40: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void encode_inc_amk(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                        ^
-/usr/include/pblib/pb2cnf.h:61:29: error: ‘std::shared_ptr’ has not been declared
-     void encode_inc_pb(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                             ^
-/usr/include/pblib/pb2cnf.h:61:39: error: expected ‘,’ or ‘...’ before ‘<’ token
-     void encode_inc_pb(std::shared_ptr< IncSimplePBConstraint > constraint, IncPBConstraint& incPbconstraint, ClauseDatabase& formula, AuxVarManager& auxVars);
-                                       ^
-/usr/include/pblib/pb2cnf.h:77:21: error: expected ‘)’ before ‘&’ token
-     PB2CNF(PBConfig & config, statistic * stats = 0);
-                     ^
-prova.cc: In function ‘int main()’:
-prova.cc:7:43: error: in C++98 ‘weights’ must be initialized by constructor, not by ‘{...}’
-   std::vector< int64_t > weights = {3,-2,7};
-                                           ^
-prova.cc:7:43: error: could not convert ‘{3, -2, 7}’ from ‘<brace-enclosed initializer list>’ to ‘std::vector<long int>’
-prova.cc:8:45: error: in C++98 ‘literals’ must be initialized by constructor, not by ‘{...}’
-   std::vector< int32_t > literals = {-1,-2,3};
-                                             ^
-prova.cc:8:45: error: could not convert ‘{-1, -2, 3}’ from ‘<brace-enclosed initializer list>’ to ‘std::vector<int>’
-make: *** [prova] Error 1
+2607 
+1983 
+1393 
+2354 
+2081 
+1547 
+1226 
+2453 
+653 
+778 
+883 
+1551 
+1531 
+864 
+631 
+1936 
+1794 
+297 
+519 
+152 
+-11 2611 
+-11 2618 
+-22 2612 
+-22 2618 
+-21 2613 
+-21 2618 
+-20 2614 
+-20 2618 
+-19 2615 
+-19 2618 
+-18 2616 
+-18 2618 
+-17 2617 
+-17 2618 
+-16 2611 
+-16 2619 
+-15 2612 
+-15 2619 
+-14 2613 
+-14 2619 
+-13 2614 
+-13 2619 
+-12 2615 
+-12 2619 
+-23 2616 
+-23 2619 
+-10 2617 
+-10 2619 
+-9 2611 
+-9 2620 
+-8 2612 
+-8 2620 
+-7 2613 
+-7 2620 
+-6 2614 
+-6 2620 
+-5 2615 
+-5 2620 
+-4 2616 
+-4 2620 
+-3 2617 
+-3 2620 
+-2 2611 
+-2 2621 
+-1 2612 
+-1 2621 
+-34 2613 
+-34 2621 
+-44 2614 
+-44 2621 
+-43 2615 
+-43 2621 
+-42 2616 
+-42 2621 
+-41 2617 
+-41 2621 
+-40 2611 
+-40 2622 
+-39 2612 
+-39 2622 
+-38 2613 
+-38 2622 
+-37 2614 
+-37 2622 
+-36 2615 
+-36 2622 
+-35 2616 
+-35 2622 
+-45 2617 
+-45 2622 
+-33 2611 
+-33 2623 
+-32 2612 
+-32 2623 
+-31 2613 
+-31 2623 
+-30 2614 
+-30 2623 
+-29 2615 
+-29 2623 
+-28 2616 
+-28 2623 
+-27 2617 
+-27 2623 
+-26 2611 
+-26 2624 
+-25 2612 
+-25 2624 
+-24 2613 
+-24 2624 
+-2611 -2612 
+-2611 -2613 
+-2611 -2614 
+-2611 -2615 
+-2611 -2616 
+-2611 -2617 
+-2612 -2613 
+-2612 -2614 
+-2612 -2615 
+-2612 -2616 
+-2612 -2617 
+-2613 -2614 
+-2613 -2615 
+-2613 -2616 
+-2613 -2617 
+-2614 -2615 
+-2614 -2616 
+-2614 -2617 
+-2615 -2616 
+-2615 -2617 
+-2616 -2617 
+-2618 -2619 
+-2618 -2620 
+-2618 -2621 
+-2618 -2622 
+-2618 -2623 
+-2618 -2624 
+-2619 -2620 
+-2619 -2621 
+-2619 -2622 
+-2619 -2623 
+-2619 -2624 
+-2620 -2621 
+-2620 -2622 
+-2620 -2623 
+-2620 -2624 
+-2621 -2622 
+-2621 -2623 
+-2621 -2624 
+-2622 -2623 
+-2622 -2624 
+-2623 -2624 
+-12 2625 
+-12 2632 
+-22 2626 
+-22 2632 
+-21 2627 
+-21 2632 
+-20 2628 
+-20 2632 
+-19 2629 
+-19 2632 
+-18 2630 
+-18 2632 
+-17 2631 
+-17 2632 
+-16 2625 
+-16 2633 
+-15 2626 
+-15 2633 
+-14 2627 
+-14 2633 
+-13 2628 
+-13 2633 
+-23 2629 
+-23 2633 
+-11 2630 
+-11 2633 
+-10 2631 
+-10 2633 
+-9 2625 
+-9 2634 
+-8 2626 
+-8 2634 
+-7 2627 
+-7 2634 
+-6 2628 
+-6 2634 
+-5 2629 
+-5 2634 
+-4 2630 
+-4 2634 
+-3 2631 
+-3 2634 
+-2 2625 
+-2 2635 
+-34 2626 
+-34 2635 
+-44 2627 
+-44 2635 
+-43 2628 
+-43 2635 
+-42 2629 
+-42 2635 
+-41 2630 
+-41 2635 
+-40 2631 
+-40 2635 
+-39 2625 
+-39 2636 
+-38 2626 
+-38 2636 
+-37 2627 
+-37 2636 
+-36 2628 
+-36 2636 
+-35 2629 
+-35 2636 
+-45 2630 
+-45 2636 
+-33 2631 
+-33 2636 
+-32 2625 
+-32 2637 
+-31 2626 
+-31 2637 
+-30 2627 
+-30 2637 
+-29 2628 
+-29 2637 
+-28 2629 
+-28 2637 
+-27 2630 
+-27 2637 
+-26 2631 
+-26 2637 
+-25 2625 
+-25 2638 
+-24 2626 
+-24 2638 
+-2625 -2626 
+-2625 -2627 
+-2625 -2628 
+-2625 -2629 
+-2625 -2630 
+-2625 -2631 
+-2626 -2627 
+-2626 -2628 
+-2626 -2629 
+-2626 -2630 
+-2626 -2631 
+-2627 -2628 
+-2627 -2629 
+-2627 -2630 
+-2627 -2631 
+-2628 -2629 
+-2628 -2630 
+-2628 -2631 
+-2629 -2630 
+-2629 -2631 
+-2630 -2631 
+-2632 -2633 
+-2632 -2634 
+-2632 -2635 
+-2632 -2636 
+-2632 -2637 
+-2632 -2638 
+-2633 -2634 
+-2633 -2635 
+-2633 -2636 
+-2633 -2637 
+-2633 -2638 
+-2634 -2635 
+-2634 -2636 
+-2634 -2637 
+-2634 -2638 
+-2635 -2636 
+-2635 -2637 
+-2635 -2638 
+-2636 -2637 
+-2636 -2638 
+-2637 -2638 
+-13 2639 
+-13 2646 
+-23 2640 
+-23 2646 
+-22 2641 
+-22 2646 
+-21 2642 
+-21 2646 
+-20 2643 
+-20 2646 
+-19 2644 
+-19 2646 
+-18 2645 
+-18 2646 
+-17 2639 
+-17 2647 
+-16 2640 
+-16 2647 
+-15 2641 
+-15 2647 
+-14 2642 
+-14 2647 
+-24 2643 
+-24 2647 
+-12 2644 
+-12 2647 
+-11 2645 
+-11 2647 
+-10 2639 
+-10 2648 
+-9 2640 
+-9 2648 
+-8 2641 
+-8 2648 
+-7 2642 
+-7 2648 
+-6 2643 
+-6 2648 
+-5 2644 
+-5 2648 
+-4 2645 
+-4 2648 
+-3 2639 
+-3 2649 
+-34 2640 
+-34 2649 
+-44 2641 
+-44 2649 
+-43 2642 
+-43 2649 
+-42 2643 
+-42 2649 
+-41 2644 
+-41 2649 
+-40 2645 
+-40 2649 
+-39 2639 
+-39 2650 
+-38 2640 
+-38 2650 
+-37 2641 
+-37 2650 
+-36 2642 
+-36 2650 
+-35 2643 
+-35 2650 
+-45 2644 
+-45 2650 
+-33 2645 
+-33 2650 
+-32 2639 
+-32 2651 
+-31 2640 
+-31 2651 
+-30 2641 
+-30 2651 
+-29 2642 
+-29 2651 
+-28 2643 
+-28 2651 
+-27 2644 
+-27 2651 
+-26 2645 
+-26 2651 
+-25 2639 
+-25 2652 
+-2639 -2640 
+-2639 -2641 
+-2639 -2642 
+-2639 -2643 
+-2639 -2644 
+-2639 -2645 
+-2640 -2641 
+-2640 -2642 
+-2640 -2643 
+-2640 -2644 
+-2640 -2645 
+-2641 -2642 
+-2641 -2643 
+-2641 -2644 
+-2641 -2645 
+-2642 -2643 
+-2642 -2644 
+-2642 -2645 
+-2643 -2644 
+-2643 -2645 
+-2644 -2645 
+-2646 -2647 
+-2646 -2648 
+-2646 -2649 
+-2646 -2650 
+-2646 -2651 
+-2646 -2652 
+-2647 -2648 
+-2647 -2649 
+-2647 -2650 
+-2647 -2651 
+-2647 -2652 
+-2648 -2649 
+-2648 -2650 
+-2648 -2651 
+-2648 -2652 
+-2649 -2650 
+-2649 -2651 
+-2649 -2652 
+-2650 -2651 
+-2650 -2652 
+-2651 -2652 
+-13 2653 
+-13 2660 
+-23 2654 
+-23 2660 
+-22 2655 
+-22 2660 
+-21 2656 
+-21 2660 
+-20 2657 
+-20 2660 
+-19 2658 
+-19 2660 
+-18 2659 
+-18 2660 
+-17 2653 
+-17 2661 
+-16 2654 
+-16 2661 
+-15 2655 
+-15 2661 
+-14 2656 
+-14 2661 
+-24 2657 
+-24 2661 
+-12 2658 
+-12 2661 
+-11 2659 
+-11 2661 
+-10 2653 
+-10 2662 
+-9 2654 
+-9 2662 
+-8 2655 
+-8 2662 
+-7 2656 
+-7 2662 
+-6 2657 
+-6 2662 
+-5 2658 
+-5 2662 
+-4 2659 
+-4 2662 
+-34 2653 
+-34 2663 
+-44 2654 
+-44 2663 
+-43 2655 
+-43 2663 
+-42 2656 
+-42 2663 
+-41 2657 
+-41 2663 
+-40 2658 
+-40 2663 
+-39 2659 
+-39 2663 
+-38 2653 
+-38 2664 
+-37 2654 
+-37 2664 
+-36 2655 
+-36 2664 
+-35 2656 
+-35 2664 
+-45 2657 
+-45 2664 
+-33 2658 
+-33 2664 
+-32 2659 
+-32 2664 
+-31 2653 
+-31 2665 
+-30 2654 
+-30 2665 
+-29 2655 
+-29 2665 
+-28 2656 
+-28 2665 
+-27 2657 
+-27 2665 
+-26 2658 
+-26 2665 
+-25 2659 
+-25 2665 
+-2653 -2654 
+-2653 -2655 
+-2653 -2656 
+-2653 -2657 
+-2653 -2658 
+-2653 -2659 
+-2654 -2655 
+-2654 -2656 
+-2654 -2657 
+-2654 -2658 
+-2654 -2659 
+-2655 -2656 
+-2655 -2657 
+-2655 -2658 
+-2655 -2659 
+-2656 -2657 
+-2656 -2658 
+-2656 -2659 
+-2657 -2658 
+-2657 -2659 
+-2658 -2659 
+-2660 -2661 
+-2660 -2662 
+-2660 -2663 
+-2660 -2664 
+-2660 -2665 
+-2661 -2662 
+-2661 -2663 
+-2661 -2664 
+-2661 -2665 
+-2662 -2663 
+-2662 -2664 
+-2662 -2665 
+-2663 -2664 
+-2663 -2665 
+-2664 -2665 
+-14 2666 
+-14 2673 
+-24 2667 
+-24 2673 
+-23 2668 
+-23 2673 
+-22 2669 
+-22 2673 
+-21 2670 
+-21 2673 
+-20 2671 
+-20 2673 
+-19 2672 
+-19 2673 
+-18 2666 
+-18 2674 
+-17 2667 
+-17 2674 
+-16 2668 
+-16 2674 
+-15 2669 
+-15 2674 
+-25 2670 
+-25 2674 
+-13 2671 
+-13 2674 
+-12 2672 
+-12 2674 
+-11 2666 
+-11 2675 
+-10 2667 
+-10 2675 
+-9 2668 
+-9 2675 
+-8 2669 
+-8 2675 
+-7 2670 
+-7 2675 
+-6 2671 
+-6 2675 
+-5 2672 
+-5 2675 
+-35 2666 
+-35 2676 
+-44 2667 
+-44 2676 
+-43 2668 
+-43 2676 
+-42 2669 
+-42 2676 
+-41 2670 
+-41 2676 
+-40 2671 
+-40 2676 
+-39 2672 
+-39 2676 
+-38 2666 
+-38 2677 
+-37 2667 
+-37 2677 
+-36 2668 
+-36 2677 
+-45 2669 
+-45 2677 
+-34 2670 
+-34 2677 
+-33 2671 
+-33 2677 
+-32 2672 
+-32 2677 
+-31 2666 
+-31 2678 
+-30 2667 
+-30 2678 
+-29 2668 
+-29 2678 
+-28 2669 
+-28 2678 
+-27 2670 
+-27 2678 
+-26 2671 
+-26 2678 
+-2666 -2667 
+-2666 -2668 
+-2666 -2669 
+-2666 -2670 
+-2666 -2671 
+-2666 -2672 
+-2667 -2668 
+-2667 -2669 
+-2667 -2670 
+-2667 -2671 
+-2667 -2672 
+-2668 -2669 
+-2668 -2670 
+-2668 -2671 
+-2668 -2672 
+-2669 -2670 
+-2669 -2671 
+-2669 -2672 
+-2670 -2671 
+-2670 -2672 
+-2671 -2672 
+-2673 -2674 
+-2673 -2675 
+-2673 -2676 
+-2673 -2677 
+-2673 -2678 
+-2674 -2675 
+-2674 -2676 
+-2674 -2677 
+-2674 -2678 
+-2675 -2676 
+-2675 -2677 
+-2675 -2678 
+-2676 -2677 
+-2676 -2678 
+-2677 -2678 
+-15 2679 
+-15 2686 
+-24 2680 
+-24 2686 
+-23 2681 
+-23 2686 
+-22 2682 
+-22 2686 
+-21 2683 
+-21 2686 
+-20 2684 
+-20 2686 
+-19 2685 
+-19 2686 
+-18 2679 
+-18 2687 
+-17 2680 
+-17 2687 
+-16 2681 
+-16 2687 
+-25 2682 
+-25 2687 
+-14 2683 
+-14 2687 
+-13 2684 
+-13 2687 
+-12 2685 
+-12 2687 
+-11 2679 
+-11 2688 
+-10 2680 
+-10 2688 
+-9 2681 
+-9 2688 
+-8 2682 
+-8 2688 
+-7 2683 
+-7 2688 
+-6 2684 
+-6 2688 
+-35 2685 
+-35 2688 
+-44 2679 
+-44 2689 
+-43 2680 
+-43 2689 
+-42 2681 
+-42 2689 
+-41 2682 
+-41 2689 
+-40 2683 
+-40 2689 
+-39 2684 
+-39 2689 
+-38 2685 
+-38 2689 
+-37 2679 
+-37 2690 
+-36 2680 
+-36 2690 
+-45 2681 
+-45 2690 
+-34 2682 
+-34 2690 
+-33 2683 
+-33 2690 
+-32 2684 
+-32 2690 
+-31 2685 
+-31 2690 
+-30 2679 
+-30 2691 
+-29 2680 
+-29 2691 
+-28 2681 
+-28 2691 
+-27 2682 
+-27 2691 
+-26 2683 
+-26 2691 
+-2679 -2680 
+-2679 -2681 
+-2679 -2682 
+-2679 -2683 
+-2679 -2684 
+-2679 -2685 
+-2680 -2681 
+-2680 -2682 
+-2680 -2683 
+-2680 -2684 
+-2680 -2685 
+-2681 -2682 
+-2681 -2683 
+-2681 -2684 
+-2681 -2685 
+-2682 -2683 
+-2682 -2684 
+-2682 -2685 
+-2683 -2684 
+-2683 -2685 
+-2684 -2685 
+-2686 -2687 
+-2686 -2688 
+-2686 -2689 
+-2686 -2690 
+-2686 -2691 
+-2687 -2688 
+-2687 -2689 
+-2687 -2690 
+-2687 -2691 
+-2688 -2689 
+-2688 -2690 
+-2688 -2691 
+-2689 -2690 
+-2689 -2691 
+-2690 -2691 
+-16 2692 
+-16 2699 
+-25 2693 
+-25 2699 
+-24 2694 
+-24 2699 
+-23 2695 
+-23 2699 
+-22 2696 
+-22 2699 
+-21 2697 
+-21 2699 
+-20 2698 
+-20 2699 
+-19 2692 
+-19 2700 
+-18 2693 
+-18 2700 
+-17 2694 
+-17 2700 
+-26 2695 
+-26 2700 
+-15 2696 
+-15 2700 
+-14 2697 
+-14 2700 
+-13 2698 
+-13 2700 
+-12 2692 
+-12 2701 
+-11 2693 
+-11 2701 
+-10 2694 
+-10 2701 
+-9 2695 
+-9 2701 
+-8 2696 
+-8 2701 
+-7 2697 
+-7 2701 
+-35 2698 
+-35 2701 
+-44 2692 
+-44 2702 
+-43 2693 
+-43 2702 
+-42 2694 
+-42 2702 
+-41 2695 
+-41 2702 
+-40 2696 
+-40 2702 
+-39 2697 
+-39 2702 
+-38 2698 
+-38 2702 
+-37 2692 
+-37 2703 
+-36 2693 
+-36 2703 
+-45 2694 
+-45 2703 
+-34 2695 
+-34 2703 
+-33 2696 
+-33 2703 
+-32 2697 
+-32 2703 
+-31 2698 
+-31 2703 
+-30 2692 
+-30 2704 
+-29 2693 
+-29 2704 
+-28 2694 
+-28 2704 
+-27 2695 
+-27 2704 
+-2692 -2693 
+-2692 -2694 
+-2692 -2695 
+-2692 -2696 
+-2692 -2697 
+-2692 -2698 
+-2693 -2694 
+-2693 -2695 
+-2693 -2696 
+-2693 -2697 
+-2693 -2698 
+-2694 -2695 
+-2694 -2696 
+-2694 -2697 
+-2694 -2698 
+-2695 -2696 
+-2695 -2697 
+-2695 -2698 
+-2696 -2697 
+-2696 -2698 
+-2697 -2698 
+-2699 -2700 
+-2699 -2701 
+-2699 -2702 
+-2699 -2703 
+-2699 -2704 
+-2700 -2701 
+-2700 -2702 
+-2700 -2703 
+-2700 -2704 
+-2701 -2702 
+-2701 -2703 
+-2701 -2704 
+-2702 -2703 
+-2702 -2704 
+-2703 -2704 
+-16 2705 
+-16 2712 
+-25 2706 
+-25 2712 
+-24 2707 
+-24 2712 
+-23 2708 
+-23 2712 
+-22 2709 
+-22 2712 
+-21 2710 
+-21 2712 
+-20 2711 
+-20 2712 
+-19 2705 
+-19 2713 
+-18 2706 
+-18 2713 
+-17 2707 
+-17 2713 
+-26 2708 
+-26 2713 
+-15 2709 
+-15 2713 
+-14 2710 
+-14 2713 
+-13 2711 
+-13 2713 
+-12 2705 
+-12 2714 
+-11 2706 
+-11 2714 
+-10 2707 
+-10 2714 
+-9 2708 
+-9 2714 
+-8 2709 
+-8 2714 
+-35 2710 
+-35 2714 
+-44 2711 
+-44 2714 
+-43 2705 
+-43 2715 
+-42 2706 
+-42 2715 
+-41 2707 
+-41 2715 
+-40 2708 
+-40 2715 
+-39 2709 
+-39 2715 
+-38 2710 
+-38 2715 
+-37 2711 
+-37 2715 
+-36 2705 
+-36 2716 
+-45 2706 
+-45 2716 
+-34 2707 
+-34 2716 
+-33 2708 
+-33 2716 
+-32 2709 
+-32 2716 
+-31 2710 
+-31 2716 
+-30 2711 
+-30 2716 
+-29 2705 
+-29 2717 
+-28 2706 
+-28 2717 
+-27 2707 
+-27 2717 
+-2705 -2706 
+-2705 -2707 
+-2705 -2708 
+-2705 -2709 
+-2705 -2710 
+-2705 -2711 
+-2706 -2707 
+-2706 -2708 
+-2706 -2709 
+-2706 -2710 
+-2706 -2711 
+-2707 -2708 
+-2707 -2709 
+-2707 -2710 
+-2707 -2711 
+-2708 -2709 
+-2708 -2710 
+-2708 -2711 
+-2709 -2710 
+-2709 -2711 
+-2710 -2711 
+-2712 -2713 
+-2712 -2714 
+-2712 -2715 
+-2712 -2716 
+-2712 -2717 
+-2713 -2714 
+-2713 -2715 
+-2713 -2716 
+-2713 -2717 
+-2714 -2715 
+-2714 -2716 
+-2714 -2717 
+-2715 -2716 
+-2715 -2717 
+-2716 -2717 
+-17 2718 
+-17 2725 
+-26 2719 
+-26 2725 
+-25 2720 
+-25 2725 
+-24 2721 
+-24 2725 
+-23 2722 
+-23 2725 
+-22 2723 
+-22 2725 
+-21 2724 
+-21 2725 
+-20 2718 
+-20 2726 
+-19 2719 
+-19 2726 
+-18 2720 
+-18 2726 
+-27 2721 
+-27 2726 
+-16 2722 
+-16 2726 
+-15 2723 
+-15 2726 
+-14 2724 
+-14 2726 
+-13 2718 
+-13 2727 
+-12 2719 
+-12 2727 
+-11 2720 
+-11 2727 
+-10 2721 
+-10 2727 
+-9 2722 
+-9 2727 
+-36 2723 
+-36 2727 
+-44 2724 
+-44 2727 
+-43 2718 
+-43 2728 
+-42 2719 
+-42 2728 
+-41 2720 
+-41 2728 
+-40 2721 
+-40 2728 
+-39 2722 
+-39 2728 
+-38 2723 
+-38 2728 
+-37 2724 
+-37 2728 
+-45 2718 
+-45 2729 
+-35 2719 
+-35 2729 
+-34 2720 
+-34 2729 
+-33 2721 
+-33 2729 
+-32 2722 
+-32 2729 
+-31 2723 
+-31 2729 
+-30 2724 
+-30 2729 
+-29 2718 
+-29 2730 
+-28 2719 
+-28 2730 
+-2718 -2719 
+-2718 -2720 
+-2718 -2721 
+-2718 -2722 
+-2718 -2723 
+-2718 -2724 
+-2719 -2720 
+-2719 -2721 
+-2719 -2722 
+-2719 -2723 
+-2719 -2724 
+-2720 -2721 
+-2720 -2722 
+-2720 -2723 
+-2720 -2724 
+-2721 -2722 
+-2721 -2723 
+-2721 -2724 
+-2722 -2723 
+-2722 -2724 
+-2723 -2724 
+-2725 -2726 
+-2725 -2727 
+-2725 -2728 
+-2725 -2729 
+-2725 -2730 
+-2726 -2727 
+-2726 -2728 
+-2726 -2729 
+-2726 -2730 
+-2727 -2728 
+-2727 -2729 
+-2727 -2730 
+-2728 -2729 
+-2728 -2730 
+-2729 -2730 
+-18 2731 
+-18 2737 
+-26 2732 
+-26 2737 
+-25 2733 
+-25 2737 
+-24 2734 
+-24 2737 
+-23 2735 
+-23 2737 
+-22 2736 
+-22 2737 
+-21 2731 
+-21 2738 
+-20 2732 
+-20 2738 
+-19 2733 
+-19 2738 
+-27 2734 
+-27 2738 
+-17 2735 
+-17 2738 
+-16 2736 
+-16 2738 
+-15 2731 
+-15 2739 
+-14 2732 
+-14 2739 
+-13 2733 
+-13 2739 
+-12 2734 
+-12 2739 
+-11 2735 
+-11 2739 
+-10 2736 
+-10 2739 
+-36 2731 
+-36 2740 
+-44 2732 
+-44 2740 
+-43 2733 
+-43 2740 
+-42 2734 
+-42 2740 
+-41 2735 
+-41 2740 
+-40 2736 
+-40 2740 
+-39 2731 
+-39 2741 
+-38 2732 
+-38 2741 
+-37 2733 
+-37 2741 
+-45 2734 
+-45 2741 
+-35 2735 
+-35 2741 
+-34 2736 
+-34 2741 
+-33 2731 
+-33 2742 
+-32 2732 
+-32 2742 
+-31 2733 
+-31 2742 
+-30 2734 
+-30 2742 
+-29 2735 
+-29 2742 
+-28 2736 
+-28 2742 
+-2731 -2732 
+-2731 -2733 
+-2731 -2734 
+-2731 -2735 
+-2731 -2736 
+-2732 -2733 
+-2732 -2734 
+-2732 -2735 
+-2732 -2736 
+-2733 -2734 
+-2733 -2735 
+-2733 -2736 
+-2734 -2735 
+-2734 -2736 
+-2735 -2736 
+-2737 -2738 
+-2737 -2739 
+-2737 -2740 
+-2737 -2741 
+-2737 -2742 
+-2738 -2739 
+-2738 -2740 
+-2738 -2741 
+-2738 -2742 
+-2739 -2740 
+-2739 -2741 
+-2739 -2742 
+-2740 -2741 
+-2740 -2742 
+-2741 -2742 
+-19 2743 
+-19 2749 
+-27 2744 
+-27 2749 
+-26 2745 
+-26 2749 
+-25 2746 
+-25 2749 
+-24 2747 
+-24 2749 
+-23 2748 
+-23 2749 
+-22 2743 
+-22 2750 
+-21 2744 
+-21 2750 
+-20 2745 
+-20 2750 
+-28 2746 
+-28 2750 
+-18 2747 
+-18 2750 
+-17 2748 
+-17 2750 
+-16 2743 
+-16 2751 
+-15 2744 
+-15 2751 
+-14 2745 
+-14 2751 
+-13 2746 
+-13 2751 
+-12 2747 
+-12 2751 
+-11 2748 
+-11 2751 
+-36 2743 
+-36 2752 
+-44 2744 
+-44 2752 
+-43 2745 
+-43 2752 
+-42 2746 
+-42 2752 
+-41 2747 
+-41 2752 
+-40 2748 
+-40 2752 
+-39 2743 
+-39 2753 
+-38 2744 
+-38 2753 
+-37 2745 
+-37 2753 
+-45 2746 
+-45 2753 
+-35 2747 
+-35 2753 
+-34 2748 
+-34 2753 
+-33 2743 
+-33 2754 
+-32 2744 
+-32 2754 
+-31 2745 
+-31 2754 
+-30 2746 
+-30 2754 
+-29 2747 
+-29 2754 
+-2743 -2744 
+-2743 -2745 
+-2743 -2746 
+-2743 -2747 
+-2743 -2748 
+-2744 -2745 
+-2744 -2746 
+-2744 -2747 
+-2744 -2748 
+-2745 -2746 
+-2745 -2747 
+-2745 -2748 
+-2746 -2747 
+-2746 -2748 
+-2747 -2748 
+-2749 -2750 
+-2749 -2751 
+-2749 -2752 
+-2749 -2753 
+-2749 -2754 
+-2750 -2751 
+-2750 -2752 
+-2750 -2753 
+-2750 -2754 
+-2751 -2752 
+-2751 -2753 
+-2751 -2754 
+-2752 -2753 
+-2752 -2754 
+-2753 -2754 
+-19 2755 
+-19 2761 
+-27 2756 
+-27 2761 
+-26 2757 
+-26 2761 
+-25 2758 
+-25 2761 
+-24 2759 
+-24 2761 
+-23 2760 
+-23 2761 
+-22 2755 
+-22 2762 
+-21 2756 
+-21 2762 
+-20 2757 
+-20 2762 
+-28 2758 
+-28 2762 
+-18 2759 
+-18 2762 
+-17 2760 
+-17 2762 
+-16 2755 
+-16 2763 
+-15 2756 
+-15 2763 
+-14 2757 
+-14 2763 
+-13 2758 
+-13 2763 
+-12 2759 
+-12 2763 
+-36 2760 
+-36 2763 
+-44 2755 
+-44 2764 
+-43 2756 
+-43 2764 
+-42 2757 
+-42 2764 
+-41 2758 
+-41 2764 
+-40 2759 
+-40 2764 
+-39 2760 
+-39 2764 
+-38 2755 
+-38 2765 
+-37 2756 
+-37 2765 
+-45 2757 
+-45 2765 
+-35 2758 
+-35 2765 
+-34 2759 
+-34 2765 
+-33 2760 
+-33 2765 
+-32 2755 
+-32 2766 
+-31 2756 
+-31 2766 
+-30 2757 
+-30 2766 
+-29 2758 
+-29 2766 
+-2755 -2756 
+-2755 -2757 
+-2755 -2758 
+-2755 -2759 
+-2755 -2760 
+-2756 -2757 
+-2756 -2758 
+-2756 -2759 
+-2756 -2760 
+-2757 -2758 
+-2757 -2759 
+-2757 -2760 
+-2758 -2759 
+-2758 -2760 
+-2759 -2760 
+-2761 -2762 
+-2761 -2763 
+-2761 -2764 
+-2761 -2765 
+-2761 -2766 
+-2762 -2763 
+-2762 -2764 
+-2762 -2765 
+-2762 -2766 
+-2763 -2764 
+-2763 -2765 
+-2763 -2766 
+-2764 -2765 
+-2764 -2766 
+-2765 -2766 
+-20 2767 
+-20 2773 
+-28 2768 
+-28 2773 
+-27 2769 
+-27 2773 
+-26 2770 
+-26 2773 
+-25 2771 
+-25 2773 
+-24 2772 
+-24 2773 
+-23 2767 
+-23 2774 
+-22 2768 
+-22 2774 
+-21 2769 
+-21 2774 
+-29 2770 
+-29 2774 
+-19 2771 
+-19 2774 
+-18 2772 
+-18 2774 
+-17 2767 
+-17 2775 
+-16 2768 
+-16 2775 
+-15 2769 
+-15 2775 
+-14 2770 
+-14 2775 
+-13 2771 
+-13 2775 
+-45 2772 
+-45 2775 
+-30 2767 
+-30 2776 
+-31 2768 
+-31 2776 
+-32 2769 
+-32 2776 
+-33 2770 
+-33 2776 
+-34 2771 
+-34 2776 
+-35 2772 
+-35 2776 
+-36 2767 
+-36 2777 
+-37 2768 
+-37 2777 
+-38 2769 
+-38 2777 
+-39 2770 
+-39 2777 
+-40 2771 
+-40 2777 
+-41 2772 
+-41 2777 
+-42 2767 
+-42 2778 
+-43 2768 
+-43 2778 
+-44 2769 
+-44 2778 
+-2767 -2768 
+-2767 -2769 
+-2767 -2770 
+-2767 -2771 
+-2767 -2772 
+-2768 -2769 
+-2768 -2770 
+-2768 -2771 
+-2768 -2772 
+-2769 -2770 
+-2769 -2771 
+-2769 -2772 
+-2770 -2771 
+-2770 -2772 
+-2771 -2772 
+-2773 -2774 
+-2773 -2775 
+-2773 -2776 
+-2773 -2777 
+-2773 -2778 
+-2774 -2775 
+-2774 -2776 
+-2774 -2777 
+-2774 -2778 
+-2775 -2776 
+-2775 -2777 
+-2775 -2778 
+-2776 -2777 
+-2776 -2778 
+-2777 -2778 
+-29 -14 
+-29 -2782 
+-14 -2782 
+-15 -16 
+-15 -2781 
+-15 2782 
+-16 -2781 
+-16 2782 
+-2781 2782 
+-17 -18 
+-17 -19 
+-17 -2783 
+-18 -19 
+-18 -2783 
+-19 -2783 
+-20 -2780 
+-20 2781 
+-20 2783 
+-2780 2781 
+-2780 2783 
+2781 2783 
+-21 -22 
+-21 -23 
+-21 -2785 
+-22 -23 
+-22 -2785 
+-23 -2785 
+-24 -25 
+-24 -2784 
+-24 2785 
+-25 -2784 
+-25 2785 
+-2784 2785 
+-26 -27 
+-26 -28 
+-26 -2786 
+-27 -28 
+-27 -2786 
+-28 -2786 
+-2779 2780 
+-2779 2784 
+-2779 2786 
+2780 2784 
+2780 2786 
+2784 2786 
+-45 -30 
+-45 -2789 
+-30 -2789 
+-31 -32 
+-31 -2788 
+-31 2789 
+-32 -2788 
+-32 2789 
+-2788 2789 
+-33 -34 
+-33 -35 
+-33 -2790 
+-34 -35 
+-34 -2790 
+-35 -2790 
+-36 -2787 
+-36 2788 
+-36 2790 
+-2787 2788 
+-2787 2790 
+2788 2790 
+-37 -38 
+-37 -39 
+-37 -2792 
+-38 -39 
+-38 -2792 
+-39 -2792 
+-40 -41 
+-40 -2791 
+-40 2792 
+-41 -2791 
+-41 2792 
+-2791 2792 
+-42 -43 
+-42 -44 
+-42 -2793 
+-43 -44 
+-43 -2793 
+-44 -2793 
+2779 2787 
+2779 2791 
+2779 2793 
+2787 2791 
+2787 2793 
+2791 2793 
+-30 -15 
+-30 -2797 
+-15 -2797 
+-16 -17 
+-16 -2796 
+-16 2797 
+-17 -2796 
+-17 2797 
+-2796 2797 
+-18 -19 
+-18 -20 
+-18 -2798 
+-19 -20 
+-19 -2798 
+-20 -2798 
+-21 -2795 
+-21 2796 
+-21 2798 
+-2795 2796 
+-2795 2798 
+2796 2798 
+-22 -23 
+-22 -2800 
+-23 -2800 
+-24 -25 
+-24 -2799 
+-24 2800 
+-25 -2799 
+-25 2800 
+-2799 2800 
+-26 -27 
+-26 -28 
+-26 -2801 
+-27 -28 
+-27 -2801 
+-28 -2801 
+-2794 2795 
+-2794 2799 
+-2794 2801 
+2795 2799 
+2795 2801 
+2799 2801 
+-29 -45 
+-29 -2804 
+-45 -2804 
+-31 -32 
+-31 -2803 
+-31 2804 
+-32 -2803 
+-32 2804 
+-2803 2804 
+-33 -34 
+-33 -35 
+-33 -2805 
+-34 -35 
+-34 -2805 
+-35 -2805 
+-36 -2802 
+-36 2803 
+-36 2805 
+-2802 2803 
+-2802 2805 
+2803 2805 
+-37 -38 
+-37 -39 
+-37 -2807 
+-38 -39 
+-38 -2807 
+-39 -2807 
+-40 -41 
+-40 -2806 
+-40 2807 
+-41 -2806 
+-41 2807 
+-2806 2807 
+-42 -43 
+-42 -44 
+-42 -2808 
+-43 -44 
+-43 -2808 
+-44 -2808 
+2794 2802 
+2794 2806 
+2794 2808 
+2802 2806 
+2802 2808 
+2806 2808 
+-30 -16 
+-30 -2812 
+-16 -2812 
+-17 -18 
+-17 -2811 
+-17 2812 
+-18 -2811 
+-18 2812 
+-2811 2812 
+-19 -20 
+-19 -21 
+-19 -2813 
+-20 -21 
+-20 -2813 
+-21 -2813 
+-22 -2810 
+-22 2811 
+-22 2813 
+-2810 2811 
+-2810 2813 
+2811 2813 
+-23 -24 
+-23 -2815 
+-24 -2815 
+-25 -26 
+-25 -2814 
+-25 2815 
+-26 -2814 
+-26 2815 
+-2814 2815 
+-27 -28 
+-27 -29 
+-27 -2816 
+-28 -29 
+-28 -2816 
+-29 -2816 
+-2809 2810 
+-2809 2814 
+-2809 2816 
+2810 2814 
+2810 2816 
+2814 2816 
+-45 -31 
+-45 -2819 
+-31 -2819 
+-32 -33 
+-32 -2818 
+-32 2819 
+-33 -2818 
+-33 2819 
+-2818 2819 
+-34 -35 
+-34 -36 
+-34 -2820 
+-35 -36 
+-35 -2820 
+-36 -2820 
+-37 -2817 
+-37 2818 
+-37 2820 
+-2817 2818 
+-2817 2820 
+2818 2820 
+-38 -39 
+-38 -2822 
+-39 -2822 
+-40 -41 
+-40 -2821 
+-40 2822 
+-41 -2821 
+-41 2822 
+-2821 2822 
+-42 -43 
+-42 -44 
+-42 -2823 
+-43 -44 
+-43 -2823 
+-44 -2823 
+2809 2817 
+2809 2821 
+2809 2823 
+2817 2821 
+2817 2823 
+2821 2823 
+-31 -17 
+-31 -2827 
+-17 -2827 
+-18 -19 
+-18 -2826 
+-18 2827 
+-19 -2826 
+-19 2827 
+-2826 2827 
+-20 -21 
+-20 -2828 
+-21 -2828 
+-22 -2825 
+-22 2826 
+-22 2828 
+-2825 2826 
+-2825 2828 
+2826 2828 
+-23 -24 
+-23 -2830 
+-24 -2830 
+-25 -26 
+-25 -2829 
+-25 2830 
+-26 -2829 
+-26 2830 
+-2829 2830 
+-27 -28 
+-27 -29 
+-27 -2831 
+-28 -29 
+-28 -2831 
+-29 -2831 
+-2824 2825 
+-2824 2829 
+-2824 2831 
+2825 2829 
+2825 2831 
+2829 2831 
+-30 -45 
+-30 -2834 
+-45 -2834 
+-32 -33 
+-32 -2833 
+-32 2834 
+-33 -2833 
+-33 2834 
+-2833 2834 
+-34 -35 
+-34 -36 
+-34 -2835 
+-35 -36 
+-35 -2835 
+-36 -2835 
+-37 -2832 
+-37 2833 
+-37 2835 
+-2832 2833 
+-2832 2835 
+2833 2835 
+-38 -39 
+-38 -2837 
+-39 -2837 
+-40 -41 
+-40 -2836 
+-40 2837 
+-41 -2836 
+-41 2837 
+-2836 2837 
+-42 -43 
+-42 -44 
+-42 -2838 
+-43 -44 
+-43 -2838 
+-44 -2838 
+2824 2832 
+2824 2836 
+2824 2838 
+2832 2836 
+2832 2838 
+2836 2838 
+-31 -18 
+-31 -2842 
+-18 -2842 
+-19 -20 
+-19 -2841 
+-19 2842 
+-20 -2841 
+-20 2842 
+-2841 2842 
+-21 -22 
+-21 -2843 
+-22 -2843 
+-23 -2840 
+-23 2841 
+-23 2843 
+-2840 2841 
+-2840 2843 
+2841 2843 
+-24 -25 
+-24 -2845 
+-25 -2845 
+-26 -27 
+-26 -2844 
+-26 2845 
+-27 -2844 
+-27 2845 
+-2844 2845 
+-28 -29 
+-28 -30 
+-28 -2846 
+-29 -30 
+-29 -2846 
+-30 -2846 
+-2839 2840 
+-2839 2844 
+-2839 2846 
+2840 2844 
+2840 2846 
+2844 2846 
+-45 -32 
+-45 -2849 
+-32 -2849 
+-33 -34 
+-33 -2848 
+-33 2849 
+-34 -2848 
+-34 2849 
+-2848 2849 
+-35 -36 
+-35 -2850 
+-36 -2850 
+-37 -2847 
+-37 2848 
+-37 2850 
+-2847 2848 
+-2847 2850 
+2848 2850 
+-38 -39 
+-38 -2852 
+-39 -2852 
+-40 -41 
+-40 -2851 
+-40 2852 
+-41 -2851 
+-41 2852 
+-2851 2852 
+-42 -43 
+-42 -44 
+-42 -2853 
+-43 -44 
+-43 -2853 
+-44 -2853 
+2839 2847 
+2839 2851 
+2839 2853 
+2847 2851 
+2847 2853 
+2851 2853 
+-32 -19 
+-32 -2857 
+-19 -2857 
+-20 -21 
+-20 -2856 
+-20 2857 
+-21 -2856 
+-21 2857 
+-2856 2857 
+-22 -23 
+-22 -2858 
+-23 -2858 
+-24 -2855 
+-24 2856 
+-24 2858 
+-2855 2856 
+-2855 2858 
+2856 2858 
+-25 -26 
+-25 -2860 
+-26 -2860 
+-27 -28 
+-27 -2859 
+-27 2860 
+-28 -2859 
+-28 2860 
+-2859 2860 
+-29 -30 
+-29 -2861 
+-30 -2861 
+-2854 2855 
+-2854 2859 
+-2854 2861 
+2855 2859 
+2855 2861 
+2859 2861 
+-31 -45 
+-31 -2864 
+-45 -2864 
+-33 -34 
+-33 -2863 
+-33 2864 
+-34 -2863 
+-34 2864 
+-2863 2864 
+-35 -36 
+-35 -2865 
+-36 -2865 
+-37 -2862 
+-37 2863 
+-37 2865 
+-2862 2863 
+-2862 2865 
+2863 2865 
+-38 -39 
+-38 -2867 
+-39 -2867 
+-40 -41 
+-40 -2866 
+-40 2867 
+-41 -2866 
+-41 2867 
+-2866 2867 
+-42 -43 
+-42 -44 
+-42 -2868 
+-43 -44 
+-43 -2868 
+-44 -2868 
+2854 2862 
+2854 2866 
+2854 2868 
+2862 2866 
+2862 2868 
+2866 2868 
+-32 -20 
+-32 -2872 
+-20 -2872 
+-21 -22 
+-21 -2871 
+-21 2872 
+-22 -2871 
+-22 2872 
+-2871 2872 
+-23 -24 
+-23 -2873 
+-24 -2873 
+-25 -2870 
+-25 2871 
+-25 2873 
+-2870 2871 
+-2870 2873 
+2871 2873 
+-26 -27 
+-26 -2875 
+-27 -2875 
+-28 -29 
+-28 -2874 
+-28 2875 
+-29 -2874 
+-29 2875 
+-2874 2875 
+-30 -31 
+-30 -2876 
+-31 -2876 
+-2869 2870 
+-2869 2874 
+-2869 2876 
+2870 2874 
+2870 2876 
+2874 2876 
+-45 -33 
+-45 -2879 
+-33 -2879 
+-34 -35 
+-34 -2878 
+-34 2879 
+-35 -2878 
+-35 2879 
+-2878 2879 
+-36 -37 
+-36 -2880 
+-37 -2880 
+-38 -2877 
+-38 2878 
+-38 2880 
+-2877 2878 
+-2877 2880 
+2878 2880 
+-39 -40 
+-39 -2882 
+-40 -2882 
+-41 -42 
+-41 -2881 
+-41 2882 
+-42 -2881 
+-42 2882 
+-2881 2882 
+-43 -44 
+-43 -2883 
+-44 -2883 
+2869 2877 
+2869 2881 
+2869 2883 
+2877 2881 
+2877 2883 
+2881 2883 
+-33 -21 
+-33 -22 
+-33 -2886 
+-21 -22 
+-21 -2886 
+-22 -2886 
+-23 -24 
+-23 -2887 
+-24 -2887 
+-25 -2885 
+-25 2886 
+-25 2887 
+-2885 2886 
+-2885 2887 
+2886 2887 
+-26 -27 
+-26 -2889 
+-27 -2889 
+-28 -29 
+-28 -2888 
+-28 2889 
+-29 -2888 
+-29 2889 
+-2888 2889 
+-30 -31 
+-30 -2890 
+-31 -2890 
+-2884 2885 
+-2884 2888 
+-2884 2890 
+2885 2888 
+2885 2890 
+2888 2890 
+-32 -45 
+-32 -2893 
+-45 -2893 
+-34 -35 
+-34 -2892 
+-34 2893 
+-35 -2892 
+-35 2893 
+-2892 2893 
+-36 -37 
+-36 -2894 
+-37 -2894 
+-38 -2891 
+-38 2892 
+-38 2894 
+-2891 2892 
+-2891 2894 
+2892 2894 
+-39 -40 
+-39 -2896 
+-40 -2896 
+-41 -42 
+-41 -2895 
+-41 2896 
+-42 -2895 
+-42 2896 
+-2895 2896 
+-43 -44 
+-43 -2897 
+-44 -2897 
+2884 2891 
+2884 2895 
+2884 2897 
+2891 2895 
+2891 2897 
+2895 2897 
+-33 -22 
+-33 -23 
+-33 -2900 
+-22 -23 
+-22 -2900 
+-23 -2900 
+-24 -25 
+-24 -2901 
+-25 -2901 
+-26 -2899 
+-26 2900 
+-26 2901 
+-2899 2900 
+-2899 2901 
+2900 2901 
+-27 -28 
+-27 -2903 
+-28 -2903 
+-29 -30 
+-29 -2902 
+-29 2903 
+-30 -2902 
+-30 2903 
+-2902 2903 
+-31 -32 
+-31 -2904 
+-32 -2904 
+-2898 2899 
+-2898 2902 
+-2898 2904 
+2899 2902 
+2899 2904 
+2902 2904 
+-45 -34 
+-45 -35 
+-45 -2906 
+-34 -35 
+-34 -2906 
+-35 -2906 
+-36 -37 
+-36 -2907 
+-37 -2907 
+-38 -2905 
+-38 2906 
+-38 2907 
+-2905 2906 
+-2905 2907 
+2906 2907 
+-39 -40 
+-39 -2909 
+-40 -2909 
+-41 -42 
+-41 -2908 
+-41 2909 
+-42 -2908 
+-42 2909 
+-2908 2909 
+-43 -44 
+-43 -2910 
+-44 -2910 
+2898 2905 
+2898 2908 
+2898 2910 
+2905 2908 
+2905 2910 
+2908 2910 
+-34 -23 
+-34 -24 
+-34 -2913 
+-23 -24 
+-23 -2913 
+-24 -2913 
+-25 -26 
+-25 -2914 
+-26 -2914 
+-27 -2912 
+-27 2913 
+-27 2914 
+-2912 2913 
+-2912 2914 
+2913 2914 
+-28 -29 
+-28 -30 
+-28 -2915 
+-29 -30 
+-29 -2915 
+-30 -2915 
+-31 -32 
+-31 -2916 
+-32 -2916 
+-2911 2912 
+-2911 2915 
+-2911 2916 
+2912 2915 
+2912 2916 
+2915 2916 
+-33 -45 
+-33 -35 
+-33 -2918 
+-45 -35 
+-45 -2918 
+-35 -2918 
+-36 -37 
+-36 -2919 
+-37 -2919 
+-38 -2917 
+-38 2918 
+-38 2919 
+-2917 2918 
+-2917 2919 
+2918 2919 
+-39 -40 
+-39 -2921 
+-40 -2921 
+-41 -42 
+-41 -2920 
+-41 2921 
+-42 -2920 
+-42 2921 
+-2920 2921 
+-43 -44 
+-43 -2922 
+-44 -2922 
+2911 2917 
+2911 2920 
+2911 2922 
+2917 2920 
+2917 2922 
+2920 2922 
+-34 -24 
+-34 -25 
+-34 -2925 
+-24 -25 
+-24 -2925 
+-25 -2925 
+-26 -27 
+-26 -2926 
+-27 -2926 
+-28 -2924 
+-28 2925 
+-28 2926 
+-2924 2925 
+-2924 2926 
+2925 2926 
+-29 -30 
+-29 -31 
+-29 -2927 
+-30 -31 
+-30 -2927 
+-31 -2927 
+-32 -33 
+-32 -2928 
+-33 -2928 
+-2923 2924 
+-2923 2927 
+-2923 2928 
+2924 2927 
+2924 2928 
+2927 2928 
+-45 -35 
+-45 -36 
+-45 -2930 
+-35 -36 
+-35 -2930 
+-36 -2930 
+-37 -38 
+-37 -2931 
+-38 -2931 
+-39 -2929 
+-39 2930 
+-39 2931 
+-2929 2930 
+-2929 2931 
+2930 2931 
+-40 -41 
+-40 -42 
+-40 -2932 
+-41 -42 
+-41 -2932 
+-42 -2932 
+-43 -44 
+-43 -2933 
+-44 -2933 
+2923 2929 
+2923 2932 
+2923 2933 
+2929 2932 
+2929 2933 
+2932 2933 
+-35 -25 
+-35 -26 
+-35 -2936 
+-25 -26 
+-25 -2936 
+-26 -2936 
+-27 -28 
+-27 -2935 
+-27 2936 
+-28 -2935 
+-28 2936 
+-2935 2936 
+-29 -30 
+-29 -31 
+-29 -2937 
+-30 -31 
+-30 -2937 
+-31 -2937 
+-32 -33 
+-32 -2938 
+-33 -2938 
+-2934 2935 
+-2934 2937 
+-2934 2938 
+2935 2937 
+2935 2938 
+2937 2938 
+-34 -45 
+-34 -36 
+-34 -2940 
+-45 -36 
+-45 -2940 
+-36 -2940 
+-37 -38 
+-37 -2941 
+-38 -2941 
+-39 -2939 
+-39 2940 
+-39 2941 
+-2939 2940 
+-2939 2941 
+2940 2941 
+-40 -41 
+-40 -42 
+-40 -2942 
+-41 -42 
+-41 -2942 
+-42 -2942 
+-43 -44 
+-43 -2943 
+-44 -2943 
+2934 2939 
+2934 2942 
+2934 2943 
+2939 2942 
+2939 2943 
+2942 2943 
+-35 -26 
+-35 -27 
+-35 -2946 
+-26 -27 
+-26 -2946 
+-27 -2946 
+-28 -29 
+-28 -2945 
+-28 2946 
+-29 -2945 
+-29 2946 
+-2945 2946 
+-30 -31 
+-30 -32 
+-30 -2947 
+-31 -32 
+-31 -2947 
+-32 -2947 
+-33 -34 
+-33 -2948 
+-34 -2948 
+-2944 2945 
+-2944 2947 
+-2944 2948 
+2945 2947 
+2945 2948 
+2947 2948 
+-45 -36 
+-45 -37 
+-45 -2950 
+-36 -37 
+-36 -2950 
+-37 -2950 
+-38 -39 
+-38 -2949 
+-38 2950 
+-39 -2949 
+-39 2950 
+-2949 2950 
+-40 -41 
+-40 -42 
+-40 -2951 
+-41 -42 
+-41 -2951 
+-42 -2951 
+-43 -44 
+-43 -2952 
+-44 -2952 
+2944 2949 
+2944 2951 
+2944 2952 
+2949 2951 
+2949 2952 
+2951 2952 
+-36 -27 
+-36 -28 
+-36 -2955 
+-27 -28 
+-27 -2955 
+-28 -2955 
+-29 -30 
+-29 -2954 
+-29 2955 
+-30 -2954 
+-30 2955 
+-2954 2955 
+-31 -32 
+-31 -33 
+-31 -2956 
+-32 -33 
+-32 -2956 
+-33 -2956 
+-34 -2953 
+-34 2954 
+-34 2956 
+-2953 2954 
+-2953 2956 
+2954 2956 
+-35 -45 
+-35 -37 
+-35 -2958 
+-45 -37 
+-45 -2958 
+-37 -2958 
+-38 -39 
+-38 -2957 
+-38 2958 
+-39 -2957 
+-39 2958 
+-2957 2958 
+-40 -41 
+-40 -42 
+-40 -2959 
+-41 -42 
+-41 -2959 
+-42 -2959 
+-43 -44 
+-43 -2960 
+-44 -2960 
+2953 2957 
+2953 2959 
+2953 2960 
+2957 2959 
+2957 2960 
+2959 2960 
+-36 -28 
+-36 -29 
+-36 -2963 
+-28 -29 
+-28 -2963 
+-29 -2963 
+-30 -31 
+-30 -2962 
+-30 2963 
+-31 -2962 
+-31 2963 
+-2962 2963 
+-32 -33 
+-32 -34 
+-32 -2964 
+-33 -34 
+-33 -2964 
+-34 -2964 
+-35 -2961 
+-35 2962 
+-35 2964 
+-2961 2962 
+-2961 2964 
+2962 2964 
+-45 -37 
+-45 -38 
+-45 -2966 
+-37 -38 
+-37 -2966 
+-38 -2966 
+-39 -40 
+-39 -2965 
+-39 2966 
+-40 -2965 
+-40 2966 
+-2965 2966 
+-41 -42 
+-41 -43 
+-41 -2967 
+-42 -43 
+-42 -2967 
+-43 -2967 
+-44 2961 
+-44 2965 
+-44 2967 
+2961 2965 
+2961 2967 
+2965 2967 
+-37 -29 
+-37 -2970 
+-29 -2970 
+-30 -31 
+-30 -2969 
+-30 2970 
+-31 -2969 
+-31 2970 
+-2969 2970 
+-32 -33 
+-32 -34 
+-32 -2971 
+-33 -34 
+-33 -2971 
+-34 -2971 
+-35 -2968 
+-35 2969 
+-35 2971 
+-2968 2969 
+-2968 2971 
+2969 2971 
+-36 -45 
+-36 -38 
+-36 -2973 
+-45 -38 
+-45 -2973 
+-38 -2973 
+-39 -40 
+-39 -2972 
+-39 2973 
+-40 -2972 
+-40 2973 
+-2972 2973 
+-41 -42 
+-41 -43 
+-41 -2974 
+-42 -43 
+-42 -2974 
+-43 -2974 
+-44 2968 
+-44 2972 
+-44 2974 
+2968 2972 
+2968 2974 
+2972 2974 
+-45 -44 
+-45 -2977 
+-44 -2977 
+-43 -42 
+-43 -2976 
+-43 2977 
+-42 -2976 
+-42 2977 
+-2976 2977 
+-41 -40 
+-41 -39 
+-41 -2978 
+-40 -39 
+-40 -2978 
+-39 -2978 
+-38 -2975 
+-38 2976 
+-38 2978 
+-2975 2976 
+-2975 2978 
+2976 2978 
+-37 -36 
+-37 -2980 
+-36 -2980 
+-35 -34 
+-35 -2979 
+-35 2980 
+-34 -2979 
+-34 2980 
+-2979 2980 
+-33 -32 
+-33 -31 
+-33 -2981 
+-32 -31 
+-32 -2981 
+-31 -2981 
+-30 2975 
+-30 2979 
+-30 2981 
+2975 2979 
+2975 2981 
+2979 2981 
+-45 -44 
+-45 -2984 
+-44 -2984 
+-43 -42 
+-43 -2983 
+-43 2984 
+-42 -2983 
+-42 2984 
+-2983 2984 
+-41 -40 
+-41 -2985 
+-40 -2985 
+-39 -2982 
+-39 2983 
+-39 2985 
+-2982 2983 
+-2982 2985 
+2983 2985 
+-38 -37 
+-38 -2987 
+-37 -2987 
+-36 -35 
+-36 -2986 
+-36 2987 
+-35 -2986 
+-35 2987 
+-2986 2987 
+-34 -33 
+-34 -32 
+-34 -2988 
+-33 -32 
+-33 -2988 
+-32 -2988 
+-31 2982 
+-31 2986 
+-31 2988 
+2982 2986 
+2982 2988 
+2986 2988 
+-45 -44 
+-45 -2991 
+-44 -2991 
+-43 -42 
+-43 -2990 
+-43 2991 
+-42 -2990 
+-42 2991 
+-2990 2991 
+-41 -40 
+-41 -2992 
+-40 -2992 
+-39 -2989 
+-39 2990 
+-39 2992 
+-2989 2990 
+-2989 2992 
+2990 2992 
+-38 -37 
+-38 -2994 
+-37 -2994 
+-36 -35 
+-36 -2993 
+-36 2994 
+-35 -2993 
+-35 2994 
+-2993 2994 
+-34 -33 
+-34 -2995 
+-33 -2995 
+-32 2989 
+-32 2993 
+-32 2995 
+2989 2993 
+2989 2995 
+2993 2995 
+-45 -44 
+-45 -43 
+-45 -2997 
+-44 -43 
+-44 -2997 
+-43 -2997 
+-42 -41 
+-42 -2998 
+-41 -2998 
+-40 -2996 
+-40 2997 
+-40 2998 
+-2996 2997 
+-2996 2998 
+2997 2998 
+-39 -38 
+-39 -3000 
+-38 -3000 
+-37 -36 
+-37 -2999 
+-37 3000 
+-36 -2999 
+-36 3000 
+-2999 3000 
+-35 -34 
+-35 -3001 
+-34 -3001 
+-33 2996 
+-33 2999 
+-33 3001 
+2996 2999 
+2996 3001 
+2999 3001 
+-45 -44 
+-45 -43 
+-45 -3003 
+-44 -43 
+-44 -3003 
+-43 -3003 
+-42 -41 
+-42 -3004 
+-41 -3004 
+-40 -3002 
+-40 3003 
+-40 3004 
+-3002 3003 
+-3002 3004 
+3003 3004 
+-39 -38 
+-39 -37 
+-39 -3005 
+-38 -37 
+-38 -3005 
+-37 -3005 
+-36 -35 
+-36 -3006 
+-35 -3006 
+-34 3002 
+-34 3005 
+-34 3006 
+3002 3005 
+3002 3006 
+3005 3006 
+-45 -44 
+-45 -43 
+-45 -3008 
+-44 -43 
+-44 -3008 
+-43 -3008 
+-42 -41 
+-42 -3007 
+-42 3008 
+-41 -3007 
+-41 3008 
+-3007 3008 
+-40 -39 
+-40 -38 
+-40 -3009 
+-39 -38 
+-39 -3009 
+-38 -3009 
+-37 -36 
+-37 -3010 
+-36 -3010 
+-35 3007 
+-35 3009 
+-35 3010 
+3007 3009 
+3007 3010 
+3009 3010 
+-45 -44 
+-45 -43 
+-45 -3012 
+-44 -43 
+-44 -3012 
+-43 -3012 
+-42 -41 
+-42 -3011 
+-42 3012 
+-41 -3011 
+-41 3012 
+-3011 3012 
+-40 -39 
+-40 -38 
+-40 -3013 
+-39 -38 
+-39 -3013 
+-38 -3013 
+-37 -36 
+-37 3011 
+-37 3013 
+-36 3011 
+-36 3013 
+3011 3013 
+-45 -44 
+-45 -3015 
+-44 -3015 
+-43 -42 
+-43 -3014 
+-43 3015 
+-42 -3014 
+-42 3015 
+-3014 3015 
+-41 -40 
+-41 -39 
+-41 -3016 
+-40 -39 
+-40 -3016 
+-39 -3016 
+-38 -37 
+-38 3014 
+-38 3016 
+-37 3014 
+-37 3016 
+3014 3016 
+-45 -44 
+-45 -3018 
+-44 -3018 
+-43 -42 
+-43 -3017 
+-43 3018 
+-42 -3017 
+-42 3018 
+-3017 3018 
+-41 -40 
+-41 -3019 
+-40 -3019 
+-39 -38 
+-39 3017 
+-39 3019 
+-38 3017 
+-38 3019 
+3017 3019 
+-45 -44 
+-45 -43 
+-45 -3020 
+-44 -43 
+-44 -3020 
+-43 -3020 
+-42 -41 
+-42 -3021 
+-41 -3021 
+-40 -39 
+-40 3020 
+-40 3021 
+-39 3020 
+-39 3021 
+3020 3021 
+-45 -44 
+-45 -43 
+-45 -3022 
+-44 -43 
+-44 -3022 
+-43 -3022 
+-42 -41 
+-42 -40 
+-42 3022 
+-41 -40 
+-41 3022 
+-40 3022 
+-45 -44 
+-45 -3023 
+-44 -3023 
+-43 -42 
+-43 -41 
+-43 3023 
+-42 -41 
+-42 3023 
+-41 3023 
+-45 -44 
+-45 -43 
+-45 -42 
+-44 -43 
+-44 -42 
+-43 -42 
+-45 -44 
+-45 -43 
+-44 -43 
+-45 -44 
+-52 -51 
+-52 -50 
+-52 -49 
+-51 -50 
+-51 -49 
+-50 -49 
+-52 -51 
+-52 -50 
+-51 -50 
+-52 -51 
+-54 -53 
+-64 -63 
+-64 -62 
+-64 -3025 
+-63 -62 
+-63 -3025 
+-62 -3025 
+-61 -60 
+-61 -3024 
+-61 3025 
+-60 -3024 
+-60 3025 
+-3024 3025 
+-59 -58 
+-59 -57 
+-59 -3026 
+-58 -57 
+-58 -3026 
+-57 -3026 
+-56 -55 
+-56 3024 
+-56 3026 
+-55 3024 
+-55 3026 
+3024 3026 
+-64 -63 
+-64 -3028 
+-63 -3028 
+-62 -61 
+-62 -3027 
+-62 3028 
+-61 -3027 
+-61 3028 
+-3027 3028 
+-60 -59 
+-60 -58 
+-60 -3029 
+-59 -58 
+-59 -3029 
+-58 -3029 
+-57 -56 
+-57 3027 
+-57 3029 
+-56 3027 
+-56 3029 
+3027 3029 
+-64 -63 
+-64 -3031 
+-63 -3031 
+-62 -61 
+-62 -3030 
+-62 3031 
+-61 -3030 
+-61 3031 
+-3030 3031 
+-60 -59 
+-60 -3032 
+-59 -3032 
+-58 -57 
+-58 3030 
+-58 3032 
+-57 3030 
+-57 3032 
+3030 3032 
+-64 -63 
+-64 -62 
+-64 -3033 
+-63 -62 
+-63 -3033 
+-62 -3033 
+-61 -60 
+-61 -3034 
+-60 -3034 
+-59 -58 
+-59 3033 
+-59 3034 
+-58 3033 
+-58 3034 
+3033 3034 
+-64 -63 
+-64 -62 
+-64 -3035 
+-63 -62 
+-63 -3035 
+-62 -3035 
+-61 -60 
+-61 -59 
+-61 3035 
+-60 -59 
+-60 3035 
+-59 3035 
+-64 -63 
+-64 -3036 
+-63 -3036 
+-62 -61 
+-62 -60 
+-62 3036 
+-61 -60 
+-61 3036 
+-60 3036 
+-64 -63 
+-64 -62 
+-64 -61 
+-63 -62 
+-63 -61 
+-62 -61 
+-64 -63 
+-64 -62 
+-63 -62 
+-64 -63 
+-122 -121 
+-128 -127 
+-128 -3037 
+-127 -3037 
+-126 -125 
+-126 -124 
+-126 3037 
+-125 -124 
+-125 3037 
+-124 3037 
+-128 -127 
+-128 -126 
+-128 -125 
+-127 -126 
+-127 -125 
+-126 -125 
+-128 -127 
+-128 -126 
+-127 -126 
+-128 -127 
+-132 -131 
+-137 -136 
+-137 -135 
+-136 -135 
+-137 -136 
+-149 -148 
+-149 -147 
+-149 -3038 
+-148 -147 
+-148 -3038 
+-147 -3038 
+-146 -145 
+-146 -3039 
+-145 -3039 
+-144 -143 
+-144 3038 
+-144 3039 
+-143 3038 
+-143 3039 
+3038 3039 
+-149 -148 
+-149 -147 
+-149 -3040 
+-148 -147 
+-148 -3040 
+-147 -3040 
+-146 -145 
+-146 -144 
+-146 3040 
+-145 -144 
+-145 3040 
+-144 3040 
+-149 -148 
+-149 -3041 
+-148 -3041 
+-147 -146 
+-147 -145 
+-147 3041 
+-146 -145 
+-146 3041 
+-145 3041 
+-149 -148 
+-149 -147 
+-149 -146 
+-148 -147 
+-148 -146 
+-147 -146 
+-149 -148 
+-149 -147 
+-148 -147 
+-149 -148 
+-222 -221 
+-236 -235 
+-245 -244 
+-245 -243 
+-244 -243 
+-245 -244 
+-446 -445 
+-461 -460 
+-466 -465 
+-466 -464 
+-465 -464 
+-466 -465 
+-506 -505 
+-510 -509 
+-548 -547 
+-551 -550 
+-561 -560 
+-567 -566 
+-690 -689 
+-690 -688 
+-689 -688 
+-690 -689 
+-695 -694 
+-867 -866 
+-867 -865 
+-866 -865 
+-867 -866 
+-1088 -1087 
+-1088 -1086 
+-1088 -1085 
+-1087 -1086 
+-1087 -1085 
+-1086 -1085 
+-1088 -1087 
+-1088 -1086 
+-1087 -1086 
+-1088 -1087 
+-1186 -1185 
+-1186 -1184 
+-1186 -1183 
+-1185 -1184 
+-1185 -1183 
+-1184 -1183 
+-1186 -1185 
+-1186 -1184 
+-1185 -1184 
+-1186 -1185 
+-1229 -1228 
+-1245 -1244 
+-1248 -1247 
+-1275 -1274 
+-1305 -1304 
+-1324 -1323 
+-1348 -1347 
+-1348 -1346 
+-1347 -1346 
+-1348 -1347 
+-1368 -1367 
+-1404 -1403 
+-1426 -1425 
+-1624 -1623 
+-1629 -1628 
+-1639 -1638 
+-1639 -1637 
+-1638 -1637 
+-1639 -1638 
+-1653 -1652 
+-1669 -1668 
+-1680 -1679 
+-1685 -1684 
+-1694 -1693 
+-1718 -1717 
+-1838 -1837 
+-1843 -1842 
+-1851 -1850 
+-1878 -1877 
+-1886 -1885 
+-1895 -1894 
+-1985 -1984 
+-1996 -1995 
+-2001 -2000 
+-2009 -2008 
+-2013 -2012 
+-2026 -2025 
+-2069 -2068 
+-2069 -2067 
+-2069 -2066 
+-2068 -2067 
+-2068 -2066 
+-2067 -2066 
+-2069 -2068 
+-2069 -2067 
+-2068 -2067 
+-2069 -2068 
+-2073 -2072 
+-2081 -2080 
+-2081 -2079 
+-2080 -2079 
+-2081 -2080 
+-2093 -2092 
+-2132 -2131 
+-2139 -2138 
+-2146 -2145 
+-2178 -2177 
+-2182 -2181 
+-2190 -2189 
+-2194 -2193 
+-2202 -2201 
+-2209 -2208 
+-2213 -2212 
+-2221 -2220 
+-2225 -2224 
+-2233 -2232 
+-2240 -2239 
+-2244 -2243 
+-2252 -2251 
+-2256 -2255 
+-2264 -2263 
+-2271 -2270 
+-2277 -2276 
+-2277 -2275 
+-2277 -2274 
+-2276 -2275 
+-2276 -2274 
+-2275 -2274 
+-2277 -2276 
+-2277 -2275 
+-2276 -2275 
+-2277 -2276 
+-2283 -2282 
+-2288 -2287 
+-2288 -2286 
+-2287 -2286 
+-2288 -2287 
+-2296 -2295 
+-2296 -2294 
+-2296 -2293 
+-2295 -2294 
+-2295 -2293 
+-2294 -2293 
+-2296 -2295 
+-2296 -2294 
+-2295 -2294 
+-2296 -2295 
+-2300 -2299 
+-2300 -2298 
+-2299 -2298 
+-2300 -2299 
+-2303 -2302 
+-2311 -2310 
+-2318 -2317 
+-2322 -2321 
+-2330 -2329 
+-2334 -2333 
+-2342 -2341 
+-2349 -2348 
+-2415 -2414 
+-2417 -2416 
+-2424 -2423 
+-2428 -2427 
+-2433 -2432 
+-2433 -2431 
+-2433 -2430 
+-2432 -2431 
+-2432 -2430 
+-2431 -2430 
+-2433 -2432 
+-2433 -2431 
+-2432 -2431 
+-2433 -2432 
+-2437 -2436 
+-2444 -2443 
+-2444 -2442 
+-2443 -2442 
+-2444 -2443 
+-2449 -2448 
+-2511 -2510 
+-2511 -2509 
+-2511 -2508 
+-2510 -2509 
+-2510 -2508 
+-2509 -2508 
+-2511 -2510 
+-2511 -2509 
+-2510 -2509 
+-2511 -2510 
+-2516 -2515 
+-2526 -2525 
+-2526 -2524 
+-2526 -2523 
+-2525 -2524 
+-2525 -2523 
+-2524 -2523 
+-2526 -2525 
+-2526 -2524 
+-2525 -2524 
+-2526 -2525 
+-2610 -2609 
+-2610 -3043 
+-2609 -3043 
+-2608 -2607 
+-2608 -3042 
+-2608 3043 
+-2607 -3042 
+-2607 3043 
+-3042 3043 
+-2606 -2605 
+-2606 -3044 
+-2605 -3044 
+-2604 -2603 
+-2604 3042 
+-2604 3044 
+-2603 3042 
+-2603 3044 
+3042 3044 
+-2610 -2609 
+-2610 -2608 
+-2610 -3045 
+-2609 -2608 
+-2609 -3045 
+-2608 -3045 
+-2607 -2606 
+-2607 -3046 
+-2606 -3046 
+-2605 -2604 
+-2605 3045 
+-2605 3046 
+-2604 3045 
+-2604 3046 
+3045 3046 
+-2610 -2609 
+-2610 -2608 
+-2610 -3047 
+-2609 -2608 
+-2609 -3047 
+-2608 -3047 
+-2607 -2606 
+-2607 -2605 
+-2607 3047 
+-2606 -2605 
+-2606 3047 
+-2605 3047 
+-2610 -2609 
+-2610 -3048 
+-2609 -3048 
+-2608 -2607 
+-2608 -2606 
+-2608 3048 
+-2607 -2606 
+-2607 3048 
+-2606 3048 
+-2610 -2609 
+-2610 -2608 
+-2609 -2608 
+-2610 -2609 

@@ -1,4 +1,5 @@
 #pragma once
+#include <stdint.h>
 #define implies(a, b) (!a || b)
-using literal = uint32_t;
-using weight  = uint64_t;
+using literal = int32_t;
+using weight  = int64_t;
