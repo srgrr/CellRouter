@@ -1,5 +1,26 @@
 #include "instance2formula.h"
 
+
+/*
+	Auxiliary function that gets the adjacent variables (in terms of coordinates) of a variable.
+	Two variables are adjacent if they have the same net and their coordinates differ in at most
+	one position and with an absolute difference of at most one.
+*/
+static std::vector< literal> get_neighbor_variables(const instance& ins, const variable& var) {
+	std::vector< variable > ret;
+	variable adj = var;
+	for(int i = 0; i < ins.num_dims; ++i) {
+		for(int j = -1; j <= 1; j += 2) {
+			adj.coords[i] += j;
+			if( adj.coords[i] > 0 && adj.coords[i] <= ins.dim_sizes[i] ) {
+				ret.push_back(ins.var2index.at(adj));
+			}
+			adj.coords[i] -= j,
+		}
+	}
+	return ret;
+}
+
 std::vector< std::vector< literal > > generate_basic_formula(const instance& ins) {
   PB2CNF pb2cnf;
   std::vector< std::vector< literal > > formula;
@@ -56,12 +77,22 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
     first_fresh_variable = pb2cnf.encodeAtMostK(clause_components, 1ll, formula, first_fresh_variable) + 1;
   }
 
-
   // Constraint 2.1:
   // An endpoint has exactly 1 neighbor
-
+	std::set< variable > endpoints;
+	for(int i = 0; i < ins.num_nets; ++i) {
+		const auto& source_sink = ins.points[i];
+		for(auto& endpoint : source_sink) {
+			const auto adj_vertices = get_neighbor_variables(ins, endpoint);
+			//TODO: Discover if this formula would be better encoded as a PBC
+			first_fresh_variable = pb2cnf.encodeAtMostK(adj_vertices, 1ll, formula, first_fresh_variable) + 1;
+			first_fresh_variable = pb2cnf.encodeAtLeastK(adj_vertices, 1ll, formula, first_fresh_variable) + 1;
+		}
+	}
   // Constraint 2.2:
   // A set non-endpoint vertex IMPLIES two set neighbors
+	//TODO: Implement this constraint
+	//TODO: Use pb2cnf.addConditional(literal) [ WITH SIGN!!! ]
 
   for(auto& clause : formula) {
     for(auto& lit : clause) {
