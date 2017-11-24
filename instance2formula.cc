@@ -2,9 +2,9 @@
 
 
 /*
-	Auxiliary function that gets the adjacent variables (in terms of coordinates) of a variable.
-	Two variables are adjacent if they have the same net and their coordinates differ in at most
-	one position and with an absolute difference of at most one.
+  Auxiliary function that gets the adjacent variables (in terms of coordinates) of a variable.
+  Two variables are adjacent if they have the same net and their coordinates differ in at most
+  one position and with an absolute difference of at most one.
 */
 static std::vector< literal> get_neighbor_variables(const instance& ins, const variable& var) {
   std::vector< variable > ret;
@@ -91,8 +91,8 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
   }
   // Constraint 2.2:
   // A set non-endpoint vertex IMPLIES two set neighbors
-	//TODO: Implement this constraint
-	//TODO: Use pb2cnf.addConditional(literal) [ WITH SIGN!!! ]
+  //TODO: Implement this constraint
+  //TODO: Use pb2cnf.addConditional(literal) [ WITH SIGN!!! ]
 
   for(auto& clause : formula) {
     for(auto& lit : clause) {
