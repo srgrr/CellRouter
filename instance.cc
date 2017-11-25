@@ -80,7 +80,7 @@ static void add_ls(instance& ins,
   Apply the R-L "Random-L" algorithm to each net in order to generate
   some paths.
 */
-static void generate_random_l_paths(instance& ins, int k = 5) {
+static void generate_random_l_paths(instance& ins, int k = 20) {
   for(int net = 0; net < ins.num_nets; ++net) {
     // For each pair (s, t), let's "activate" the following paths:
     // The d! "Ls" between s and t

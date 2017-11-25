@@ -7,15 +7,15 @@
   one position and with an absolute difference of at most one.
 */
 static std::vector< literal> get_neighbor_variables(const instance& ins, const variable& var) {
-  std::vector< variable > ret;
+  std::vector< literal > ret;
   variable adj = var;
   for(int i = 0; i < ins.num_dims; ++i) {
     for(int j = -1; j <= 1; j += 2) {
       adj.coords[i] += j;
-      if( adj.coords[i] > 0 && adj.coords[i] <= ins.dim_sizes[i] ) {
+      if(ins.var2index.count(adj) > 0) {
         ret.push_back(ins.var2index.at(adj));
       }
-      adj.coords[i] -= j,
+      adj.coords[i] -= j;
     }
   }
   return ret;
@@ -23,9 +23,10 @@ static std::vector< literal> get_neighbor_variables(const instance& ins, const v
 
 std::vector< std::vector< literal > > generate_basic_formula(const instance& ins) {
   PB2CNF pb2cnf;
-  std::vector< std::vector< literal > > formula;
+  PBConfig config = std::make_shared< PBConfigClass >();
+  VectorClauseDatabase formula(config);
   // Indices of aux variables will start from ins.allowed_vars.size + 1
-  literal first_fresh_variable = literal(ins.allowed_variables.size()) + 1;
+  literal first_free_variable = literal(ins.allowed_variables.size()) + 1;
   
   // As an optimization, we can just iterate through the
   // set of allowed variables, and only add the necessary ones
@@ -46,8 +47,8 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
     literal source_lit = ins.var2index.at(variable(source, i));
     literal sink_lit   = ins.var2index.at(variable(sink, i));
     // We can add these clauses by hand, as they are unit clauses
-    formula.push_back(std::vector< literal >(1, source_lit));
-    formula.push_back(std::vector< literal >(1, sink_lit));
+    formula.addClause(std::vector< literal >(1, source_lit));
+    formula.addClause(std::vector< literal >(1, sink_lit));
     // Add source and sink coordinates to the set of used vertices in order to
     // avoid processing them again in constraint 1.2
     processed_vertices.insert(source);
@@ -72,36 +73,55 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
     while(start != ins.allowed_variables.end() && (*start).net == var.net) {
       clause_components.push_back(ins.var2index.at(*start));
       ++start;
-     }
+    }
+    std::vector< std::vector< literal > > _formula;
     // Create an at most one constraint with all these variables
-    first_fresh_variable = pb2cnf.encodeAtMostK(clause_components, 1ll, formula, first_fresh_variable) + 1;
+    first_free_variable = pb2cnf.encodeAtMostK(clause_components, 1ll, _formula, first_free_variable) + 1;
+    for(auto& clause : _formula) {
+      formula.addClause(clause);
+    }
   }
+
 
   // Constraint 2.1:
   // An endpoint has exactly 1 neighbor
   std::set< variable > endpoints;
   for(int i = 0; i < ins.num_nets; ++i) {
     const auto& source_sink = ins.points[i];
-    for(auto& endpoint : source_sink) {
-      const auto adj_vertices = get_neighbor_variables(ins, endpoint);
-      //TODO: Discover if this formula would be better encoded as a PBC
-      first_fresh_variable = pb2cnf.encodeAtMostK(adj_vertices, 1ll, formula, first_fresh_variable) + 1;
-      first_fresh_variable = pb2cnf.encodeAtLeastK(adj_vertices, 1ll, formula, first_fresh_variable) + 1;
+    for(const auto& endpoint : source_sink) {
+      const auto adj_vertices = get_neighbor_variables(ins, variable(endpoint, i));
+      std::vector< std::vector< literal > > _formula;
+      first_free_variable = pb2cnf.encodeAtLeastK(adj_vertices, 1ll, _formula, first_free_variable) + 1;
+      first_free_variable = pb2cnf.encodeAtMostK(adj_vertices, 1ll, _formula, first_free_variable) + 1;
+      for(auto& clause : _formula) {
+        formula.addClause(clause);
+      }
     }
   }
+  AuxVarManager avm(first_free_variable);
   // Constraint 2.2:
   // A set non-endpoint vertex IMPLIES two set neighbors
-  //TODO: Implement this constraint
-  //TODO: Use pb2cnf.addConditional(literal) [ WITH SIGN!!! ]
+  for(auto& var : ins.allowed_variables) {
+    if(endpoints.count(var)) continue;
+    const auto adj_vertices = get_neighbor_variables(ins, var);
+    std::vector< std::vector< literal > > _formula;
+    first_free_variable = pb2cnf.encodeAtLeastK(adj_vertices, 2ll, _formula, first_free_variable) + 1;
+    first_free_variable = pb2cnf.encodeAtMostK(adj_vertices, 2ll, _formula, first_free_variable) + 1;
+    for(auto& clause : _formula) {
+      // Add implicant by hand
+      clause.push_back(-ins.var2index.at(var));
+      formula.addClause(clause);
+    }
+  }
 
-  for(auto& clause : formula) {
+  for(const auto& clause : formula.getClauses()) {
     for(auto& lit : clause) {
       std::cout << lit << " ";
     }
     std::cout << std::endl;
   }
 
-  return formula;
+  return formula.getClauses();
 }
 
 

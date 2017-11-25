@@ -2,10 +2,15 @@
 #include "instance.h"
 #include "types.h"
 #include <iostream>
+#include <memory>
 #include <vector>
 #include <set>
 #include <pblib/pb2cnf.h>
-
+#include <pblib/weightedlit.h>
+#include <pblib/auxvarmanager.h>
+#include <pblib/incpbconstraint.h>
+#include <pblib/VectorClauseDatabase.h>
+using namespace PBLib;
 
 /*
   Function that given an instance, generates the basic constraints from it.
@@ -14,8 +19,7 @@
   2) Each endpoint has exactly one neighbor that "contains" the same net.
   3) Each non-endpoint is either not set or it has exactly two set neighbors (from the same net).
 */
-std::vector< std::vector< literal > >
-generate_basic_formula(const instance& ins);
+std::vector< std::vector< literal > > generate_basic_formula(const instance& ins);
 
 /*
   Function that given an instance and its basic formula,
