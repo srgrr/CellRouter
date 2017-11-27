@@ -70,7 +70,7 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
     // different nets, and remember their var indices, as we only need
     // these for constraints encoding.
     auto start = ins.allowed_variables.lower_bound(variable(var.coords, 0));
-    while(start != ins.allowed_variables.end() && (*start).net == var.net) {
+    while(start != ins.allowed_variables.end() && (*start).coords == var.coords) {
       clause_components.push_back(ins.var2index.at(*start));
       ++start;
     }
@@ -81,7 +81,6 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
       formula.addClause(clause);
     }
   }
-
 
   // Constraint 2.1:
   // An endpoint has exactly 1 neighbor
@@ -96,30 +95,32 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
       for(auto& clause : _formula) {
         formula.addClause(clause);
       }
+      endpoints.insert(variable(endpoint, i));
     }
   }
   // Constraint 2.2:
   // A set non-endpoint vertex IMPLIES two set neighbors
   for(auto& var : ins.allowed_variables) {
     if(endpoints.count(var)) continue;
+    auto var_index = ins.var2index.at(var);
     const auto adj_vertices = get_neighbor_variables(ins, var);
     std::vector< std::vector< literal > > _formula;
     first_free_variable = pb2cnf.encodeAtLeastK(adj_vertices, 2ll, _formula, first_free_variable) + 1;
     first_free_variable = pb2cnf.encodeAtMostK(adj_vertices, 2ll, _formula, first_free_variable) + 1;
     for(auto& clause : _formula) {
       // Add implicant by hand
-      clause.push_back(-ins.var2index.at(var));
+      clause.push_back(- var_index);
       formula.addClause(clause);
     }
   }
 
+  std::cout << "p cnf " << first_free_variable << " " << formula.getClauses().size() << std::endl;
   for(const auto& clause : formula.getClauses()) {
     for(auto& lit : clause) {
       std::cout << lit << " ";
     }
-    std::cout << std::endl;
+    std::cout << 0 << std::endl;
   }
-
   return formula.getClauses();
 }
 

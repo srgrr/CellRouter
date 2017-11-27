@@ -21,6 +21,7 @@ struct variable {
   variable();
   variable(std::vector< int > c, int n);
   friend bool operator<(const variable& a, const variable& b);
+  friend std::ostream& operator<<(std::ostream&, const variable& v);
 };
 
 /*

@@ -7,3 +7,4 @@ router
 plot_rl_algo
 *.o
 *.exe
+*.swp

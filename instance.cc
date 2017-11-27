@@ -17,6 +17,14 @@ bool operator<(const variable& a, const variable& b) {
   return a.net < b.net;
 }
 
+std::ostream& operator<<(std::ostream& out, const variable& v) {
+  for(const auto coord : v.coords) {
+    out << coord << "-";
+  }
+  out << v.net << std::endl;
+  return out;
+}
+
 instance::instance() {
   dim_sizes = std::vector< int >();
   points = std::vector< std::vector< std::vector< int > > >();

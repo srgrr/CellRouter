@@ -5,7 +5,7 @@ def main():
   import sys
   file_name = sys.argv[1]
   import subprocess
-  output = subprocess.check_output(['./plot_rl_algo', file_name]).decode('utf-8')
+  output = subprocess.check_output(['./plot_rl_algo.exe', file_name]).decode('utf-8')
   lines = [x.strip() for x in output.split('\n')]
   n, m = map(int, lines[0].split())
   import matplotlib.pyplot as plt

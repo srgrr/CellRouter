@@ -11,7 +11,7 @@ void usage(int exit_code) {
 }
 
 int main(int argc, char** argv) {
-  if( argc != 2 ) {
+  if(argc != 2) {
     usage(1);
   }
   std::string input_file(argv[1]);
