@@ -114,7 +114,14 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
     }
   }
 
-  std::cout << "p cnf " << first_free_variable << " " << formula.getClauses().size() << std::endl;
+  int num_vars = -1;
+  for(auto& clause : formula.getClauses()) {
+    for(auto& var : clause) {
+      num_vars = std::max(num_vars, std::abs(var));
+    }
+  }
+
+  std::cout << "p cnf " << num_vars << " " << formula.getClauses().size() << std::endl;
   for(const auto& clause : formula.getClauses()) {
     for(auto& lit : clause) {
       std::cout << lit << " ";
