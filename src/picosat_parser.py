@@ -2,6 +2,11 @@ def parse_output(output):
     '''Parse the output of picosat
     '''
     lines = output.decode('utf-8').split('\n')
+    _lines = []
+    for line in lines:
+        if not line.startswith('c'):
+            _lines.append(line)
+    lines = _lines
     result = lines[0].split()[1]
     if result == 'UNSATISFIABLE':
         return None
