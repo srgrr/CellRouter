@@ -98,7 +98,6 @@ std::vector< std::vector< literal > > generate_basic_formula(const instance& ins
       }
     }
   }
-  AuxVarManager avm(first_free_variable);
   // Constraint 2.2:
   // A set non-endpoint vertex IMPLIES two set neighbors
   for(auto& var : ins.allowed_variables) {

@@ -7,7 +7,6 @@
 #include <set>
 #include <pblib/pb2cnf.h>
 #include <pblib/weightedlit.h>
-#include <pblib/auxvarmanager.h>
 #include <pblib/incpbconstraint.h>
 #include <pblib/VectorClauseDatabase.h>
 using namespace PBLib;

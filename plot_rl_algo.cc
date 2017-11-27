@@ -8,7 +8,7 @@
   Reads an instance, applies the RL algorithm to it,
   and outputs the used variables, one per line, of
   the first net.
-  This can be plotted in order to achieve a better
+  This plot helps us to achieve a better
   understanding of the R-L algorithm, and how
   "non-intended" paths appear.
 */
