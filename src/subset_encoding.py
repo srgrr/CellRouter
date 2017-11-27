@@ -65,7 +65,7 @@ def convert_to_formula(input_path):
         endpoints.add(t)
         netid[s] = net_id
         netid[t] = net_id
-        valid_variables |= random_routes(s, t, net_id)
+        valid_variables |= random_routes(s, t, net_id, 50 * max(parsed_input['dim_sizes']))
         net_id += 1
 
     # Add all grid vertices as variables

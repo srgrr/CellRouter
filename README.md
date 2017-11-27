@@ -41,3 +41,4 @@ This should leave a `output.png` file with a content that is very
 similar to the sample image above.
 
 ![example](example2.png "Find this example in data/example2")
+![example](example3.png "Find this example in data/example3")
