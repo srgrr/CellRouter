@@ -44,7 +44,7 @@ class Formula(object):
         self.implicant = []
 
 
-    def _at_most(self, vars, selected_vars, index, k, neg = False):
+    def _at_most(self, vars, selected_vars, index, k):
         '''Backtracking procedure that generates and
         adds all clauses needed to implement an
         at most k constraint in the naive way.
@@ -58,7 +58,7 @@ class Formula(object):
         '''
         if index == len(vars):
             if k == 0:
-                to_add = list( (x, not val if neg else val) for (x, val) in selected_vars)
+                to_add = list((x, not val) for (x, val) in selected_vars)
                 if self.implicant:
                     to_add = [self.implicant] + to_add
                 self.clauses.append(to_add)
@@ -67,50 +67,48 @@ class Formula(object):
         if len(vars) - index < k:
             return
         # Ignore current variable
-        self._at_most(vars, selected_vars, index + 1, k, neg)
+        self._at_most(vars, selected_vars, index + 1, k)
         # Add current variable
         selected_vars.append(vars[index])
-        self._at_most(vars, selected_vars, index + 1, k - 1, neg)
+        self._at_most(vars, selected_vars, index + 1, k - 1)
         # Pop stack to leave it intact
         selected_vars.pop()
 
-    def at_most(self, vars, k = 1, neg = True):
+    def at_most(self, vars, k = 1):
         '''At most k constraint. Implemented in the
         naive way, see _at_most method.
         '''
         self._check_vars(vars)
-        self._at_most(vars, [], 0, k + 1, True)
+        self._at_most(vars, [], 0, k + 1)
 
-    def at_most_heule(self, vars, k = 1, neg = True):
+    def at_most_heule(self, vars, k = 1):
         '''At most k constraint, but a la Heule
         '''
         import sys
         sys.setrecursionlimit(10**9)
         if len(vars) <= k + 3:
-            self.at_most(vars, k, neg)
+            self.at_most(vars, k)
         else:
             aux_vars = ['aux_%d'%(i + self.aux_count) for i in range(k)]
             self.aux_count += k
             for aux_var in aux_vars:
                 self.add_variable(aux_var)
             left = vars[:(k+2)] + [(x, True) for x in aux_vars]
-            right = [(x, not neg) for x in aux_vars] + vars[(k+2):]
-            self.at_most(left, k, neg)
-            self.at_most_heule(right, k, neg)
+            right = [(x, False) for x in aux_vars] + vars[(k+2):]
+            self.at_most(left, k)
+            self.at_most_heule(right, k)
 
     def at_least(self, vars, k = 1):
         '''At least k constraint. Implemented in the
         naive way. That is, we add all the possible subsets
         of size n - k + 1 of positive literals
         '''
-        self._check_vars(vars)
-        self._at_most(vars, [], 0, len(vars) - k + 1, False)
+        self._at_most([(x, not val) for (x, val) in vars], [], 0, len(vars) - k + 1)
 
     def at_least_heule(self, vars, k = 1):
         '''At least k constraint, but a la Heule
         '''
-        self._check_vars(vars)
-        self.at_most_heule(vars, len(vars) - k + 1, False)
+        self.at_most_heule([(x, not val) for (x, val) in vars], len(vars) - k + 1)
 
     def exactly(self, vars, k = 1):
         '''Exactly k constraint. A wrapper to
@@ -141,15 +139,6 @@ class Formula(object):
             self.internal2dimacs[var] = current_id
             self.dimacs2internal[current_id] = var
             current_id += 1
-
-    def at_most_all_vars(self, k = 1):
-        '''At most k of all non-aux variables can be true.
-        '''
-        vars = []
-        for var in self.variables:
-            if not 'aux' in var:
-                vars.append(var)
-        self.at_most_heule([(x, True) for x in vars], k)
 
     def print_dimacs(self, output_dimacs, output_dimacs_map):
         '''Prints the formula in DIMACS CNF format
