@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include <cassert>
+#include <fstream>
 #include "net.h"
 
 struct instance {
@@ -8,3 +10,5 @@ struct instance {
   std::vector< net > nets;
   instance();
 };
+
+instance from_stream(std::ifstream&);
