@@ -3,16 +3,16 @@ COMPILER_FLAGS=-std=c++11 -O2 -Wall
 LIBS=-lpblib
 FLAGS=${COMPILER_FLAGS} ${LIBS}
 
-%.o: %.cc
+%.o: %.cc %.h
 	${CXX} -c -o $@ $< ${FLAGS}
 
 # Common linkable stuff, as utils and so on
-COMMON_OBJECTS=utils.o instance.o instance2formula.o
+COMMON_OBJECTS=emst.o instance.o net.o
 
 %.exe: %.cc ${COMMON_OBJECTS}
 	${CXX} -o $@ $< ${COMMON_OBJECTS} ${FLAGS}
 
-all: prova.exe router.exe plot_rl_algo.exe
+all: router.exe
 
 clean:
 	rm -f *.o *.exe
