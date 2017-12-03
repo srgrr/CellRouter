@@ -5,6 +5,7 @@
 #include "instance.h"
 #include "emst.h"
 #include "abstract_formula.h"
+#include "solver.h"
 
 void usage(int exit_code) {
     std::cout << "Usage: router.exe <file-name>" << std::endl;
@@ -26,11 +27,12 @@ int main(int argc, char **argv) {
   auto f = abstract_formula::from_instance(ins);
   int var_count = -1;
   auto sf = f.sat_formula(var_count);
-  std::cout << "p cnf " << var_count << " " << sf.size() << std::endl;
-  for(auto& clause : sf) {
-    for(auto lit : clause) {
-      std::cout << lit << " ";
-    }
-    std::cout << 0 << std::endl;
+  auto sol = solve_formula(sf, var_count);
+  if(!sol.empty()) {
+    std::cout << "SAT Solver found a solution." << std::endl;
   }
+  else {
+    std::cout << "SAT Solver found no solution." << std::endl;
+  }
+
 }
