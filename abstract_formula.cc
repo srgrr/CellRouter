@@ -170,11 +170,12 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
   return ret;
 }
 
-std::vector< std::vector< int32_t > > abstract_formula::sat_formula() {
+std::vector< std::vector< int32_t > > abstract_formula::sat_formula(int& first_free) {
   std::vector< std::vector< int32_t > > ret;
-  int first_free = int(variables.size()) + 1;
+  first_free = int(variables.size()) + 1;
   for(auto constraint : constraints) {
     constraint->to_sat(ret, first_free, name2id);
   }
+  --first_free;
   return ret;
 }

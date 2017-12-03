@@ -18,6 +18,6 @@ public:
   void add_constraint(abstract_constraint::constraint*);
   void summary(std::ostream&);
   static abstract_formula from_instance(instance&);
-  std::vector< std::vector< int32_t > > sat_formula();
+  std::vector< std::vector< int32_t > > sat_formula(int&);
 
 };

@@ -24,7 +24,13 @@ int main(int argc, char **argv) {
   auto ins = from_stream(ifs);
   compute_emst_subnets(ins);
   auto f = abstract_formula::from_instance(ins);
-  f.summary(std::cout);
-  auto sf = f.sat_formula();
-  std::cout << sf.size() << std::endl;
+  int var_count = -1;
+  auto sf = f.sat_formula(var_count);
+  std::cout << "p cnf " << var_count << " " << sf.size() << std::endl;
+  for(auto& clause : sf) {
+    for(auto lit : clause) {
+      std::cout << lit << " ";
+    }
+    std::cout << 0 << std::endl;
+  }
 }

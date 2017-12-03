@@ -1,3 +1,4 @@
+.PRECIOUS: %.o
 CXX=g++
 COMPILER_FLAGS=-std=c++11 -O2 -Wall -s
 LIBS=-lpblib -lm
