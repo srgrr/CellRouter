@@ -92,8 +92,13 @@ void abstract_formula::add_variable(std::string var_name) {
   }
 }
 
-void abstract_formula::add_constraint(abstract_constraint::constraint& c) {
+void abstract_formula::add_constraint(abstract_constraint::constraint* c) {
   constraints.push_back(c);
+}
+
+void abstract_formula::summary(std::ostream& os) {
+  os << "Variables: " << variables.size() << std::endl;
+  os << "Abstract constraints: " << constraints.size() << std::endl;
 }
 
 abstract_formula abstract_formula::from_instance(instance& ins) {
@@ -111,7 +116,7 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
             clause.push_back(variable(edg, net, subnet).get_name());
           }
         }
-        abstract_constraint::at_most_k amo(1, clause);
+        abstract_constraint::constraint *amo = new abstract_constraint::at_most_k(1, clause);
         ret.add_constraint(amo);
       }
     }
@@ -134,7 +139,7 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
         for(auto& edg : neighbs) {
           clause.push_back(variable(edg, net, subnet).get_name());
         }
-        abstract_constraint::exactly_k exo(1, clause);
+        abstract_constraint::constraint *exo = new abstract_constraint::exactly_k(1, clause);
         ret.add_constraint(exo);
       }
     }
@@ -154,13 +159,22 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
           for(auto& edg : neighbs) {
             clause.push_back(variable(edg, net, subnet).get_name());
           }
-          abstract_constraint::at_most_k amt(2, clause);
-          abstract_constraint::not_exactly_one neo(clause);
+          abstract_constraint::constraint *amt = new abstract_constraint::at_most_k(2, clause);
+          abstract_constraint::constraint *neo = new abstract_constraint::not_exactly_one(clause);
           ret.add_constraint(amt);
           ret.add_constraint(neo);
         }
       }
     }
   } while(_next(ins, cur));
+  return ret;
+}
+
+std::vector< std::vector< int32_t > > abstract_formula::sat_formula() {
+  std::vector< std::vector< int32_t > > ret;
+  int first_free = int(variables.size()) + 1;
+  for(auto constraint : constraints) {
+    constraint->to_sat(ret, first_free, name2id);
+  }
   return ret;
 }

@@ -18,6 +18,11 @@ namespace abstract_constraint {
     return variables;
   }
 
+  void constraint::to_sat(std::vector< std::vector< int32_t > >& formula,
+  int& first_free, std::map< std::string, int>& name2id) {
+    std::cout << "THIS SHOULD NOT EVER NEVER EVAH APPEAR" << std::endl;
+  }
+
   int at_most_k::get_k() {
     return k;
   }
@@ -25,6 +30,12 @@ namespace abstract_constraint {
   at_most_k::at_most_k(int k, std::vector< std::string >& vars) :
   constraint(vars) {
     this->k = k;
+  }
+
+
+  void at_most_k::to_sat(std::vector< std::vector< int32_t > >& formula,
+  int& first_free, std::map< std::string, int >& name2id) {
+    std::cout << "to_sat at_most_k" << std::endl;
   }
 
   std::ostream& operator<<(std::ostream& os, at_most_k& amk) {
@@ -50,6 +61,11 @@ namespace abstract_constraint {
     this->k = k;
   }
 
+  void exactly_k::to_sat(std::vector< std::vector< int32_t > >& formula,
+  int& first_free, std::map< std::string, int >& name2id) {
+    std::cout << "to_sat exactly_k" << std::endl;
+  }
+
   std::ostream& operator<<(std::ostream& os, exactly_k& exk) {
     os << "EX-"+std::to_string(exk.get_k())+"(";
     bool first = true;
@@ -66,6 +82,11 @@ namespace abstract_constraint {
 
   not_exactly_one::not_exactly_one(std::vector< std::string >& vars) :
   constraint(vars) {
+  }
+
+  void not_exactly_one::to_sat(std::vector< std::vector< int32_t > >& formula,
+  int& first_free, std::map< std::string, int >& name2id) {
+    std::cout << "to_sat not_exactly_one" << std::endl;
   }
 
   std::ostream& operator<<(std::ostream& os, not_exactly_one& neo) {

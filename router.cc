@@ -24,5 +24,6 @@ int main(int argc, char **argv) {
   auto ins = from_stream(ifs);
   compute_emst_subnets(ins);
   auto f = abstract_formula::from_instance(ins);
-  
+  f.summary(std::cout);
+  auto sf = f.sat_formula();
 }

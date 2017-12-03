@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <map>
 
 namespace abstract_constraint {
 
@@ -17,6 +18,8 @@ namespace abstract_constraint {
     constraint(std::vector< std::string >& variables);
     void add_variable(std::string&);
     const std::vector< std::string >& get_variables();
+    virtual void to_sat(std::vector< std::vector< int32_t > >& formula,
+    int& first_free, std::map< std::string, int >& name2id);
   };
 
   class at_most_k : public constraint {
@@ -26,6 +29,8 @@ namespace abstract_constraint {
     at_most_k() {}
     at_most_k(int k, std::vector< std::string >& variables);
     int get_k();
+    void to_sat(std::vector< std::vector< int32_t > >& formula,
+    int& first_free, std::map< std::string, int >& name2id);
   };
   std::ostream& operator<<(std::ostream& os, at_most_k& amk);
 
@@ -36,6 +41,8 @@ namespace abstract_constraint {
     exactly_k() {}
     exactly_k(int k, std::vector< std::string >& variables);
     int get_k();
+    void to_sat(std::vector< std::vector< int32_t > >& formula,
+    int& first_free, std::map< std::string, int >& name2id);
   };
   std::ostream& operator<<(std::ostream& os, exactly_k& exk);
 
@@ -44,6 +51,8 @@ namespace abstract_constraint {
   public:
     not_exactly_one() {}
     not_exactly_one(std::vector< std::string >& variables);
+    void to_sat(std::vector< std::vector< int32_t > >& formula,
+    int& first_free, std::map< std::string, int >& name2id);
   };
   std::ostream& operator<<(std::ostream& os, not_exactly_one& neo);
 
