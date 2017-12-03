@@ -92,8 +92,75 @@ void abstract_formula::add_variable(std::string var_name) {
   }
 }
 
+void abstract_formula::add_constraint(abstract_constraint::constraint& c) {
+  constraints.push_back(c);
+}
+
 abstract_formula abstract_formula::from_instance(instance& ins) {
   abstract_formula ret;
   _add_variables(ins, ret);
+  // First constraint (1): at most one net-subnet per edge
+  std::vector< int > cur(ins.num_dims, 1);
+  do {
+    auto neighbs = edges_from_vertex(ins, cur);
+    for(auto& edg : neighbs) {
+      if(edg.u == cur) {
+        std::vector< std::string > clause;
+        for(int net = 0; net < ins.num_nets; ++net) {
+          for(int subnet = 0; subnet < int(ins.nets[net].subnets.size()); ++subnet) {
+            clause.push_back(variable(edg, net, subnet).get_name());
+          }
+        }
+        abstract_constraint::at_most_k amo(1, clause);
+        ret.add_constraint(amo);
+      }
+    }
+  } while(_next(ins, cur));
+  // Second constraint (1): Subnet endpoints have exactly one set edge
+  std::set< std::vector< int > > processed_endpoints;
+  for(int net = 0; net < ins.num_nets; ++net) {
+    for(int subnet = 0; subnet < int(ins.nets[net].subnets.size()); ++subnet) {
+      std::vector< std::vector< int > > endpoints = {
+        ins.nets[net].vertices[ins.nets[net].subnets[subnet][0]],
+        ins.nets[net].vertices[ins.nets[net].subnets[subnet][1]]
+      };
+      for(auto& endpoint : endpoints) {
+        std::vector< int > var(endpoint);
+        var.push_back(net);
+        var.push_back(subnet);
+        processed_endpoints.insert(var);
+        auto neighbs = edges_from_vertex(ins, endpoint);
+        std::vector< std::string > clause;
+        for(auto& edg : neighbs) {
+          clause.push_back(variable(edg, net, subnet).get_name());
+        }
+        abstract_constraint::exactly_k exo(1, clause);
+        ret.add_constraint(exo);
+      }
+    }
+  }
+  // Second constraint (2): Subnet non-endpoints have either zero or two set
+  // edges
+  cur = std::vector< int >(ins.num_dims, 1);
+  do {
+    for(int net = 0; net < ins.num_nets; ++net) {
+      for(int subnet = 0; subnet < int(ins.nets[net].subnets.size()); ++subnet) {
+        std::vector< int > var(cur);
+        var.push_back(net);
+        var.push_back(subnet);
+        if(processed_endpoints.count(var) == 0) {
+          auto neighbs = edges_from_vertex(ins, cur);
+          std::vector< std::string > clause;
+          for(auto& edg : neighbs) {
+            clause.push_back(variable(edg, net, subnet).get_name());
+          }
+          abstract_constraint::at_most_k amt(2, clause);
+          abstract_constraint::not_exactly_one neo(clause);
+          ret.add_constraint(amt);
+          ret.add_constraint(neo);
+        }
+      }
+    }
+  } while(_next(ins, cur));
   return ret;
 }
