@@ -34,7 +34,6 @@ namespace abstract_constraint {
     void to_sat(std::vector< std::vector< int32_t > >& formula,
     int& first_free, std::map< std::string, int >& name2id);
   };
-  std::ostream& operator<<(std::ostream& os, at_most_k& amk);
 
   class exactly_k : public constraint {
   private:
@@ -46,7 +45,6 @@ namespace abstract_constraint {
     void to_sat(std::vector< std::vector< int32_t > >& formula,
     int& first_free, std::map< std::string, int >& name2id);
   };
-  std::ostream& operator<<(std::ostream& os, exactly_k& exk);
 
   class not_exactly_one : public constraint {
   private:
@@ -56,8 +54,16 @@ namespace abstract_constraint {
     void to_sat(std::vector< std::vector< int32_t > >& formula,
     int& first_free, std::map< std::string, int >& name2id);
   };
-  std::ostream& operator<<(std::ostream& os, not_exactly_one& neo);
 
+  class implication : public constraint {
+  private:
+    std::vector< std::string > implicant;
+  public:
+    implication() {}
+    implication(std::vector< std::string >& implicant, std::vector< std::string >& variables);
+    void to_sat(std::vector< std::vector< int32_t > >& formula,
+    int& first_free, std::map< std::string, int >& name2id);
+  };
 
 
 };

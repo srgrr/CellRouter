@@ -47,20 +47,6 @@ namespace abstract_constraint {
     first_free = pb2cnf.encodeAtMostK(get_literals(name2id), k, formula, first_free) + 1;
   }
 
-  std::ostream& operator<<(std::ostream& os, at_most_k& amk) {
-    os << "AM-"+std::to_string(amk.get_k())+"(";
-    bool first = true;
-    for(auto& var : amk.get_variables()) {
-      if(!first) {
-        os << ", ";
-      }
-      first = false;
-      os << var;
-    }
-    os << ")";
-    return os;
-  }
-
   int exactly_k::get_k() {
     return k;
   }
@@ -75,20 +61,6 @@ namespace abstract_constraint {
     PB2CNF pb2cnf;
     first_free = pb2cnf.encodeAtMostK(get_literals(name2id), k, formula, first_free) + 1;
     first_free = pb2cnf.encodeAtLeastK(get_literals(name2id), k, formula, first_free) + 1;
-  }
-
-  std::ostream& operator<<(std::ostream& os, exactly_k& exk) {
-    os << "EX-"+std::to_string(exk.get_k())+"(";
-    bool first = true;
-    for(auto& var : exk.get_variables()) {
-      if(!first) {
-        os << ", ";
-      }
-      first = false;
-      os << var;
-    }
-    os << ")";
-    return os;
   }
 
   not_exactly_one::not_exactly_one(std::vector< std::string >& vars) :
@@ -108,18 +80,21 @@ namespace abstract_constraint {
     }
   }
 
-  std::ostream& operator<<(std::ostream& os, not_exactly_one& neo) {
-    os << "NEO(";
-    bool first = true;
-    for(auto& var : neo.get_variables()) {
-      if(!first) {
-        os << ", ";
-      }
-      first = false;
-      os << var;
+  implication::implication(std::vector< std::string >& impl, std::vector< std::string >& vars) :
+  constraint(vars) {
+    implicant = impl;
+  }
+
+  void implication::to_sat(std::vector< std::vector< int32_t > >& formula,
+  int& first_free, std::map< std::string, int >& name2id) {
+    std::vector< int32_t > impl;
+    for(auto& lit : implicant) {
+      impl.push_back(name2id.at(lit));
     }
-    os << ")";
-    return os;
+    for(auto lit : get_literals(name2id)) {
+      impl.push_back(lit);
+    }
+    formula.push_back(impl);
   }
 
 };

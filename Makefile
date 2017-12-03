@@ -13,7 +13,7 @@ COMMON_OBJECTS=emst.o instance.o net.o abstract_formula.o abstract_constraint.o 
 %.exe: %.cc ${COMMON_OBJECTS}
 	${CXX} -o $@ $< ${COMMON_OBJECTS} ${FLAGS}
 
-all: router.exe
+all: router.exe emst_main.exe
 
 clean:
 	rm -f *.o *.exe

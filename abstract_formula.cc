@@ -7,7 +7,7 @@ struct edge {
     u = std::vector< int >();
     v = std::vector< int >();
   }
-  edge(std::vector< int >& a, std::vector< int >& b) {
+  edge(std::vector< int > a, std::vector< int > b) {
     u = a;
     v = b;
     if(u > v) {
@@ -167,6 +167,9 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
       }
     }
   } while(_next(ins, cur));
+  // Third constraint (1): If a (u,v) edge is from some net-subnet n-s, then their
+  // endpoints cannot have any set edge from any other net
+
   return ret;
 }
 
