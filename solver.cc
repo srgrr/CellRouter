@@ -29,9 +29,5 @@ std::vector< int32_t > solve_formula(std::vector< std::vector< int32_t > >& f,
       }
     }
   }
-  else {
-    std::cout << "loool" << std::endl;
-  }
-
   return ret;
 }

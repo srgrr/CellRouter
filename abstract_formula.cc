@@ -179,3 +179,12 @@ std::vector< std::vector< int32_t > > abstract_formula::sat_formula(int& first_f
   --first_free;
   return ret;
 }
+
+void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vector< int32_t >& model) {
+  os << ins.dim_sizes[0] << " " << ins.dim_sizes[1] << std::endl;
+  for(int i = 0; i < int(variables.size()); ++i) {
+    if(model[i] > 0) {
+      std::cout << id2name.at(std::abs(model[i])) << std::endl;
+    }
+  }
+}

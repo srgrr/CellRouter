@@ -19,5 +19,6 @@ public:
   void summary(std::ostream&);
   static abstract_formula from_instance(instance&);
   std::vector< std::vector< int32_t > > sat_formula(int&);
+  void print_plottable(std::ostream&, instance&, std::vector< int32_t >&);
 
 };
