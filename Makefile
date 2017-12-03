@@ -7,7 +7,7 @@ FLAGS=${COMPILER_FLAGS} ${LIBS}
 	${CXX} -c -o $@ $< ${FLAGS}
 
 # Common linkable stuff, as utils and so on
-COMMON_OBJECTS=emst.o instance.o net.o
+COMMON_OBJECTS=emst.o instance.o net.o abstract_formula.o
 
 %.exe: %.cc ${COMMON_OBJECTS}
 	${CXX} -o $@ $< ${COMMON_OBJECTS} ${FLAGS}
