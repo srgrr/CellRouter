@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <map>
+#include <pblib/pb2cnf.h>
 
 namespace abstract_constraint {
 
@@ -20,6 +21,7 @@ namespace abstract_constraint {
     const std::vector< std::string >& get_variables();
     virtual void to_sat(std::vector< std::vector< int32_t > >& formula,
     int& first_free, std::map< std::string, int >& name2id);
+    std::vector< int32_t > get_literals(std::map< std::string, int>&);
   };
 
   class at_most_k : public constraint {

@@ -26,4 +26,5 @@ int main(int argc, char **argv) {
   auto f = abstract_formula::from_instance(ins);
   f.summary(std::cout);
   auto sf = f.sat_formula();
+  std::cout << sf.size() << std::endl;
 }

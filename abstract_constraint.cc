@@ -23,6 +23,14 @@ namespace abstract_constraint {
     std::cout << "THIS SHOULD NOT EVER NEVER EVAH APPEAR" << std::endl;
   }
 
+  std::vector< int32_t > constraint::get_literals(std::map< std::string, int>& name2id) {
+    std::vector< int32_t > ret;
+    for(std::string& var : variables) {
+      ret.push_back(name2id.at(var));
+    }
+    return ret;
+  }
+
   int at_most_k::get_k() {
     return k;
   }
@@ -35,7 +43,8 @@ namespace abstract_constraint {
 
   void at_most_k::to_sat(std::vector< std::vector< int32_t > >& formula,
   int& first_free, std::map< std::string, int >& name2id) {
-    std::cout << "to_sat at_most_k" << std::endl;
+    PB2CNF pb2cnf;
+    first_free = pb2cnf.encodeAtMostK(get_literals(name2id), k, formula, first_free) + 1;
   }
 
   std::ostream& operator<<(std::ostream& os, at_most_k& amk) {
@@ -63,7 +72,9 @@ namespace abstract_constraint {
 
   void exactly_k::to_sat(std::vector< std::vector< int32_t > >& formula,
   int& first_free, std::map< std::string, int >& name2id) {
-    std::cout << "to_sat exactly_k" << std::endl;
+    PB2CNF pb2cnf;
+    first_free = pb2cnf.encodeAtMostK(get_literals(name2id), k, formula, first_free) + 1;
+    first_free = pb2cnf.encodeAtLeastK(get_literals(name2id), k, formula, first_free) + 1;
   }
 
   std::ostream& operator<<(std::ostream& os, exactly_k& exk) {
@@ -86,7 +97,15 @@ namespace abstract_constraint {
 
   void not_exactly_one::to_sat(std::vector< std::vector< int32_t > >& formula,
   int& first_free, std::map< std::string, int >& name2id) {
-    std::cout << "to_sat not_exactly_one" << std::endl;
+    auto lits = get_literals(name2id);
+    for(auto& x : lits) {
+      x = -x;
+    }
+    for(auto& x : lits) {
+      x = -x;
+      formula.push_back(lits);
+      x = -x;
+    }
   }
 
   std::ostream& operator<<(std::ostream& os, not_exactly_one& neo) {
