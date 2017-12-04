@@ -4,7 +4,10 @@ struct edge {
  double w;
  int u, v;
  friend bool operator<(const edge& a, const edge& b) {
-   return a.w > b.w;
+   if(std::abs(a.w - b.w) > EPS) {
+     return a.w > b.w;
+   }
+   return random() % 2;
  }
  edge(double d, int a, int b) {
    w = d;

@@ -20,6 +20,9 @@ struct edge {
     }
     return a.v < b.v;
   }
+  friend bool operator == (const edge& a, const edge& b) {
+    return a.u == b.u && a.v == b.v;
+  }
 };
 
 struct variable {
@@ -169,19 +172,25 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
   } while(_next(ins, cur));
   // Third constraint (1): If a (u,v) edge is from some net-subnet n-s, then their
   // endpoints cannot have any set edge from any other net
-  /*
   cur = std::vector< int >(ins.num_dims, 1);
+  std::set< edge > processed_edges;
   do {
     auto neighbs = edges_from_vertex(ins, cur);
     for(auto& edg : neighbs) {
+      if(processed_edges.count(edg) > 0) continue;
+      processed_edges.insert(edg);
       for(int n = 0; n < ins.num_nets; ++n) {
         for(int s = 0; s < int(ins.nets[n].subnets.size()); ++s) {
+          int32_t e1 = ret.get_name2id().at(variable(edg, n, s).get_name());
           for(auto& edg2 : neighbs) {
-            if(edg1 != edg2) {
+            if(!(edg == edg2)) {
               for(int n2 = 0; n2 < ins.num_nets; ++n2) {
-                if(n1 != n2) {
-                  for(int s2 = 0; s < int(ins.nets[n2].subnets.size()); ++s2) {
-
+                if(n != n2) {
+                  for(int s2 = 0; s2 < int(ins.nets[n2].subnets.size()); ++s2) {
+                    int32_t e2 = ret.get_name2id().at(variable(edg2, n2, s2).get_name());
+                    std::vector< int32_t > clause = {-e1, -e2};
+                    abstract_constraint::constraint *aib = new abstract_constraint::cnfclause(clause);
+                    ret.add_constraint(aib);
                   }
                 }
               }
@@ -191,7 +200,6 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
       }
     }
   } while(_next(ins, cur));
-  */
   return ret;
 }
 
@@ -209,7 +217,16 @@ void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vec
   os << ins.dim_sizes[0] << " " << ins.dim_sizes[1] << std::endl;
   for(int i = 0; i < int(variables.size()); ++i) {
     if(model[i] > 0) {
-      std::cout << id2name.at(std::abs(model[i])) << std::endl;
+      os << id2name.at(std::abs(model[i])) << std::endl;
+    }
+  }
+  os << "ENDPOINTS" << std::endl;
+  for(int i = 0; i < ins.num_nets; ++i) {
+    for(auto& v : ins.nets[i].vertices) {
+      for(auto& p : v) {
+        os << p << " ";
+      }
+      os << i << std::endl;
     }
   }
 }
