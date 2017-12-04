@@ -12,16 +12,15 @@ namespace abstract_constraint {
 
   protected:
     std::string name;
-    std::vector< std::string > variables;
+    std::vector< int32_t > variables;
 
   public:
     constraint();
-    constraint(std::vector< std::string >& variables);
-    void add_variable(std::string&);
-    const std::vector< std::string >& get_variables();
+    constraint(std::vector< int32_t >& variables);
+    void add_variable(int32_t);
+    const std::vector< int32_t >& get_variables();
     virtual void to_sat(std::vector< std::vector< int32_t > >& formula,
-    int& first_free, std::map< std::string, int >& name2id);
-    std::vector< int32_t > get_literals(std::map< std::string, int>&);
+    int& first_free);
   };
 
   class at_most_k : public constraint {
@@ -29,10 +28,10 @@ namespace abstract_constraint {
     int k;
   public:
     at_most_k() {}
-    at_most_k(int k, std::vector< std::string >& variables);
+    at_most_k(int k, std::vector< int32_t >& variables);
     int get_k();
     void to_sat(std::vector< std::vector< int32_t > >& formula,
-    int& first_free, std::map< std::string, int >& name2id);
+    int& first_free);
   };
 
   class exactly_k : public constraint {
@@ -40,29 +39,28 @@ namespace abstract_constraint {
     int k;
   public:
     exactly_k() {}
-    exactly_k(int k, std::vector< std::string >& variables);
+    exactly_k(int k, std::vector< int32_t >& variables);
     int get_k();
     void to_sat(std::vector< std::vector< int32_t > >& formula,
-    int& first_free, std::map< std::string, int >& name2id);
+    int& first_free);
   };
 
   class not_exactly_one : public constraint {
   private:
   public:
     not_exactly_one() {}
-    not_exactly_one(std::vector< std::string >& variables);
+    not_exactly_one(std::vector< int32_t >& variables);
     void to_sat(std::vector< std::vector< int32_t > >& formula,
-    int& first_free, std::map< std::string, int >& name2id);
+    int& first_free);
   };
 
-  class implication : public constraint {
+  class cnfclause : public constraint {
   private:
-    std::vector< std::string > implicant;
   public:
-    implication() {}
-    implication(std::vector< std::string >& implicant, std::vector< std::string >& variables);
+    cnfclause() {}
+    cnfclause(std::vector< int32_t >& variables);
     void to_sat(std::vector< std::vector< int32_t > >& formula,
-    int& first_free, std::map< std::string, int >& name2id);
+    int& first_free);
   };
 
 

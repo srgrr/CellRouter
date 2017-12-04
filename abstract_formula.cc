@@ -110,10 +110,10 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
     auto neighbs = edges_from_vertex(ins, cur);
     for(auto& edg : neighbs) {
       if(edg.u == cur) {
-        std::vector< std::string > clause;
+        std::vector< int32_t > clause;
         for(int net = 0; net < ins.num_nets; ++net) {
           for(int subnet = 0; subnet < int(ins.nets[net].subnets.size()); ++subnet) {
-            clause.push_back(variable(edg, net, subnet).get_name());
+            clause.push_back(ret.get_name2id().at(variable(edg, net, subnet).get_name()));
           }
         }
         abstract_constraint::constraint *amo = new abstract_constraint::at_most_k(1, clause);
@@ -135,9 +135,9 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
         var.push_back(subnet);
         processed_endpoints.insert(var);
         auto neighbs = edges_from_vertex(ins, endpoint);
-        std::vector< std::string > clause;
+        std::vector< int32_t > clause;
         for(auto& edg : neighbs) {
-          clause.push_back(variable(edg, net, subnet).get_name());
+          clause.push_back(ret.get_name2id().at(variable(edg, net, subnet).get_name()));
         }
         abstract_constraint::constraint *exo = new abstract_constraint::exactly_k(1, clause);
         ret.add_constraint(exo);
@@ -155,9 +155,9 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
         var.push_back(subnet);
         if(processed_endpoints.count(var) == 0) {
           auto neighbs = edges_from_vertex(ins, cur);
-          std::vector< std::string > clause;
+          std::vector< int32_t > clause;
           for(auto& edg : neighbs) {
-            clause.push_back(variable(edg, net, subnet).get_name());
+            clause.push_back(ret.get_name2id().at(variable(edg, net, subnet).get_name()));
           }
           abstract_constraint::constraint *amt = new abstract_constraint::at_most_k(2, clause);
           abstract_constraint::constraint *neo = new abstract_constraint::not_exactly_one(clause);
@@ -169,7 +169,29 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
   } while(_next(ins, cur));
   // Third constraint (1): If a (u,v) edge is from some net-subnet n-s, then their
   // endpoints cannot have any set edge from any other net
+  /*
+  cur = std::vector< int >(ins.num_dims, 1);
+  do {
+    auto neighbs = edges_from_vertex(ins, cur);
+    for(auto& edg : neighbs) {
+      for(int n = 0; n < ins.num_nets; ++n) {
+        for(int s = 0; s < int(ins.nets[n].subnets.size()); ++s) {
+          for(auto& edg2 : neighbs) {
+            if(edg1 != edg2) {
+              for(int n2 = 0; n2 < ins.num_nets; ++n2) {
+                if(n1 != n2) {
+                  for(int s2 = 0; s < int(ins.nets[n2].subnets.size()); ++s2) {
 
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  } while(_next(ins, cur));
+  */
   return ret;
 }
 
@@ -177,7 +199,7 @@ std::vector< std::vector< int32_t > > abstract_formula::sat_formula(int& first_f
   std::vector< std::vector< int32_t > > ret;
   first_free = int(variables.size()) + 1;
   for(auto constraint : constraints) {
-    constraint->to_sat(ret, first_free, name2id);
+    constraint->to_sat(ret, first_free);
   }
   --first_free;
   return ret;
@@ -190,4 +212,8 @@ void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vec
       std::cout << id2name.at(std::abs(model[i])) << std::endl;
     }
   }
+}
+
+const std::map< std::string, int >& abstract_formula::get_name2id() {
+  return name2id;
 }
