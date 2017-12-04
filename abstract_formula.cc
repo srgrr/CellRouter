@@ -77,7 +77,11 @@ void _add_variables(instance& ins, abstract_formula& ret) {
   std::vector< int > cur(ins.num_dims, 1);
   do {
     for(auto edg : edges_from_vertex(ins, cur)) {
+      if(ret.add_aux_variable(variable(edg, -1, -1).get_name())) {
+        ret.add_edge_var(ret.get_name2id().at(variable(edg, -1, -1).get_name()));
+      }
       for(int i = 0; i < ins.num_nets; ++i) {
+        ret.add_aux_variable(variable(edg, i, -1).get_name());
         for(int j = 0; j < int(ins.nets[i].subnets.size()); ++j) {
           ret.add_variable(variable(edg, i, j).get_name());
         }
@@ -86,13 +90,24 @@ void _add_variables(instance& ins, abstract_formula& ret) {
   } while(_next(ins, cur));
 }
 
-void abstract_formula::add_variable(std::string var_name) {
-  if(variables.count(var_name) == 0) {
-    variables.insert(var_name);
-    int var_id = int(variables.size());
+bool abstract_formula::add_to(std::string var_name, std::set< std::string >& s) {
+  if(s.count(var_name) == 0) {
+    s.insert(var_name);
+    int var_id = var_count;
+    ++var_count;
     id2name[var_id] = var_name;
     name2id[var_name] = var_id;
+    return true;
   }
+  return false;
+}
+
+bool abstract_formula::add_variable(std::string var_name) {
+  return add_to(var_name, variables);
+}
+
+bool abstract_formula::add_aux_variable(std::string var_name) {
+  return add_to(var_name, aux_variables);
 }
 
 void abstract_formula::add_constraint(abstract_constraint::constraint* c) {
@@ -107,16 +122,27 @@ void abstract_formula::summary(std::ostream& os) {
 abstract_formula abstract_formula::from_instance(instance& ins) {
   abstract_formula ret;
   _add_variables(ins, ret);
-  // First constraint (1): at most one net-subnet per edge
+  // First constraint (1): at most one net per edge
   std::vector< int > cur(ins.num_dims, 1);
   do {
     auto neighbs = edges_from_vertex(ins, cur);
     for(auto& edg : neighbs) {
       if(edg.u == cur) {
+        int pe = ret.get_name2id().at(variable(edg, -1, -1).get_name());
         std::vector< int32_t > clause;
         for(int net = 0; net < ins.num_nets; ++net) {
+          int pen = ret.get_name2id().at(variable(edg, net, -1).get_name());
+          // Coherency constraint: p(e, n) => p(e)
+          std::vector< int32_t > impl = {-pen, pe};
+          abstract_constraint::constraint *cls = new abstract_constraint::cnfclause(impl);
+          ret.add_constraint(cls);
+          clause.push_back(pen);
+          // Coherency constraint: p(e, n, k) => p(e, n) forall k
           for(int subnet = 0; subnet < int(ins.nets[net].subnets.size()); ++subnet) {
-            clause.push_back(ret.get_name2id().at(variable(edg, net, subnet).get_name()));
+            int pens = ret.get_name2id().at(variable(edg, net, subnet).get_name());
+            std::vector< int32_t > impl = {-pens, pen};
+            abstract_constraint::constraint *cls = new abstract_constraint::cnfclause(impl);
+            ret.add_constraint(cls);
           }
         }
         abstract_constraint::constraint *amo = new abstract_constraint::at_most_k(1, clause);
@@ -170,42 +196,36 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
       }
     }
   } while(_next(ins, cur));
-  // Third constraint (1): If a (u,v) edge is from some net-subnet n-s, then their
+  // Third constraint (1): If a (u,v) edge is from some net n, then their
   // endpoints cannot have any set edge from any other net
   cur = std::vector< int >(ins.num_dims, 1);
-  std::set< edge > processed_edges;
   do {
     auto neighbs = edges_from_vertex(ins, cur);
     for(auto& edg : neighbs) {
-      if(processed_edges.count(edg) > 0) continue;
-      processed_edges.insert(edg);
       for(int n = 0; n < ins.num_nets; ++n) {
-        for(int s = 0; s < int(ins.nets[n].subnets.size()); ++s) {
-          int32_t e1 = ret.get_name2id().at(variable(edg, n, s).get_name());
+          int32_t e1 = ret.get_name2id().at(variable(edg, n, -1).get_name());
           for(auto& edg2 : neighbs) {
             if(!(edg == edg2)) {
               for(int n2 = 0; n2 < ins.num_nets; ++n2) {
                 if(n != n2) {
-                  for(int s2 = 0; s2 < int(ins.nets[n2].subnets.size()); ++s2) {
-                    int32_t e2 = ret.get_name2id().at(variable(edg2, n2, s2).get_name());
-                    std::vector< int32_t > clause = {-e1, -e2};
-                    abstract_constraint::constraint *aib = new abstract_constraint::cnfclause(clause);
-                    ret.add_constraint(aib);
-                  }
+                  int32_t e2 = ret.get_name2id().at(variable(edg2, n2, -1).get_name());
+                  std::vector< int32_t > clause = {-e1, -e2};
+                  abstract_constraint::constraint *aib = new abstract_constraint::cnfclause(clause);
+                  ret.add_constraint(aib);
                 }
               }
             }
           }
         }
       }
-    }
   } while(_next(ins, cur));
+
   return ret;
 }
 
 std::vector< std::vector< int32_t > > abstract_formula::sat_formula(int& first_free) {
   std::vector< std::vector< int32_t > > ret;
-  first_free = int(variables.size()) + 1;
+  first_free = var_count;
   for(auto constraint : constraints) {
     constraint->to_sat(ret, first_free);
   }
@@ -215,9 +235,10 @@ std::vector< std::vector< int32_t > > abstract_formula::sat_formula(int& first_f
 
 void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vector< int32_t >& model) {
   os << ins.dim_sizes[0] << " " << ins.dim_sizes[1] << std::endl;
-  for(int i = 0; i < int(variables.size()); ++i) {
+  for(auto& var_name : variables) {
+    int i = name2id.at(var_name) - 1;
     if(model[i] > 0) {
-      os << id2name.at(std::abs(model[i])) << std::endl;
+      os << var_name << std::endl;
     }
   }
   os << "ENDPOINTS" << std::endl;
@@ -231,6 +252,32 @@ void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vec
   }
 }
 
+int abstract_formula::count_used_edges(instance& ins, std::vector< int32_t >& model) {
+  std::set< edge > ret;
+  std::vector< int > cur(ins.num_dims, 1);
+  do {
+    auto neighbs = edges_from_vertex(ins, cur);
+    for(auto& edg : neighbs) {
+      if(model[name2id.at(variable(edg, -1, -1).get_name())] > 0) {
+        ret.insert(edg);
+      }
+    }
+  } while(_next(ins, cur));
+  return int(ret.size());
+}
+
 const std::map< std::string, int >& abstract_formula::get_name2id() {
   return name2id;
+}
+
+void abstract_formula::add_edge_var(int32_t id) {
+  edge_ids.push_back(id);
+}
+
+int abstract_formula::get_var_count() {
+  return var_count;
+}
+
+std::vector< int32_t > abstract_formula::get_edge_ids() {
+  return edge_ids;
 }

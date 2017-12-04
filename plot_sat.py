@@ -17,9 +17,11 @@ def main():
             if not endpoints:
                 x1, y1, x2, y2, net, subnet = map(int, line.split('-'))
                 plt.plot([x1, x2], [y1, y2], color = get_color(net))
+                plt.scatter(x1, y1, color = get_color(net), s = 8)
+                plt.scatter(x2, y2, color = get_color(net), s = 8)
             else:
                 x, y, net = map(int, line.split())
-                plt.scatter(x, y, color = get_color(net))
+                plt.scatter(x, y, color = get_color(net), s = 24)
         except:
             import traceback
             traceback.print_exc()

@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
   auto f = abstract_formula::from_instance(ins);
   int var_count = -1;
   auto sf = f.sat_formula(var_count);
-  auto sol = solve_formula(sf, var_count);
+  auto sol = solve_formula(ins, f, sf, var_count);
   if(!sol.empty()) {
     f.print_plottable(std::cout, ins, sol);
   }
