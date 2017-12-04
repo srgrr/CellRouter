@@ -64,9 +64,6 @@ namespace abstract_constraint {
     auto lits = variables;
     for(auto& x : lits) {
       x = -x;
-    }
-    for(auto& x : lits) {
-      x = -x;
       formula.push_back(lits);
       x = -x;
     }
