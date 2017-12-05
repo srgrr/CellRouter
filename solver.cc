@@ -33,9 +33,10 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
         ret.back() *= -1;
       }
     }
+    int cost = form.count_used_edges(ins, ret);
+    std::cerr << "basic solution found (cost " << cost << ")" << std::endl;
     bool ok = true;
-    int bound = form.count_used_edges(ins, ret) - 1;
-    int it  = 0;
+    int bound = cost - 1;
     ++var_count;
     while(ok) {
       std::vector< std::vector< int32_t > > g;
@@ -46,7 +47,9 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
       }
       add_clauses(s, g);
       if((ok = s.solve())) {
-        std::cerr << "Found with bound " << bound << std::endl;
+        s.simplify();
+        bound = form.count_used_edges(ins, ret);
+        std::cerr << "Found cost " << bound << std::endl;
         ret.clear();
         for(int i = 0 ; i < int(s.model.size()); ++i) {
           ret.push_back(i + 1);
@@ -54,9 +57,10 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
             ret.back() *= -1;
           }
         }
-        int old_bound = bound;
-        bound = form.count_used_edges(ins, ret) - 1;
-        assert(old_bound > bound);
+        --bound;
+      }
+      else {
+        std::cerr << "Failed to find bound " << bound << std::endl;
       }
     }
   }

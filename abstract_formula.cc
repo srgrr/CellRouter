@@ -219,7 +219,6 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
         }
       }
   } while(_next(ins, cur));
-
   return ret;
 }
 
@@ -253,17 +252,19 @@ void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vec
 }
 
 int abstract_formula::count_used_edges(instance& ins, std::vector< int32_t >& model) {
-  std::set< edge > ret;
+  int ret = 0;
   std::vector< int > cur(ins.num_dims, 1);
   do {
     auto neighbs = edges_from_vertex(ins, cur);
     for(auto& edg : neighbs) {
-      if(model[name2id.at(variable(edg, -1, -1).get_name())] > 0) {
-        ret.insert(edg);
+      if(edg.u == cur) {
+        if(model[name2id.at(variable(edg, -1, -1).get_name()) - 1] > 0) {
+          ++ret;
+        }
       }
     }
   } while(_next(ins, cur));
-  return int(ret.size());
+  return ret;
 }
 
 const std::map< std::string, int >& abstract_formula::get_name2id() {
