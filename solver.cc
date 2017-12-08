@@ -37,8 +37,7 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
     std::cerr << "basic solution found (cost " << cost << ")" << std::endl;
     bool ok = true;
     int bound = cost - 1;
-    ++var_count;
-    while(ok) {
+    while(ok && bound > 295) {
       std::vector< std::vector< int32_t > > g;
       abstract_constraint::at_most_k amk(bound, edge_ids);
       amk.to_sat(g, var_count);
@@ -48,8 +47,6 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
       add_clauses(s, g);
       if((ok = s.solve())) {
         s.simplify();
-        bound = form.count_used_edges(ins, ret);
-        std::cerr << "Found cost " << bound << std::endl;
         ret.clear();
         for(int i = 0 ; i < int(s.model.size()); ++i) {
           ret.push_back(i + 1);
@@ -57,6 +54,8 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
             ret.back() *= -1;
           }
         }
+        bound = form.count_used_edges(ins, ret);
+        std::cerr << "Found cost " << bound << std::endl;
         --bound;
       }
       else {

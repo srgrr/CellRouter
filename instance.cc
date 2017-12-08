@@ -5,6 +5,7 @@ instance::instance() {
   nets = std::vector< net >();
 }
 
+
 instance from_stream(std::ifstream& in) {
   instance ret;
   assert(!in.eof());

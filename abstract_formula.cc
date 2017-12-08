@@ -119,6 +119,17 @@ void abstract_formula::summary(std::ostream& os) {
   os << "Abstract constraints: " << constraints.size() << std::endl;
 }
 
+bool near(std::vector< int >& q, std::vector< std::vector< int > >& endpoints, int k) {
+  for(int i = 0; i < int(q.size()); ++i) {
+    int l = std::min(endpoints[0][i], endpoints[1][i]);
+    int r = std::max(endpoints[0][i], endpoints[1][i]);
+    if(l - q[i] > k || q[i] - r > k) {
+      return false;
+    }
+  }
+  return true;
+}
+
 abstract_formula abstract_formula::from_instance(instance& ins) {
   abstract_formula ret;
   _add_variables(ins, ret);
@@ -219,6 +230,30 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
         }
       }
   } while(_next(ins, cur));
+  // Subnet windowing: restrict possible edges to points inside and or near
+  // its bounding box
+  cur = std::vector< int >(ins.num_dims, 1);
+  do {
+    auto neighbs = edges_from_vertex(ins, cur);
+    for(auto& edg : neighbs) {
+      if(edg.u == cur) {
+        for(int net = 0; net < ins.num_nets; ++net) {
+          for(int subnet = 0; subnet < int(ins.nets[net].subnets.size()); ++subnet) {
+            std::vector< std::vector< int > > endpoints = {
+              ins.nets[net].vertices[ins.nets[net].subnets[subnet][0]],
+              ins.nets[net].vertices[ins.nets[net].subnets[subnet][1]]
+            };
+            if(!near(edg.u, endpoints, 8) || !near(edg.v, endpoints, 8)) {
+              int var_id = ret.get_name2id().at(variable(edg, net, subnet).get_name());
+              std::vector< int32_t > no = {-var_id};
+              abstract_constraint::constraint *neg = new abstract_constraint::cnfclause(no);
+              ret.add_constraint(neg);
+            }
+          }
+        }
+      }
+    }
+  } while(_next(ins, cur));
   return ret;
 }
 
@@ -252,19 +287,31 @@ void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vec
 }
 
 int abstract_formula::count_used_edges(instance& ins, std::vector< int32_t >& model) {
-  int ret = 0;
-  std::vector< int > cur(ins.num_dims, 1);
-  do {
-    auto neighbs = edges_from_vertex(ins, cur);
-    for(auto& edg : neighbs) {
-      if(edg.u == cur) {
-        if(model[name2id.at(variable(edg, -1, -1).get_name()) - 1] > 0) {
-          ++ret;
+  // count edges by performing a BFS
+  // this way we discard random loops
+  std::set< std::vector< int > > vis;
+  std::set< edge > s;
+
+  for(int i = 0; i < ins.num_nets; ++i) {
+    auto u = ins.nets[i].vertices[0];
+    std::queue< std::vector< int > > q;
+    q.push(u);
+    while(!q.empty()) {
+      auto c = q.front();
+      q.pop();
+      if(vis.count(c) == 0) {
+        vis.insert(c);
+        for(auto edg : edges_from_vertex(ins, c)) {
+          if(model[name2id.at(variable(edg, -1, -1).get_name()) - 1] > 0) {
+            s.insert(edg);
+            q.push(edg.u);
+            q.push(edg.v);
+          }
         }
       }
     }
-  } while(_next(ins, cur));
-  return ret;
+  }
+  return s.size();
 }
 
 const std::map< std::string, int >& abstract_formula::get_name2id() {
