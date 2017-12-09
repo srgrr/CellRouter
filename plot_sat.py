@@ -12,7 +12,6 @@ def main():
     plt.figure('Result')
     endpoints = False
     for line in lines[1:]:
-        print(line)
         try:
             if not endpoints:
                 x1, y1, x2, y2, net, subnet = map(int, line.split('-'))
@@ -24,7 +23,6 @@ def main():
                 plt.scatter(x, y, color = get_color(net), s = 24)
         except:
             import traceback
-            traceback.print_exc()
             endpoints = True
     plt.show()
 

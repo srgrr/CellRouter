@@ -25,43 +25,65 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
   add_clauses(s, f);
   std::vector< int32_t > ret;
   auto edge_ids = form.get_edge_ids();
-  if(s.solve()) {
-    // We have a basic solution, let's try to improve it
-    for(int i = 0 ; i < int(s.model.size()); ++i) {
-      ret.push_back(i + 1);
-      if(s.model[i] == Minisat::lbool(uint8_t(1))) {
-        ret.back() *= -1;
+  bool ok = true;
+  int bound = -1;
+
+  using namespace PBLib;
+  PBConfig config = std::make_shared< PBConfigClass >();
+  VectorClauseDatabase g(config);
+  PB2CNF pb2cnf(config);
+  AuxVarManager auxvars(var_count + 1);
+
+  std::vector< WeightedLit > literals;
+  for(auto edge_id : edge_ids) {
+    literals.push_back(WeightedLit(edge_id, 1));
+  }
+  IncPBConstraint constraint;
+  bool first = true;
+
+  while(ok) {
+    if(bound != -1) {
+      int new_clauses;
+      if(first) {
+        constraint = IncPBConstraint(literals, LEQ, bound);
+        pb2cnf.encodeIncInital(constraint, g, auxvars);
+        first = false;
+        new_clauses = int(g.getClauses().size());
       }
-    }
-    int cost = form.count_used_edges(ins, ret);
-    std::cerr << "basic solution found (cost " << cost << ")" << std::endl;
-    bool ok = true;
-    int bound = cost - 1;
-    while(ok && bound > 295) {
-      std::vector< std::vector< int32_t > > g;
-      abstract_constraint::at_most_k amk(bound, edge_ids);
-      amk.to_sat(g, var_count);
+      else {
+        int old_clauses = int(g.getClauses().size());
+        constraint.encodeNewLeq(bound, g, auxvars);
+        new_clauses = int(g.getClauses().size()) - old_clauses;
+      }
+      std::vector< std::vector< int32_t > > to_add;
+      auto& constraint_clauses = g.getClauses();
+      for(int i = 0; i < new_clauses; ++i) {
+        to_add.push_back(constraint_clauses[constraint_clauses.size() - i - 1]);
+        for(auto& x : to_add.back()) {
+          var_count = std::max(var_count, x);
+        }
+      }
       while(s.nVars() < var_count) {
         s.newVar();
       }
-      add_clauses(s, g);
-      if((ok = s.solve())) {
-        s.simplify();
-        ret.clear();
-        for(int i = 0 ; i < int(s.model.size()); ++i) {
-          ret.push_back(i + 1);
-          if(s.model[i] == Minisat::lbool(uint8_t(1))) {
-            ret.back() *= -1;
-          }
-        }
-        bound = form.count_used_edges(ins, ret);
-        std::cerr << "Found cost " << bound << std::endl;
-        --bound;
-      }
-      else {
-        std::cerr << "Failed to find bound " << bound << std::endl;
-      }
+      add_clauses(s, to_add);
     }
+    std::clock_t t_begin = std::clock();
+    if((ok = s.solve())) {
+      ret.clear();
+      for(int i = 0 ; i < int(s.model.size()); ++i) {
+        ret.push_back(i + 1);
+        if(s.model[i] == Minisat::lbool(uint8_t(1))) {
+          ret.back() *= -1;
+        }
+      }
+      bound = form.count_used_edges(ins, ret);
+      std::cerr << bound;
+      --bound;
+    }
+    std::clock_t t_end = std::clock();
+    double elapsed_secs = double(t_end - t_begin) / CLOCKS_PER_SEC;
+    std::cerr << " " << elapsed_secs << std::endl;
   }
   return ret;
 }

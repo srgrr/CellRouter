@@ -243,7 +243,7 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
               ins.nets[net].vertices[ins.nets[net].subnets[subnet][0]],
               ins.nets[net].vertices[ins.nets[net].subnets[subnet][1]]
             };
-            if(!near(edg.u, endpoints, 8) || !near(edg.v, endpoints, 8)) {
+            if((!near(edg.u, endpoints, 4) || !near(edg.v, endpoints, 4))) {
               int var_id = ret.get_name2id().at(variable(edg, net, subnet).get_name());
               std::vector< int32_t > no = {-var_id};
               abstract_constraint::constraint *neg = new abstract_constraint::cnfclause(no);
@@ -313,6 +313,8 @@ int abstract_formula::count_used_edges(instance& ins, std::vector< int32_t >& mo
   }
   return s.size();
 }
+
+
 
 const std::map< std::string, int >& abstract_formula::get_name2id() {
   return name2id;

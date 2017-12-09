@@ -15,6 +15,7 @@ def main():
     num_nets = int(lines[0])
     cur = 1
     plt.figure('EMST')
+    plt.ylim([0, 9])
     for net in range( num_nets ):
         num_vertices = int(lines[cur])
         cur += 1
