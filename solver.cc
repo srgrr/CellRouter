@@ -44,6 +44,7 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
   bool first = true;
 
   while(ok) {
+    std::cerr << "starting new iteration..." << std::endl;
     if(bound != -1) {
       int new_clauses;
       if(first) {
@@ -76,13 +77,17 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
       return s.solve();
     });
 
-    std::future_status status = future.wait_for(std::chrono::seconds(30));
-    if (status == std::future_status::timeout) {
-       ok = false;
-    } else if (status == std::future_status::ready) {
-       ok = future.get();
+    std::future_status status = future.wait_for(std::chrono::seconds(60));
+    if(status == std::future_status::timeout) {
+      if(!ret.empty()) {
+        ret = form.unmark_extra_cycles(ins, ret);
+        form.print_plottable(std::cout, ins, ret);
+        std::exit(0);
+      }
+    } else if(status == std::future_status::ready) {
+      ok = future.get();
     }
-
+    std::cerr << "ok = " << std::boolalpha << ok << std::endl;
     if(ok) {
       ret.clear();
       for(int i = 0 ; i < int(s.model.size()); ++i) {
@@ -99,5 +104,6 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
     double elapsed_secs = double(t_end - t_begin) / CLOCKS_PER_SEC;
     std::cerr << " " << elapsed_secs << std::endl;
   }
+  std::cerr << "deleting extra cycles..." << std::endl;
   return form.unmark_extra_cycles(ins, ret);
 }

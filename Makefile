@@ -1,6 +1,6 @@
 .PRECIOUS: %.o
 CXX=g++
-COMPILER_FLAGS=-std=c++11 -O2 -Wall -s -pthread
+COMPILER_FLAGS=-std=c++11 -O3 -Wall -s -pthread
 LIBS=-lpblib -lminisat -lm
 FLAGS=${COMPILER_FLAGS} ${LIBS}
 
