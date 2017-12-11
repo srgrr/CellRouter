@@ -77,7 +77,7 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
       return s.solve();
     });
 
-    std::future_status status = future.wait_for(std::chrono::seconds(60));
+    std::future_status status = future.wait_for(std::chrono::seconds(300));
     if(status == std::future_status::timeout) {
       if(!ret.empty()) {
         ret = form.unmark_extra_cycles(ins, ret);
