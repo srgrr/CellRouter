@@ -1,4 +1,7 @@
 #pragma once
+#include <future>
+#include <thread>
+#include <chrono>
 #include <iostream>
 #include <memory>
 #include <vector>

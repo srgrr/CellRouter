@@ -16,6 +16,8 @@ void add_clauses(Minisat::Solver& s, std::vector< std::vector< int32_t > >& f) {
   }
 }
 
+bool ok = true;
+
 std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std::vector< std::vector< int32_t > >& f,
   int var_count) {
   Minisat::Solver s;
@@ -69,7 +71,19 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
       add_clauses(s, to_add);
     }
     std::clock_t t_begin = std::clock();
-    if((ok = s.solve())) {
+
+    std::future<bool> future = std::async(std::launch::async, [&s]() {
+      return s.solve();
+    });
+
+    std::future_status status = future.wait_for(std::chrono::seconds(30));
+    if (status == std::future_status::timeout) {
+       ok = false;
+    } else if (status == std::future_status::ready) {
+       ok = future.get();
+    }
+
+    if(ok) {
       ret.clear();
       for(int i = 0 ; i < int(s.model.size()); ++i) {
         ret.push_back(i + 1);
@@ -85,5 +99,5 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
     double elapsed_secs = double(t_end - t_begin) / CLOCKS_PER_SEC;
     std::cerr << " " << elapsed_secs << std::endl;
   }
-  return ret;
+  return form.unmark_extra_cycles(ins, ret);
 }

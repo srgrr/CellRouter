@@ -14,7 +14,7 @@ def main():
     for line in lines[1:]:
         try:
             if not endpoints:
-                x1, y1, x2, y2, net, subnet = map(int, line.split('-'))
+                x1, y1, x2, y2, net = map(int, line.split('-')[:5])
                 plt.plot([x1, x2], [y1, y2], color = get_color(net))
                 plt.scatter(x1, y1, color = get_color(net), s = 8)
                 plt.scatter(x2, y2, color = get_color(net), s = 8)

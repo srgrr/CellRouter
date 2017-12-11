@@ -243,7 +243,7 @@ abstract_formula abstract_formula::from_instance(instance& ins) {
               ins.nets[net].vertices[ins.nets[net].subnets[subnet][0]],
               ins.nets[net].vertices[ins.nets[net].subnets[subnet][1]]
             };
-            if((!near(edg.u, endpoints, 4) || !near(edg.v, endpoints, 4))) {
+            if((!near(edg.u, endpoints, 2) || !near(edg.v, endpoints, 2))) {
               int var_id = ret.get_name2id().at(variable(edg, net, subnet).get_name());
               std::vector< int32_t > no = {-var_id};
               abstract_constraint::constraint *neg = new abstract_constraint::cnfclause(no);
@@ -268,6 +268,7 @@ std::vector< std::vector< int32_t > > abstract_formula::sat_formula(int& first_f
 }
 
 void abstract_formula::print_plottable(std::ostream& os, instance& ins, std::vector< int32_t >& model) {
+  std::vector< int > cur(ins.num_dims, 1);
   os << ins.dim_sizes[0] << " " << ins.dim_sizes[1] << std::endl;
   for(auto& var_name : variables) {
     int i = name2id.at(var_name) - 1;
@@ -314,6 +315,42 @@ int abstract_formula::count_used_edges(instance& ins, std::vector< int32_t >& mo
   return s.size();
 }
 
+std::vector< int32_t > abstract_formula::unmark_extra_cycles(instance& ins, std::vector< int32_t >& model) {
+  std::vector< int32_t > ret(int(model.size()));
+  for(int i = 0; i < int(model.size()); ++i) {
+    ret[i] = -(i + 1);
+  }
+  // count edges by performing a BFS
+  // this way we discard random loops
+  std::set< std::vector< int > > vis;
+  std::set< edge > s;
+  for(int i = 0; i < ins.num_nets; ++i) {
+    auto u = ins.nets[i].vertices[0];
+    std::queue< std::vector< int > > q;
+    q.push(u);
+    while(!q.empty()) {
+      auto c = q.front();
+      q.pop();
+      if(vis.count(c) == 0) {
+        vis.insert(c);
+        for(auto edg : edges_from_vertex(ins, c)) {
+          if(model[name2id.at(variable(edg, -1, -1).get_name()) - 1] > 0) {
+            for(int j = 0; j < int(ins.nets[i].subnets.size()); ++j) {
+              int varid = name2id.at(variable(edg, i, j).get_name()) - 1;
+              if(model[varid] > 0) {
+                ret[varid] = varid + 1;
+              }
+            }
+            s.insert(edg);
+            q.push(edg.u);
+            q.push(edg.v);
+          }
+        }
+      }
+    }
+  }
+  return ret;
+}
 
 
 const std::map< std::string, int >& abstract_formula::get_name2id() {

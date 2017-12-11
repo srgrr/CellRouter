@@ -30,4 +30,5 @@ public:
   int count_used_edges(instance&, std::vector< int32_t >&);
   int get_var_count();
   std::vector< int32_t > get_edge_ids();
+  std::vector< int32_t > unmark_extra_cycles(instance&, std::vector< int32_t >&);
 };

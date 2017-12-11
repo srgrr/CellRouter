@@ -1,16 +1,15 @@
+import sys
 
-N = 10
-M = 3
+N, M = map(int, sys.argv[1:])
 
 def main():
   print('2 %d %d %d'%(M, N, N))
   from random import randint
   for i in range(M):
-    k = randint(2, 4)
+    k = 2
     print(k)
-    for _ in range(k):
-      x, y = randint(1, N), randint(1, N)
-      print('%d %d'%(x, y))
+    for j in range(k):
+      print('%d %d'%(randint(1, N), randint(1, N)))
 
 
 
