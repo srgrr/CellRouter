@@ -104,6 +104,7 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
     double elapsed_secs = double(t_end - t_begin) / CLOCKS_PER_SEC;
     std::cerr << " " << elapsed_secs << std::endl;
   }
+  if(ret.empty()) return ret;
   std::cerr << "deleting extra cycles..." << std::endl;
   return form.unmark_extra_cycles(ins, ret);
 }
