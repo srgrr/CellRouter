@@ -43,8 +43,11 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
   IncPBConstraint constraint;
   bool first = true;
 
+  std::cerr << "Initial summary:" << std::endl;
+  std::cerr << "Clauses: " << f.size() << std::endl;
+  std::cerr << "Variables: " << var_count << std::endl;
+
   while(ok) {
-    std::cerr << "starting new iteration..." << std::endl;
     if(bound != -1) {
       int new_clauses;
       if(first) {
@@ -87,7 +90,6 @@ std::vector< int32_t > solve_formula(instance& ins, abstract_formula& form, std:
     } else if(status == std::future_status::ready) {
       ok = future.get();
     }
-    std::cerr << "ok = " << std::boolalpha << ok << std::endl;
     if(ok) {
       ret.clear();
       for(int i = 0 ; i < int(s.model.size()); ++i) {
